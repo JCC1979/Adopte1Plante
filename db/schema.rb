@@ -10,10 +10,73 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_05_090235) do
+ActiveRecord::Schema.define(version: 2019_03_05_125307) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "compositions", force: :cascade do |t|
+    t.string "variants_match"
+    t.text "photo_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "profile_id"
+    t.bigint "composition_id"
+    t.string "status", default: "waiting for payment"
+    t.string "composition_nickname"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["composition_id"], name: "index_orders_on_composition_id"
+    t.index ["profile_id"], name: "index_orders_on_profile_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.bigint "category_id"
+    t.jsonb "details"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_products_on_category_id"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "address"
+    t.integer "address_zicpode"
+    t.string "address_city"
+    t.string "address_country"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.bigint "composition_id"
+    t.integer "rate"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["composition_id"], name: "index_ratings_on_composition_id"
+  end
+
+  create_table "synonyms", force: :cascade do |t|
+    t.bigint "product_id"
+    t.string "commercial_name"
+    t.text "synonyms_list"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_synonyms_on_product_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +90,21 @@ ActiveRecord::Schema.define(version: 2019_03_05_090235) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "variants", force: :cascade do |t|
+    t.integer "sku"
+    t.bigint "product_id"
+    t.integer "diameter_cm"
+    t.string "height_format"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_variants_on_product_id"
+  end
+
+  add_foreign_key "orders", "compositions"
+  add_foreign_key "orders", "profiles"
+  add_foreign_key "products", "categories"
+  add_foreign_key "profiles", "users"
+  add_foreign_key "ratings", "compositions"
+  add_foreign_key "synonyms", "products"
+  add_foreign_key "variants", "products"
 end
