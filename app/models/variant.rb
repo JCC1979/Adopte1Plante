@@ -5,4 +5,18 @@ class Variant < ApplicationRecord
 
   belongs_to :product
   has_one :synonym, through: :products
+  has_one :category, through: :products
+
+  # def to_json(key)
+  #   product.details[key.to_s]
+  #   product.details
+  # end
+
+  # def json_keys
+  #   product.details.to_h.keys
+  # end
+
+  def details
+    product.details
+  end
 end
