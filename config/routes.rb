@@ -1,31 +1,22 @@
 Rails.application.routes.draw do
-  get 'products/index'
-  get 'products/show'
-  get 'products/create'
-  get 'products/show'
-  get 'products/update'
-  get 'categories/new'
-  get 'categories/create'
-  get 'categories/update'
-  get 'synonyms/new'
-  get 'synonyms/create'
-  get 'synonyms/show'
-  get 'synonyms/update'
-  get 'variants/new'
-  get 'variants/create'
-  get 'variants/update'
-  get 'variants/destroy'
-  get 'compositions/index'
-  get 'compositions/show'
-  get 'ratings/create'
-  get 'orders/index'
-  get 'orders/create'
-  get 'orders/show'
-  get 'profiles/new'
-  get 'profiles/create'
-  get 'profiles/show'
-  get 'profiles/update'
   devise_for :users
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :profiles, only: %i[show new create update edit] do
+    resources :orders, only: %i[new create index show]
+  end
+
+  resources :compositions, only: %i[show index] do
+    resources :ratings, only: %i[create]
+  end
+
+  resources :categories, only: %i[new create update edit]
+
+  resources :products, only: %i[show new create update edit] do
+    resources :synonyms, only: %i[new create]
+    resources :variants, only: %i[new create]
+  end
+
+  resources :variants, only: %i[edit update destroy]
+  resources :synonyms, only: %i[edit update]
 end
