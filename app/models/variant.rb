@@ -4,5 +4,5 @@ class Variant < ApplicationRecord
   validates :height_format, presence: true
 
   belongs_to :product
-  has_one :synonym, throught: :products
+  has_one :synonym, through: :products
 end

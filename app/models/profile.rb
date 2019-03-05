@@ -4,7 +4,7 @@ class Profile < ApplicationRecord
   validates :address, presence: true
   validates :address_zipcode, presence: true
   validates :address_city, presence: true
-  validates :adress_country, presence: true
+  validates :address_country, presence: true
   
   belongs_to :user
   has_many :orders
