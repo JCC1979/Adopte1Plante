@@ -15,7 +15,11 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+<<<<<<< HEAD
 gem "algoliasearch-rails"
+=======
+gem 'country_select', '~> 4.0'
+>>>>>>> 00b22e5b90340f79f2faaf5f1b217e39b993c554
 
 group :development do
   gem 'web-console', '>= 3.3.0'

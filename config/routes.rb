@@ -19,4 +19,5 @@ Rails.application.routes.draw do
 
   resources :variants, only: %i[edit update destroy]
   resources :synonyms, only: %i[edit update]
+  get "/profiles/my_plants/:id", to: "profiles#my_plants", as: "profiles_my_plants"
 end

@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 offset-md-4">
+      <h2>Mise a jour de l'adresse</h2>
+      <%= simple_form_for(@profile) do |f| %>
+        <%= f.input :address %>
+        <%= f.input :address_zipcode %>
+        <%= f.input :address_city %>
+        <%= f.input :address_country, priority: ["FR", "BE", "DE"] %>
+        <%= f.submit "Update profile", class: "btn btn-primary btn-block" %>
+      <% end %>
+    </div>
+  </div>
+</div>
