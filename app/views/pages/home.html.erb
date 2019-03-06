@@ -9,7 +9,41 @@
 
 
 <div class="wrapper-home">
-
-<p> I love les plantes </p>
+  <div class="row">
+  <% 6.times do %>
+    <div class="cards col-sm-4 col-xs-12">
+      <div class="card">
+        <div class="card-content">
+        
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
 </div>
 
+
+<div class="wrapper-home-bottom">
+  <div class="text-center">
+    <h2> Partagez vos créations !</h2>
+    <h3> #AdopteUnePlante </h3>
+  </div>
+    <div class="row">
+      <% 4.times do %>
+    <div class="col-sm-3 col-xs-6">
+        <div class="polaroid">
+           <%= image_tag('plantest2.png', style: 'width:100%') %>
+            <div class="porainer">
+            <p> #mapetitecréation </p>
+            </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+
+
+          <%# <div class="card-footer">
+          
+          </div> %>
