@@ -18,4 +18,5 @@ class Variant < ApplicationRecord
   def method_missing(met, *args, &block)
     product.details[met.to_s]
   end
+  
 end

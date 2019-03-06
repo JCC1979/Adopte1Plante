@@ -1,2 +1,19 @@
 <h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<h2>Plants</h2>
+<ul>
+  <% @plants.each do |plant| %>
+    <li>
+      <%= plant.id %> - <%= link_to plant.details["taxref"], product_path(plant) %> - <%= plant.details["gender"] %> <%= plant.details["species"] %>
+    </li>
+  <% end %>
+</ul>
+
+
+<h2>Pots</h2>
+<ul>
+  <% @pots.each do |pot| %>
+    <li>
+      <%= link_to pot.id, product_path(pot) %> - <%= pot.details["name"] %> - <%= pot.details["material"] %> - <%= pot.details["color"] %>
+    </li>
+  <% end %>
+</ul>

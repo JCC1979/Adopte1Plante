@@ -1,2 +1,16 @@
 <h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<p><%= @product.category.name %></p>
+<%
+=begin%>
+ <ul>
+    <li> Taxref_id : <%= @product.details["taxref"].to_s %>    </li>
+    <li> Family : <%= @product.details["family"] %>    </li>
+    <li> Gender : <%= @product.details["gender"] %>    </li>
+    <li> Species : <%= @product.details["species"] %>    </li>
+    <li> Cultivar : <%= @product.details["cultivar"] %>    </li>
+    <li> Variant : <%= @product.details["variant"] %>    </li>
+    <li> Description : <%= @product.details["description"] %>    </li>
+  <% end %>
+</ul> 
+<%
+=end%>

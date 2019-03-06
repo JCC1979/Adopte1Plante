@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :categories, only: %i[new create update edit]
 
-  resources :products, only: %i[show new create update edit] do
+  resources :products, only: %i[index show new create update edit] do
     resources :synonyms, only: %i[new create]
     resources :variants, only: %i[new create]
   end
