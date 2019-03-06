@@ -82,31 +82,30 @@ puts "Ajout de 2 variantes"
 
 Taxref.destroy_all
 
-# csv_text = File.read(Rails.root.join('lib', 'seeds', 'TAXREFv12-extract.csv'))
-# csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
-# csv.each do |row|
-#   t = Taxref.new
-#   t.id_code = row['CD_REF']
-#   t.id_sup = row['CD_SUP']
-#   t.rang_code = row['RANG']
-#   t.full_name = row['LB_NOM']
-#   t.family = row['FAMILLE']
-#   t.gender = row['LB_NOM'].split(" ")[0]
-#   t.species = row['LB_NOM'].split(" ")[1]
-#   t.cultivar = row['LB_NOM'].scan(/'.+'/)[0]
-#   t.variant = row['LB_NOM'].scan(/var\. (.*)/)[0]
-#   t.save!
-# end
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'TAXREFv12-extract.csv'))
+csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+csv.each do |row|
+  t = Taxref.new
+  t.id_code = row['CD_REF']
+  t.id_sup = row['CD_SUP']
+  t.rang_code = row['RANG']
+  t.full_name = row['LB_NOM']
+  t.family = row['FAMILLE']
+  t.gender = row['LB_NOM'].split(" ")[0]
+  t.species = row['LB_NOM'].split(" ")[1]
+  t.cultivar = row['LB_NOM'].scan(/'.+'/)[0]
+  t.variant = row['LB_NOM'].scan(/var\. (.*)/)[0]
+  t.save!
+end
 
-# Taxref.all.each do |line|
-#   if line.id_sup.nil?
-#     line.id_sup = Taxref.where(rang_code: "GN").where(gender: line.gender).first.id_code
-#     puts "yes"
-#     line.save!
-#   end
-# end
+Taxref.all.each do |line|
+  if line.id_sup.nil?
+    line.id_sup = Taxref.where(rang_code: "GN").where(gender: line.gender).first.id_code
+    line.save!
+  end
+end
 
-# puts "There are now #{Taxref.count} rows in the taxref table"
+puts "There are now #{Taxref.count} rows in the taxref table"
 
 puts 'Finished!'
 
