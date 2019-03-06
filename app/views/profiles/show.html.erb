@@ -20,7 +20,7 @@
             <p>adoper le <%=order.created_at.strftime('%d-%m-%y')%></p>
             <% contents = order.composition.variants_match.split(";") %>
             <% contents.each do |content| %>
-              <% if Variant.find(content.to_i).product.category.name == "plante" %>
+              <% if Variant.find(content.to_i).product.category.name == "plant" %>
                 <%= link_to "https://www.instagram.com/explore/tags/#{Variant.find(content.to_i).gender}/", target: "_blank" do %>
                   <p>#<%= Variant.find(content.to_i).gender%></p>
                 <% end %>

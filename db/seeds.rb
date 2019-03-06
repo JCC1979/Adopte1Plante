@@ -61,13 +61,14 @@ pot1.category = category1
 plant2.category = category2
 details1 = { material: "plastic", color: "white" }
 details2 = { id_code: "447840", id_sup: "446231", family: "Marantacae", gender: "Calathea", species: "crotalifera", cultivar: "", variant: "", description: "blabla", sun_exposure: "fort besoin", watering: "fort besoin" }
+
 pot1.details = details1
 plant2.details = details2
 
 pot1.save!
 plant2.save!
 
-puts "Ajout de 2 produits"
+puts "Ajout de 2 produits -- OK"
 
 variant_pot1 = Variant.new(sku: 1, diameter_cm: 10, height_format: "M")
 variant_plant2 = Variant.new(sku: 2, diameter_cm: 20, height_format: "L")
@@ -77,7 +78,21 @@ variant_plant2.product = plant2
 variant_pot1.save!
 variant_plant2.save!
 
-puts "Ajout de 2 variantes"
+puts "Ajout de 2 variantes -- OK"
+
+match = variant_plant2.id.to_s + ";" + variant_pot1.id.to_s
+
+compo1 = Composition.new(variants_match: match, photo_url: "https://images.unsplash.com/photo-1508975174-c000113b5900?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1667&q=80")
+compo1.save!
+puts "Ajout d'une composition -- OK"
+
+
+Order.create!(profile_id: profile1.id, composition_id: compo1.id, status:"done",composition_nickname:"Fanny")
+Order.create!(profile_id: profile2.id, composition_id: compo1.id, status:"done",composition_nickname:"Fanny")
+Order.create!(profile_id: profile3.id, composition_id: compo1.id, status:"done",composition_nickname:"Fanny")
+
+
+puts "Attribution d'une contribusion a chaque user --OK"
 
 
 Taxref.destroy_all
