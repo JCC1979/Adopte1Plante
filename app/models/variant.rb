@@ -15,9 +15,8 @@ class Variant < ApplicationRecord
   # def json_keys
   #   product.details.to_h.keys
   # end
-
-  def details
-    product.details
+  def method_missing(met, *args, &block)
+    product.details[met.to_s]
   end
   
 end
