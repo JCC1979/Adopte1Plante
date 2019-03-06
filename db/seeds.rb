@@ -60,7 +60,8 @@ plant2 = Product.new
 pot1.category = category1
 plant2.category = category2
 details1 = { material: "plastic", color: "white" }
-details2 = { taxref: 1234, family: "Marantacae", gender: "Calathea", species: "rubifolia", description: "blabla", sun_exposure: "fort besoin", watering: "fort besoin" }
+details2 = { id_code: "447840", id_sup: "446231", family: "Marantacae", gender: "Calathea", species: "crotalifera", cultivar: "", variant: "", description: "blabla", sun_exposure: "fort besoin", watering: "fort besoin" }
+
 pot1.details = details1
 plant2.details = details2
 

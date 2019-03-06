@@ -7,6 +7,8 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @variant = Variant.new
+    @variants = Variant.where(product_id: @product.id)
   end
 
   def new
@@ -16,7 +18,6 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.save
-
     redirect_to product_path(@product)
   end
 

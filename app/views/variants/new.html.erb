@@ -1,2 +1,21 @@
-<h1>Variants#new</h1>
-<p>Find me in app/views/variants/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 offset-sm-4">
+      <p><strong>Add a new variant of <%= @product.category.name.upcase %></strong></p>
+      <%= simple_form_for [@product, @variant] do |f| %>
+        <%= f.input :sku %>
+        <%= f.input :diameter_cm %>
+        <%= f.input :height_format, collection: ["S","M", "L"] %>
+        <label class="btn btn-primary"> Add a picture
+          <span class="btn btn-success fileinput-button" i.fa.fa-pencil>
+            <%= f.file_field :cover_ar %>
+          </span>
+        </label>
+
+        <%= f.submit "add", class: "btn btn-primary" %>
+
+      <% end %>
+    </div>
+  </div>
+</div>
+

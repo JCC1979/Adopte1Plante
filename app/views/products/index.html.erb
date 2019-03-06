@@ -3,7 +3,7 @@
 <ul>
   <% @plants.each do |plant| %>
     <li>
-      <%= plant.id %> - <%= link_to plant.details["taxref"], product_path(plant) %> - <%= plant.details["gender"] %> <%= plant.details["species"] %>
+      <%= link_to plant.id_code, product_path(plant) %> - <%= plant.gender %> <%= plant.species %>
     </li>
   <% end %>
 </ul>
@@ -13,7 +13,7 @@
 <ul>
   <% @pots.each do |pot| %>
     <li>
-      <%= link_to pot.id, product_path(pot) %> - <%= pot.details["name"] %> - <%= pot.details["material"] %> - <%= pot.details["color"] %>
+      <%= link_to pot.id, product_path(pot) %> - <%= pot.name %> - <%= pot.material %> - <%= pot.color %>
     </li>
   <% end %>
 </ul>
