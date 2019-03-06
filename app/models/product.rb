@@ -4,4 +4,10 @@ class Product < ApplicationRecord
   
   belongs_to :category
   has_many :variants
+
+  include AlgoliaSearch
+
+  algoliasearch do
+    attribute :category_id
+  end
 end

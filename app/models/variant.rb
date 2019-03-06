@@ -19,4 +19,5 @@ class Variant < ApplicationRecord
   def details
     product.details
   end
+  
 end

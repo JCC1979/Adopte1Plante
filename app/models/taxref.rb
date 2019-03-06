@@ -1,0 +1,2 @@
+class Taxref < ApplicationRecord
+end
