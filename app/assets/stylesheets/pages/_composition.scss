@@ -1,0 +1,71 @@
+.content-composition{
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+// titre de la page
+.composition-title{
+  padding-left: 15px;
+  
+}
+
+.composition-title h1{
+  font-weight:300;
+}
+.composition-title p{
+  color:$light-green
+}
+
+.composition-detail{
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+
+// description : Fiche botanique
+.description-title {
+  font-weight:300;
+  margin: .7em auto;
+  overflow: hidden;
+}
+.description-title:after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+  margin: 0 .5em 0 -55%;
+  vertical-align: middle;
+  border-bottom: 1px solid;
+}
+.description-title:after {
+  margin: 0 -55% 0 .5em;
+}
+
+.composition-description {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 50px;
+}
+
+
+
+// grid
+.composition-grid{
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+.composition-grid-main{
+  grid-row: 1 / span 3;
+  grid-column: 2 / span 1;
+}
+
+.composition_cards {
+  padding: 10px;
+}
+
+
+
