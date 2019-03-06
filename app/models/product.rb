@@ -1,4 +1,6 @@
 class Product < ApplicationRecord
+  include AlgoliaSearch
+  
   validates :category, presence: true
   validates :details, presence: true
 
