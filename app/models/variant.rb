@@ -13,7 +13,7 @@ class Variant < ApplicationRecord
     product.details[met.to_s]
   end
 
-  def plant_price
+  def prices
     product.variants.pluck(:height_format, :price_cents).to_h
   end
 end
