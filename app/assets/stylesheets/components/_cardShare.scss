@@ -3,11 +3,13 @@
   background-color: whitesmoke;
 }
 
+.polaroids {
+  padding: 30px 10px; 
+}
 
 .polaroid {
   background: white;
   padding: 10px 10px 0px 10px;
-  width: 200px;
   box-shadow: 0px 1px 5px 0px #656565;
 
   -webkit-transform: rotate(-1deg);
