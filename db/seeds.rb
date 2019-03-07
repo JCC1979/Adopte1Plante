@@ -82,7 +82,16 @@ pot3.save!
 
 plant2.save!
 
-puts "Ajout de 3 pots et 1 plant dans produc -- OK"
+puts "Ajout de 3 pots et 1 plante dans produc -- OK"
+
+plant2_syno = Synonym.new
+plant2_syno.commercial_name = "Plan Paon"
+plant2_syno.product = plant2
+plant2_syno.synonyms_list = ["jean", "morise"]
+plant2_syno.save!
+
+puts "Ajout des synonyme pour la plante -- OK"
+
 
 variant_pot1s = Variant.new(sku: 1, diameter_cm: 10, height_format: "S")
 variant_pot2s = Variant.new(sku: 2, diameter_cm: 10, height_format: "S")
