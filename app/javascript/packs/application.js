@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 49f3982da0cac9f8a2e86e7eaa102c42d1c89835
 // text pour la banner
 import { loadDynamicBannerText } from '../components/banner';
 
