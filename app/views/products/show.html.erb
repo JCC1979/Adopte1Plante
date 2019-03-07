@@ -28,21 +28,21 @@
                 <% if var.height_format == "L" %>
                     <div class="product-variant1">
                         <div class="card" class="col">
-                            <%= image_tag("plantest.png", class: "card-img-top", style: "width: 180px") %>
+                            <%= cl_image_tag(var.photo_url, crop: :fill, width: 180, class: "card-img-top") %>
                             <p class="card-text text-center"><%= var.sku %> - <%= var.height_format %> - <%= var.diameter_cm.to_s %> cm</p>
                         </div>
                     </div>
                 <% elsif var.height_format == "M" %>
                     <div class="product-variant2">
                         <div class="card" class="col">
-                            <%= image_tag("plantest.png", class: "card-img-top", style: "width: 180px") %>
+                            <%= cl_image_tag(var.photo_url, crop: :fill, width: 180, class: "card-img-top") %>
                             <p class="card-text text-center"><%= var.sku %> - <%= var.height_format %> - <%= var.diameter_cm.to_s  %> cm</p>
                         </div>
                     </div>
                 <% else %>
                     <div class="product-variant3">
                         <div class="card" class="col">
-                            <%= image_tag("plantest.png", class: "card-img-top", style: "width: 180px") %>
+                            <%= cl_image_tag(var.photo_url, crop: :fill, width: 180, class: "card-img-top") %>
                             <p class="card-text text-center"><%= var.sku %> - <%= var.height_format %> - <%= var.diameter_cm.to_s  %> cm</p>
                         </div>
                     </div>
