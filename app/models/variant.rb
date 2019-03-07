@@ -7,16 +7,13 @@ class Variant < ApplicationRecord
   has_one :synonym, through: :products
   has_one :category, through: :products
 
-  # def to_json(key)
-  #   product.details[key.to_s]
-  #   product.details
-  # end
+  monetize :price_cents
 
-  # def json_keys
-  #   product.details.to_h.keys
-  # end
   def method_missing(met, *args, &block)
     product.details[met.to_s]
   end
-  
+
+  def plant_price
+    product.variants.pluck(:height_format, :price_cents).to_h
+  end
 end

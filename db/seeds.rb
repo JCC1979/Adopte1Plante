@@ -93,21 +93,21 @@ plant2_syno.save!
 puts "Ajout des synonyme pour la plante -- OK"
 
 
-variant_pot1s = Variant.new(sku: 1, diameter_cm: 10, height_format: "S")
-variant_pot2s = Variant.new(sku: 2, diameter_cm: 10, height_format: "S")
-variant_pot3s = Variant.new(sku: 3, diameter_cm: 10, height_format: "S")
+variant_pot1s = Variant.new(sku: 1, diameter_cm: 10, height_format: "S", price: 10)
+variant_pot2s = Variant.new(sku: 2, diameter_cm: 10, height_format: "S", price: 10)
+variant_pot3s = Variant.new(sku: 3, diameter_cm: 10, height_format: "S", price: 10)
 
-variant_pot1m = Variant.new(sku: 4, diameter_cm: 15, height_format: "M")
-variant_pot2m = Variant.new(sku: 5, diameter_cm: 15, height_format: "M")
-variant_pot3m = Variant.new(sku: 6, diameter_cm: 15, height_format: "M")
+variant_pot1m = Variant.new(sku: 4, diameter_cm: 15, height_format: "M", price: 20)
+variant_pot2m = Variant.new(sku: 5, diameter_cm: 15, height_format: "M", price: 20)
+variant_pot3m = Variant.new(sku: 6, diameter_cm: 15, height_format: "M", price: 20)
 
-variant_pot1l = Variant.new(sku: 7, diameter_cm: 20, height_format: "L")
-variant_pot2l = Variant.new(sku: 8, diameter_cm: 20, height_format: "L")
-variant_pot3l = Variant.new(sku: 9, diameter_cm: 20, height_format: "L")
+variant_pot1l = Variant.new(sku: 7, diameter_cm: 20, height_format: "L", price: 30)
+variant_pot2l = Variant.new(sku: 8, diameter_cm: 20, height_format: "L", price: 30)
+variant_pot3l = Variant.new(sku: 9, diameter_cm: 20, height_format: "L", price: 30)
 
-variant_plant2s = Variant.new(sku: 10, diameter_cm: 20, height_format: "S")
-variant_plant2m = Variant.new(sku: 11, diameter_cm: 30, height_format: "M")
-variant_plant2l = Variant.new(sku: 12, diameter_cm: 40, height_format: "L")
+variant_plant2s = Variant.new(sku: 10, diameter_cm: 20, height_format: "S", price: 30)
+variant_plant2m = Variant.new(sku: 11, diameter_cm: 30, height_format: "M", price: 45)
+variant_plant2l = Variant.new(sku: 12, diameter_cm: 40, height_format: "L", price: 60)
 
 variant_pot1s.product = pot1
 variant_pot1m.product = pot1
