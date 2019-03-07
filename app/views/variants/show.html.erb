@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <div class="composition-title">
+        <h1><%= @variant.product.fullname %></h1>
+        <p><%= @variant.product.synonym.commercial_name %></p>
+      </div>
+      <div class="composition-grid">
+        <div class="composition-grid-main">
+          <div class="composition_cards">
+            <div id="card-main-image" class="card-main" style="background-image: url('/images/composition/planteM.jpg')">
+              <div class="card-main-size-box">
+                <div id="sizeS" class="card-main-size-disable">S</div>
+                <div id="sizeM" class="card-main-size">M</div>
+                <div id="sizeL" class="card-main-size-disable">L</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% 3.times do |i| %>
+        <% image= "/images/composition/pot#{i+1}.jpg" %>
+          <div class="composition_cards">
+            <div id="pot<%= i+1 %>" class="card-pot-contain" style="background-image: url(<%=image_url(image)  %>)">
+              <div class="card-pot-footer">
+                pot <%= i+1 %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="composition-detail">
+        <div class="composition-detail-left">
+          <p><i class="fas fa-tint"></i> <%= @variant.product.watering %></p>
+          <p><i class="fas fa-cloud-sun"></i> <%= @variant.product.sun_exposure %></p>
+        </div>
+        <div class="composition-detail-right">
+          <div class="btn-group prix" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-outline-primary " data-toggle="modal" data-target="#compositionModal">25€</button>
+            <button type="button" class="btn btn-primary">Je la veux</button>
+          </div>
+        </div>
+      </div>
+      <div class="composition-description">
+        <h3 class="description-title">Fiche botanique</h3>
+        <p>
+          <%= @variant.product.description %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<%= render '/variants/variantModal' %>
