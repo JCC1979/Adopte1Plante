@@ -1,4 +1,14 @@
 class VariantsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :show
+  def index
+    @variants = Variant.all
+  end
+
+  def show
+    @variant = Variant.find(params[:id])
+  end
+  
+  
   def new
     @product = Product.find(params[:product_id])
     @variant = Variant.new
