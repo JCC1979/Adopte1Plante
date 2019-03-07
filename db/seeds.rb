@@ -67,8 +67,8 @@ details2 = { material: "terracotta", color: "red" }
 details3 = { material: "metalic", color: "gray" }
 
 pot1.details = details1
-pot2.details = details1
-pot3.details = details1
+pot2.details = details2
+pot3.details = details3
 
 plant2 = Product.new
 plant2.category = category2
