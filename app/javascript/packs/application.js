@@ -15,3 +15,13 @@ if (document.getElementById("sizeS")) {
 if (document.getElementById("pot1")) {
   changePot();
 }
+
+
+// hover sur la card home //
+
+import { hover } from '../components/cards';
+
+if (document.getElementsByClassName('.card')) {
+  hover();
+}
+

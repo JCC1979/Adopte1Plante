@@ -10,26 +10,24 @@
 
 <div class="wrapper-home">
   <div class="row">
-  <% 3.times do %>
-    <div class="cards col-sm-4 col-xs-12">
-      <div class="card">
-        <div class="card-content" style = "background-image: url(<%=image_path("plantest.png")%>)">
-          <div class="card-footerz" id="hovercard">
+    <% 3.times do %>
+      <div class="cards col-sm-4 col-xs-12">
+        <div class="card">
+          <div class="card-content" style = "background-image: url(<%=image_path("plantest.png")%>)">
+          </div>
+          <div class="card-footerz hidden animated">
             <div class="card-footerz-title"> Calathea Makoyana </div>
-            <div class="card-footerz-title2">Plante Paon </div>
+            <div class="card-footerz-title2">Plante Paon </div>   
             <div class="card-footerz-price"> A partir de 5€ </div>
-
-        
+          </div>
         </div>
       </div>
-    </div>
-  </div>
     <% end %>
+  </div>
 
         <div class="col text-center">
             <button type="button" class="btn btn-outline-primary" id="margintop">Voir plus de suggestions</button>
         </div>
-</div>
 </div>
 
 
