@@ -8,20 +8,21 @@
     <div class="composition-grid">
       <div class="composition-grid-main">
         <div class="composition_cards">
-          <div class="card-main" style="background-image: url(https://images.unsplash.com/photo-1416339411116-62e1226aacd8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)">
+          <div id="card-main-image" class="card-main" style="background-image: url('/images/composition/planteM.jpg')">
             <div class="card-main-size-box">
-              <div class="card-main-size">S</div>
-              <div href="" class="card-main-size-disable">M</div>
-              <div href="" class="card-main-size-disable">L</div>
+              <div id="sizeS" class="card-main-size-disable">S</div>
+              <div id="sizeM" class="card-main-size">M</div>
+              <div id="sizeL" class="card-main-size-disable">L</div>
             </div>
           </div>
         </div>
       </div>
-      <% 3.times do %>
+      <% 3.times do |i| %>
+      <% image= "/images/composition/pot#{i+1}.jpg" %>
         <div class="composition_cards">
-          <div class="card-pot-contain" style="background-image: url(https://images.unsplash.com/photo-1463320898484-cdee8141c787?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80)">
+          <div id="pot<%= i+1 %>" class="card-pot-contain" style="background-image: url(<%=image_url(image)  %>)">
             <div class="card-pot-footer">
-              pot
+              pot <%= i+1 %>
             </div>
           </div>
         </div>

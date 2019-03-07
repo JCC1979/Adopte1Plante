@@ -42,6 +42,12 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    algoliasearch (1.26.0)
+      httpclient (~> 2.8, >= 2.8.3)
+      json (>= 1.5.1)
+    algoliasearch-rails (1.21.0)
+      algoliasearch (>= 1.17.0, < 2.0.0)
+      json (>= 1.5.1)
     arel (9.0.0)
     autoprefixer-rails (9.4.10)
       execjs
@@ -53,6 +59,13 @@ GEM
     byebug (11.0.0)
     coderay (1.1.2)
     concurrent-ruby (1.1.4)
+    countries (3.0.0)
+      i18n_data (~> 0.8.0)
+      sixarm_ruby_unaccent (~> 1.1)
+      unicode_utils (~> 1.4)
+    country_select (4.0.0)
+      countries (~> 3.0)
+      sort_alphabetical (~> 1.0)
     crass (1.0.4)
     devise (4.6.1)
       bcrypt (~> 3.0)
@@ -71,11 +84,14 @@ GEM
       sassc (>= 1.11)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    httpclient (2.8.3)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
+    i18n_data (0.8.0)
     jbuilder (2.8.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    json (2.2.0)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -156,6 +172,9 @@ GEM
     simple_form (4.1.0)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
+    sixarm_ruby_unaccent (1.2.0)
+    sort_alphabetical (1.1.0)
+      unicode_utils (>= 1.2.2)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -175,6 +194,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.20)
       execjs (>= 0.3.0, < 3)
+    unicode_utils (1.4.0)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (3.7.0)
@@ -194,8 +214,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  algoliasearch-rails
   autoprefixer-rails
   bootsnap
+  country_select (~> 4.0)
   devise
   dotenv-rails
   font-awesome-sass (~> 5.5.0)

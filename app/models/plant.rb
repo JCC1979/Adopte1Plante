@@ -1,3 +1,0 @@
-class Plant < Variant
-
-end

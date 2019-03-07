@@ -1,2 +1,26 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 offset-sm-4">
+        <h3>Nom complet : <%= @product.gender + " " + @product.species + " " + @product.cultivar + " " + @product.variant %> </h3>
+        <ul>
+            <li> Taxref_id : <%= @product.id_code.to_s %>    </li>
+            <li> Family : <%= @product.family %>    </li>
+            <li> Gender : <%= @product.gender %>    </li>
+            <li> Species : <%= @product.species %>    </li>
+            <li> Cultivar : <%= @product.cultivar %>    </li>
+            <li> Variant : <%= @product.variant %>    </li>
+            <li> Description : <%= @product.description %>    </li>
+        </ul> 
+
+        <%= link_to "Create a variant", new_product_variant_path(@product.id) ,class: "btn btn-primary" %>
+
+        <br/>
+        <h3>List of variants</h3>
+        <ul>
+            <% @variants.each do |var| %>
+                <li><%= var.sku %> - <%= var.height_format %> - <%= var.diameter_cm %> cm</li>
+            <% end %>
+        </ul> 
+    </div>
+  </div>
+</div>

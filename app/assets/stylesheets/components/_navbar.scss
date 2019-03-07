@@ -16,3 +16,14 @@
     opacity: 0.5;
   }
 }
+
+.caddie{
+  position: relative;
+}
+
+.caddie-nbr{
+  position: absolute;
+  top: 0px;
+  left: -6px;
+  border-radius: 6px;
+}
