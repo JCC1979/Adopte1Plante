@@ -14,7 +14,7 @@
     <% @orders.each do |order| %>
       <div class="cards-order">
         <div class="card-order">
-          <%= image_tag(order.composition.photo_url) %>
+          <img src="/images/composition/planteMpot2.jpg" alt="">
           <div class="card-order-infos">
             <h3><%= order.composition_nickname %></h3>
             <p>adoper le <%=order.created_at.strftime('%d-%m-%y')%></p>
