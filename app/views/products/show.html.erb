@@ -1,26 +1,52 @@
+<h1>show product</h1>``
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-4 offset-sm-4">
-        <h3>Nom complet : <%= @product.gender + " " + @product.species + " " + @product.cultivar + " " + @product.variant %> </h3>
-        <ul>
-            <li> Taxref_id : <%= @product.id_code.to_s %>    </li>
-            <li> Family : <%= @product.family %>    </li>
-            <li> Gender : <%= @product.gender %>    </li>
-            <li> Species : <%= @product.species %>    </li>
-            <li> Cultivar : <%= @product.cultivar %>    </li>
-            <li> Variant : <%= @product.variant %>    </li>
-            <li> Description : <%= @product.description %>    </li>
-        </ul> 
+        <div class="grid">
+            <div class="product-content">
+                <% (culti = " \'" + @product.cultivar + "\'") unless @product.cultivar.nil? %>
+                <% (var = " var." + @product.variant) unless @product.variant.nil? %>
+                <% if @product.category.name == "plant" %>
+                    <h3><%= @product.gender + " " + @product.species %><em><%= culti %></em><%= var %></h3>
+                <% elsif @product.category.name == "pot" %>
 
-        <%= link_to "Create a variant", new_product_variant_path(@product.id) ,class: "btn btn-primary" %>
+                <% end %>
+                <ul>
+                    <li> Taxref_id : <%= @product.id_code.to_s %>    </li>
+                    <li> Family : <%= @product.family %>    </li>
+                    <li> Gender : <%= @product.gender %>    </li>
+                    <li> Species : <%= @product.species %>    </li>
+                    <li> Cultivar : <%= @product.cultivar %>    </li>
+                    <li> Variant : <%= @product.variant %>    </li>
+                    <li> Sun exposure : <%= @product.sun_exposure %>    </li>
+                    <li> Watering : <%= @product.watering %>    </li>
+                    <li> Description : <%= @product.description %>    </li>
+                </ul> 
 
-        <br/>
-        <h3>List of variants</h3>
-        <ul>
+                <%= link_to "Create a variant", new_product_variant_path(@product.id) ,class: "btn btn-primary" %>
+            </div>
+
             <% @variants.each do |var| %>
-                <li><%= var.sku %> - <%= var.height_format %> - <%= var.diameter_cm %> cm</li>
+                <% if var.height_format == "L" %>
+                    <div class="product-variant1">
+                        <div class="card" class="col">
+                            <%= image_tag("plantest.png", class: "card-img-top", style: "width: 180px") %>
+                            <p class="card-text text-center"><%= var.sku %> - <%= var.height_format %> - <%= var.diameter_cm.to_s %> cm</p>
+                        </div>
+                    </div>
+                <% elsif var.height_format == "M" %>
+                    <div class="product-variant2">
+                        <div class="card" class="col">
+                            <%= image_tag("plantest.png", class: "card-img-top", style: "width: 180px") %>
+                            <p class="card-text text-center"><%= var.sku %> - <%= var.height_format %> - <%= var.diameter_cm.to_s  %> cm</p>
+                        </div>
+                    </div>
+                <% else %>
+                    <div class="product-variant3">
+                        <div class="card" class="col">
+                            <%= image_tag("plantest.png", class: "card-img-top", style: "width: 180px") %>
+                            <p class="card-text text-center"><%= var.sku %> - <%= var.height_format %> - <%= var.diameter_cm.to_s  %> cm</p>
+                        </div>
+                    </div>
+                <% end %>
             <% end %>
-        </ul> 
-    </div>
-  </div>
+        </div>
 </div>
