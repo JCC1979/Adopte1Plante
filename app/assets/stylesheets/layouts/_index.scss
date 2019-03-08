@@ -4,9 +4,12 @@
 // @import "profile";
 // @import "map";
 .main-content {
-  min-height: calc(100vh - 160px);
+  min-height: calc(100vh - 100px);
 }
+
+
 .container{ 
+  padding-top: 95px;
   background-color: white;
-  min-height: calc(100vh - 160px);
+  min-height: calc(100vh - 100px);
 }
