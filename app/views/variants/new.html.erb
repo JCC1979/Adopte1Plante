@@ -12,6 +12,7 @@
         <%= f.input :diameter_cm %>
         <%= f.input :height_format, collection: ["L","M", "S"] %>
         <%= cl_image_upload_tag(:image_id) %>
+
         <%= f.submit "add", class: "btn btn-primary" %>
       <% end %>
     </div>

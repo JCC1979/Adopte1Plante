@@ -1,15 +1,14 @@
 class ProductsController < ApplicationController
   def index
     @products = Product.all
-    @pots = Product.where(`category.name = "pot"`)
-    @plants = Product.where(`category.name = "plante"`)
+    @pots = Product.all.select { |prod| prod.category.name == "pot" }
+    @plants = Product.all.select { |prod| prod.category.name == "plant" }
   end
 
   def show
     @product = Product.find(params[:id])
     @variant = Variant.new
     @variants = Variant.where(product_id: @product.id)
-
     @composition = Composition.last
   end
 
@@ -18,9 +17,14 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(product_params)
-    @product.save
-    redirect_to product_path(@product)
+    @product = Product.new
+    @product.details = details_params.to_h
+    @product.category = Category.find(categ_params[:category_id].to_i)
+    if @product.save!
+      redirect_to products_path
+    else
+      render :new
+    end
   end
 
   def update
@@ -28,7 +32,11 @@ class ProductsController < ApplicationController
 
   private
 
-  def product_params
-    params.require(:product).permit(:category_id, :details)
+  def categ_params
+    params.require(:product).permit(:category_id)
+  end
+
+  def details_params
+    params.require(:details).permit(:name, :material, :color, :id_code, :id_sup, :family, :gender, :species, :variant, :cultivar, :watering, :description, :sun_exposure)
   end
 end

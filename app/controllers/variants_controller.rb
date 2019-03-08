@@ -18,24 +18,27 @@ class VariantsController < ApplicationController
     @product = Product.find(params[:product_id])
     @variant = Variant.new(variant_params)
     @variant.product = Product.find(params[:product_id])
-    @variant.save
     @composition = Composition.new
+
+    if @variant.product.category.name == "pot"
+      @composition.variants_match = { pot: @variant.sku }
+    elsif @variant.product.category.name == "plant"
+      @composition.variants_match = { plant: @variant.sku }
+    end
+
+    # vtype = @variant.product.category.name
+    # @composition.variants_match[vtype] = @variant.sku
 
     if params[:image_id].present?
       preloaded = Cloudinary::PreloadedFile.new(params[:image_id])
       raise "Invalid upload signature" if !preloaded.valid?
-      @composition.photo_url = preloaded.identifier
-
-      if @variant.product.category.name == "pot"
-        @composition.variants_match = { pot: @variant.sku }
-      elsif @variant.product.category.name == "plant"
-        @composition.variants_match = { plant: @variant.sku }
+      @composition.image_id = preloaded.identifier
+      if @variant.save! && @composition.save!
+        redirect_to product_path(@product)
+      else
+        render :new
       end
-
-      @composition.save!
     end
-
-    redirect_to product_path(@product)
   end
 
   def update

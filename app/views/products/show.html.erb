@@ -1,60 +1,52 @@
-<h1>show product</h1>``
 <div class="container">
         <div class="grid">
             <div class="product-content">
-                <% (culti = " \'" + @product.cultivar + "\'") unless @product.cultivar.nil? %>
-                <% (var = " var." + @product.variant) unless @product.variant.nil? %>
+                <h1>Product#show</h1>
                 <% if @product.category.name == "plant" %>
-                    <h3><%= @product.gender + " " + @product.species %><em><%= culti %></em><%= var %></h3>
+                    <h3><%= @product.gender + " " + @product.species %><em><%= @product.species %></em><%= @product.variant %></h3>
+                    <ul>
+                        <li> Taxref_id : <%= @product.id_code %>    </li>
+                        <li> Family : <%= @product.family %>    </li>
+                        <li> Gender : <%= @product.gender %>    </li>
+                        <li> Species : <%= @product.species %>    </li>
+                        <li> Cultivar : <%= @product.cultivar %>    </li>
+                        <li> Variant : <%= @product.variant %>    </li>
+                        <li> Sun exposure : <%= @product.sun_exposure %>    </li>
+                        <li> Watering : <%= @product.watering %>    </li>
+                        <li> Description : <%= @product.description %>    </li>
+                    </ul> 
                 <% elsif @product.category.name == "pot" %>
-
+                    <h3><%= @product.name %></h3>
+                    <ul>
+                        <li> Material : <%= @product.material %>    </li>
+                        <li> Color : <%= @product.color %>    </li>
+                    </ul> 
                 <% end %>
-                <ul>
-                    <li> Taxref_id : <%= @product.id_code.to_s %>    </li>
-                    <li> Family : <%= @product.family %>    </li>
-                    <li> Gender : <%= @product.gender %>    </li>
-                    <li> Species : <%= @product.species %>    </li>
-                    <li> Cultivar : <%= @product.cultivar %>    </li>
-                    <li> Variant : <%= @product.variant %>    </li>
-                    <li> Sun exposure : <%= @product.sun_exposure %>    </li>
-                    <li> Watering : <%= @product.watering %>    </li>
-                    <li> Description : <%= @product.description %>    </li>
-                </ul> 
+                <%= link_to "Create a variant", new_product_variant_path(@product.id),class: "btn btn-primary" %>
 
-                <%= link_to "Create a variant", new_product_variant_path(@product.id) ,class: "btn btn-primary" %>
-            </div>
-
-            // trouver la photo d'une instance de variante var
-            sku de la variant = @composition.variants_match[@variant.product.category.name.to_symb]
-            list des compositions = 
-            var.compositions.each do |compo|
-                compo
-            end
-
-
-            <% @variants.each do |var| %>
-                <% if var.height_format == "L" %>
-                    <div class="product-variant1">
-                        <div class="card" class="col">
-                            <%= cl_image_tag(composition.variants_match[:pot].photo_url, crop: :fill, width: 180, class: "card-img-top") %>
-                            <p class="card-text text-center"><%= var.sku %> - <%= var.height_format %> - <%= var.diameter_cm.to_s %> cm</p>
+                <% @variants.each do |var| %>
+                    <% if var.height_format == "L" %>
+                        <div class="product-variant1">
+                            <div class="card" class="col">
+                                <%= cl_image_tag(var.findphotovariant.image_id, crop: :fill, width: 180, class: "card-img-top") %>
+                                <p class="card-text text-center"><%= var.sku %> - <%= var.height_format %> - <%= var.diameter_cm.to_s %> cm</p>
+                            </div>
                         </div>
-                    </div>
-                <% elsif var.height_format == "M" %>
-                    <div class="product-variant2">
-                        <div class="card" class="col">
-                            <%= cl_image_tag(var.photo_url, crop: :fill, width: 180, class: "card-img-top") %>
-                            <p class="card-text text-center"><%= var.sku %> - <%= var.height_format %> - <%= var.diameter_cm.to_s  %> cm</p>
+                    <% elsif var.height_format == "M" %>
+                        <div class="product-variant2">
+                            <div class="card" class="col">
+                                <%= cl_image_tag(var.findphotovariant.image_id crop: :fill, width: 180, class: "card-img-top") %>
+                                <p class="card-text text-center"><%= var.sku %> - <%= var.height_format %> - <%= var.diameter_cm.to_s  %> cm</p>
+                            </div>
                         </div>
-                    </div>
-                <% else %>
-                    <div class="product-variant3">
-                        <div class="card" class="col">
-                            <%= cl_image_tag(var.photo_url, crop: :fill, width: 180, class: "card-img-top") %>
-                            <p class="card-text text-center"><%= var.sku %> - <%= var.height_format %> - <%= var.diameter_cm.to_s  %> cm</p>
+                    <% else %>
+                        <div class="product-variant3">
+                            <div class="card" class="col">
+                                <%= cl_image_tag(var.findphotovariant.image_id, crop: :fill, width: 180, class: "card-img-top") %>
+                                <p class="card-text text-center"><%= var.sku %> - <%= var.height_format %> - <%= var.diameter_cm.to_s  %> cm</p>
+                            </div>
                         </div>
-                    </div>
+                    <% end %>
                 <% end %>
-            <% end %>
         </div>
 </div>

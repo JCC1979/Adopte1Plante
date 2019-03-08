@@ -6,7 +6,7 @@
       <ul>
         <% @plants.each do |plant| %>
           <li>
-            <%= link_to plant.id_code, product_path(plant) %> - <%= plant.gender %> <%= plant.species %>
+            <%= link_to (plant.id_code + " - " + plant.gender + " " + plant.species), product_path(plant) %>
           </li>
         <% end %>
       </ul>
@@ -16,10 +16,11 @@
       <ul>
         <% @pots.each do |pot| %>
           <li>
-            <%= link_to pot.id, product_path(pot) %> - <%= pot.name %> - <%= pot.material %> - <%= pot.color %>
+            <%= link_to (pot.id.to_s + " - " + pot.name + " - " + pot.material + " - " + pot.color), product_path(pot) %>
           </li>
         <% end %>
       </ul>
+      <%= link_to "Create a new product", new_product_path,class: "btn btn-primary"  %>
     </div>
   </div>
 </div>

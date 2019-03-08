@@ -17,11 +17,19 @@ if (document.getElementById("pot1")) {
   changePot();
 }
 
-
 // hover sur la card home //
-
 import { hover } from '../components/cards';
 
 if (document.getElementsByClassName('.card')) {
   hover();
+}
+
+// formulaire interactif sur creation de products//
+import { hidden_form } from '../components/formproduct';
+
+if (document.getElementsByClassName('.form_create_plant')) {
+  hidden_form();
+}
+if (document.getElementsByClassName('.form_create_pot')) {
+  hidden_form();
 }
