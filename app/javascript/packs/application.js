@@ -1,3 +1,4 @@
+
 // text pour la banner
 import { loadDynamicBannerText } from '../components/banner';
 
@@ -24,4 +25,3 @@ import { hover } from '../components/cards';
 if (document.getElementsByClassName('.card')) {
   hover();
 }
-
