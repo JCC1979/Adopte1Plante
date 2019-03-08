@@ -27,9 +27,9 @@ if (document.getElementsByClassName('.card')) {
 // formulaire interactif sur creation de products//
 import { hidden_form } from '../components/formproduct';
 
-if (document.getElementsByClassName('.form_create_plant')) {
+if (document.getElementById('form_create_plant')) {
   hidden_form();
 }
-if (document.getElementsByClassName('.form_create_pot')) {
+if (document.getElementById('form_create_pot')) {
   hidden_form();
 }
