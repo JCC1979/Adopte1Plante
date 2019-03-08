@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => 'registrations'}
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :profiles, only: %i[show new create update edit] do
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resources :variants, only: %i[new create]
   end
 
-  resources :variants, only: %i[edit update destroy]
+  resources :variants, only: %i[index show edit update destroy]
   resources :synonyms, only: %i[edit update]
   get "/profiles/my_plants/:id", to: "profiles#my_plants", as: "profiles_my_plants"
 end
