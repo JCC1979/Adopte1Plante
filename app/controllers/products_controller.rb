@@ -9,6 +9,8 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @variant = Variant.new
     @variants = Variant.where(product_id: @product.id)
+
+    @composition = Composition.last
   end
 
   def new
