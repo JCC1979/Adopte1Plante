@@ -31,3 +31,8 @@ import { scrolling } from '../components/navbar';
 if (document.getElementsByClassName('.nav')) {
   scrolling();
 }
+
+import { plus } from '../components/voirplus';
+if (document.getElementById("voirplus")) {
+  plus();
+}

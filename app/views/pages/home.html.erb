@@ -9,24 +9,29 @@
 
 <div class="wrapper-home">
   <%# <p class="text-center"> Nos compositions en vogue</p> %>
-  <div class="row">
-    <% 4.times do %>
-      <div class="cards col-sm-3 col-xs-6">
-        <div class="card">
-          <div class="card-content" style = "background-image: url(<%=image_path("plantest.png")%>)">
+  
+  <div id="resultSearch" >
+    <div class="row">
+      <% 4.times do %>
+        <div class="cards col-sm-3 col-xs-6">
+          <div class="card">
+            <div class="card-content" style = "background-image: url(<%=image_path("plantest.png")%>)">
+              <a class="polaroid-link" href="/variants/11"></a>
+            </div>
+            <div class="card-footerz hidden animated">
+              <div class="card-footerz-title"> Calathea Makoyana </div>
+              <div class="card-footerz-title2">Plante Paon </div> 
+              <div class="card-footerz-price"> A partir de 5€ </div>
+            </div>
           </div>
-          <div class="card-footerz hidden animated">
-            <div class="card-footerz-title"> Calathea Makoyana </div>
-            <div class="card-footerz-title2">Plante Paon </div> 
-            <div class="card-footerz-price"> A partir de 5€ </div>
-          </div>
+          
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 
         <div class="col text-center">
-            <button type="button" class="btn btn-outline-primary" id="margintop">Voir plus de suggestions</button>
+            <button type="button" id="voirplus" class="btn btn-outline-primary" id="margintop">Voir plus de suggestions</button>
         </div>
 </div>
 
@@ -45,7 +50,7 @@
             <%= image_tag('insta1.png', style: 'width:100%') %>
           </div>
           <div class="polaroid-footer text-center">
-           <p> #suculentas </p>
+            <p> #suculentas </p>
           </div>
           <a class="polaroid-link" href="https://www.instagram.com/p/BstSygCFctC/" target="_blank"></a>
         </div>
