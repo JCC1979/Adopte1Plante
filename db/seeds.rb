@@ -92,17 +92,16 @@ plant2_syno.save!
 
 puts "Ajout des synonyme pour la plante -- OK"
 
-
 variant_pot1s = Variant.new(sku: 1, diameter_cm: 10, height_format: "S", price: 10)
-variant_pot2s = Variant.new(sku: 2, diameter_cm: 10, height_format: "S", price: 10)
-variant_pot3s = Variant.new(sku: 3, diameter_cm: 10, height_format: "S", price: 10)
+variant_pot2s = Variant.new(sku: 2, diameter_cm: 10, height_format: "S", price: 12)
+variant_pot3s = Variant.new(sku: 3, diameter_cm: 10, height_format: "S", price: 14)
 
-variant_pot1m = Variant.new(sku: 4, diameter_cm: 15, height_format: "M", price: 20)
-variant_pot2m = Variant.new(sku: 5, diameter_cm: 15, height_format: "M", price: 20)
-variant_pot3m = Variant.new(sku: 6, diameter_cm: 15, height_format: "M", price: 20)
+variant_pot1m = Variant.new(sku: 4, diameter_cm: 15, height_format: "M", price: 19)
+variant_pot2m = Variant.new(sku: 5, diameter_cm: 15, height_format: "M", price: 22)
+variant_pot3m = Variant.new(sku: 6, diameter_cm: 15, height_format: "M", price: 24)
 
-variant_pot1l = Variant.new(sku: 7, diameter_cm: 20, height_format: "L", price: 30)
-variant_pot2l = Variant.new(sku: 8, diameter_cm: 20, height_format: "L", price: 30)
+variant_pot1l = Variant.new(sku: 7, diameter_cm: 20, height_format: "L", price: 32)
+variant_pot2l = Variant.new(sku: 8, diameter_cm: 20, height_format: "L", price: 40)
 variant_pot3l = Variant.new(sku: 9, diameter_cm: 20, height_format: "L", price: 30)
 
 variant_plant2s = Variant.new(sku: 10, diameter_cm: 20, height_format: "S", price: 30)
