@@ -19,6 +19,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem "algoliasearch-rails"
 gem 'country_select', '~> 4.0'
+gem 'money-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

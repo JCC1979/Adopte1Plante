@@ -5,6 +5,7 @@ class VariantsController < ApplicationController
   end
 
   def show
+    @pot = Variant.find(2)
     @variant = Variant.find(params[:id])
   end
   

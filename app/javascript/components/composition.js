@@ -3,8 +3,17 @@ const changeSML = () => {
   const elementSizeS = document.getElementById("sizeS");
   const elementSizeM = document.getElementById("sizeM");
   const elementSizeL = document.getElementById("sizeL");
+  const elementPrice = document.getElementById("price-compo");
+
   elementSizeS.addEventListener("click", (event) => {
+    let price = parseInt(elementSizeS.dataset.price);
+    if (document.querySelector(".card-pot-active")) {
+      const elementPotActive = document.querySelector(".card-pot-active");
+      price += parseInt(elementPotActive.dataset.priceS);
+    } 
+
     elementImg.style.backgroundImage = 'url(/images/composition/planteS.jpg)';
+    elementPrice.innerText = `${ price / 100} €`;
     elementSizeS.classList.add("card-main-size");
     elementSizeM.classList.add("card-main-size-disable");
     elementSizeL.classList.add("card-main-size-disable");
@@ -14,7 +23,13 @@ const changeSML = () => {
   });
 
   elementSizeM.addEventListener("click", (event) => {
+    let price = parseInt(elementSizeM.dataset.price);
+    if (document.querySelector(".card-pot-active")) {
+      const elementPotActive = document.querySelector(".card-pot-active");
+      price += parseInt(elementPotActive.dataset.priceM);
+    } 
     elementImg.style.backgroundImage = 'url(/images/composition/planteM.jpg)';
+    elementPrice.innerText = `${ price / 100} €`;
     elementSizeS.classList.add("card-main-size-disable");
     elementSizeM.classList.add("card-main-size");
     elementSizeL.classList.add("card-main-size-disable");
@@ -24,7 +39,13 @@ const changeSML = () => {
   });
 
   elementSizeL.addEventListener("click", (event) => {
+    let price = parseInt(elementSizeL.dataset.price);
+    if (document.querySelector(".card-pot-active")) {
+      const elementPotActive = document.querySelector(".card-pot-active");
+      price += parseInt(elementPotActive.dataset.priceL);
+    } 
     elementImg.style.backgroundImage = 'url(/images/composition/planteL.jpg)';
+    elementPrice.innerText = `${ price / 100} €`;
     elementSizeS.classList.add("card-main-size-disable");
     elementSizeM.classList.add("card-main-size-disable");
     elementSizeL.classList.add("card-main-size");
