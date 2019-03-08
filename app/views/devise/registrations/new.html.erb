@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-4 offset-md-4 animated bounceIn">
-      <div class="form-login">
+      <div class="form-login" style = "background-image: linear-gradient(rgba(255, 255, 255, 0.800), rgba(255, 255, 255, 0.800)), url(<%=image_path("homedownpage.jpg")%>)"
       <h2>Sign up</h2>
 
       <%= simple_form_for(resource , as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -44,4 +44,7 @@
       </div>
     </div>
   </div>
+  <br>
+  <br>
 </div>
+
