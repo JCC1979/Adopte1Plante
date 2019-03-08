@@ -1,12 +1,16 @@
+
 .banner-home{
-  height: calc(60vh);
+  height: calc(70vh);
   background-repeat: no-repeat;
+  background-image: url("home2.jpg");
   background-size: cover;
   background-position: bottom;
+  // background-attachment: fixe
   display: flex;
   align-items: center;
   position: relative;
 }
+
 
 .left-title { 
     position: absolute;
