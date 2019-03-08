@@ -5,16 +5,18 @@ class VariantsController < ApplicationController
   end
 
   def show
-    @pot = Variant.find(2)
+    @pots = []
+    @pots << Variant.find(2)
+    @pots << Variant.find(5)
+    @pots << Variant.find(8)
     @variant = Variant.find(params[:id])
   end
-  
-  
+
   def new
     @product = Product.find(params[:product_id])
     @variant = Variant.new
   end
-  
+
   def create
     @product = Product.find(params[:product_id])
     @variant = Variant.new(variant_params)
