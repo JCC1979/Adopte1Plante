@@ -1,14 +1,15 @@
 
 .banner-home{
-  height: calc(70vh);
+  height: calc(60vh);
   background-repeat: no-repeat;
-  background-image: url("home2.jpg");
+  background-image: linear-gradient(to bottom, rgba(255,255,255,0.0) 90%, rgba(255,255,255,1)), url("home2.jpg");
   background-size: cover;
-  background-position: bottom;
+  background-position: center;
   // background-attachment: fixe
   display: flex;
   align-items: center;
   position: relative;
+
 }
 
 
@@ -16,6 +17,7 @@
     position: absolute;
     left:30px;
     width: 50%; 
+    top: 150px;
     p {
       text-decoration: none;
       font-size: 35px;

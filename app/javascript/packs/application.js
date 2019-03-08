@@ -25,3 +25,9 @@ import { hover } from '../components/cards';
 if (document.getElementsByClassName('.card')) {
   hover();
 }
+
+import { scrolling } from '../components/navbar';
+
+if (document.getElementsByClassName('.nav')) {
+  scrolling();
+}
