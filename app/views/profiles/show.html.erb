@@ -11,26 +11,20 @@
       <% else %>
         Merci d'ajouter votre adresse ;)
       <% end %>
-      <h2>Mes commandes (<%= @orders.size %>)</h2>
+      <h2>Mes commandes (<%= @carts.size %>)</h2>
       <hr>
-      <% @orders.each do |order| %>
+      <% @carts.each do |cart| %>
         <div class="cards-order">
           <div class="card-order">
             <img src="/images/composition/planteMpot2.jpg" alt="">
             <div class="card-order-infos">
-              <h3><%= order.composition_nickname %></h3>
-              <p>adoper le <%=order.created_at.strftime('%d-%m-%y')%></p>
-              <% contents = order.composition.variants_match.split(";") %>
-              <% contents.each do |content| %>
-                <% if Variant.find(content.to_i).product.category.name == "plant" %>
-                  <%= link_to "https://www.instagram.com/explore/tags/#{Variant.find(content.to_i).gender}/", target: "_blank" do %>
-                    <p>#<%= Variant.find(content.to_i).gender%></p>
-                  <% end %>
-                <% end %>
-              <% end %>
+              <h3>Commande n°<%= link_to cart.id, profile_cart_path(@profile,cart.id) %></h3>
+              <p>commandé le <%=cart.created_at.strftime('%d-%m-%y')%></p>
+              <p>nombre d'article : <%= cart.orders.size %></p>
             </div>
             <div class="card-order-status">
               <h3 class="text-center">Status</h3>
+              <p class="text-center"><%= cart.state %></p>
             </div>
           </div>
         </div>

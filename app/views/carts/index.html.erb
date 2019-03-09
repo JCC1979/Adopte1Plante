@@ -23,13 +23,12 @@
                 <% end %>
               </div>
               <div class="card-order-status">
-                <h3 class="text-center"><%= humanized_money(price) %> €</h3>
-                <h3>
-                <%= link_to profile_order_path(@profile, order),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" } do %>
-                    remove
-                <% end %>
+                <h3 class="text-center"><%= humanized_money(price) %> € 
+                  <%= link_to profile_order_path(@profile, order),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } do %>
+                      <i class="fas fa-times"></i>
+                  <% end %>
                 </h3>
               </div>
             </div>
@@ -46,7 +45,8 @@
           total : 0 €
         <% end %>
       </div>
-      <button type="button"class="btn btn-primary">Commander</button>
+      <%= link_to "Commander",new_profile_cart_payment_path(@profile,@cart),class: "btn btn-primary"%>
+      
     </div>
   </div>
 </div>

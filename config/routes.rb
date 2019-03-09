@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :profiles, only: %i[show new create update edit] do
     resources :orders, only: %i[new create index show destroy]
-    resources :carts, only: %i[new create index show]
+    resources :carts, only: %i[new create index show] do
+      resources :payments, only: %i[new create]
+    end
   end
 
   resources :compositions, only: %i[show index] do

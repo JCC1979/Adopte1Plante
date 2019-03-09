@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <h1>Purchase of teddy <%= @cart.id %></h1>
+      <%= form_tag profile_cart_payments_path(@profile,@cart) do %>
+        <article>
+          <label class="amount">
+            <span>Amount: <%= humanized_money_with_symbol(@cart.amount) %></span>
+          </label>
+        </article>
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-name="Ma commande"
+          data-email="<%= current_user.email %>"
+          data-description="Teddy <%= @cart.id %>"
+          data-amount="<%= @cart.amount_cents %>"
+          data-currency="<%= @cart.amount.currency %>">
+        </script>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+  
+  
