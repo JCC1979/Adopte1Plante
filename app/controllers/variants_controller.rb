@@ -10,6 +10,7 @@ class VariantsController < ApplicationController
     @pots << Variant.find(5)
     @pots << Variant.find(8)
     @variant = Variant.find(params[:id])
+    @order = Order.new
   end
 
   def new
