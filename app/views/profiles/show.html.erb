@@ -1,38 +1,41 @@
 <div class="container">
-  <div class="profile-container">
-    <h2>Profile de <%= current_user.profile.first_name %> <%= current_user.profile.last_name %></h2>
-    <h2>Mon adresse <%= link_to edit_profile_path(current_user.profile.id) do %><i class="fas fa-pencil-alt"></i><% end %></h2>
-    <% if current_user.profile.address %>
-      <%= current_user.profile.address %> <br>
-      <%= current_user.profile.address_zipcode %><%= current_user.profile.address_city %> <br>
-      <%= current_user.profile.address_country %>
-    <% else %>
-      Merci d'ajouter votre adresse ;)
-    <% end %>
-    <h2>Mes commandes (<%= @orders.size %>)</h2>
-    <hr>
-    <% @orders.each do |order| %>
-      <div class="cards-order">
-        <div class="card-order">
-          <img src="/images/composition/planteMpot2.jpg" alt="">
-          <div class="card-order-infos">
-            <h3><%= order.composition_nickname %></h3>
-            <p>adoper le <%=order.created_at.strftime('%d-%m-%y')%></p>
-            <% contents = order.composition.variants_match.split(";") %>
-            <% contents.each do |content| %>
-              <% if Variant.find(content.to_i).product.category.name == "plant" %>
-                <%= link_to "https://www.instagram.com/explore/tags/#{Variant.find(content.to_i).gender}/", target: "_blank" do %>
-                  <p>#<%= Variant.find(content.to_i).gender%></p>
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <h2>Profile de <%= current_user.profile.first_name %> <%= current_user.profile.last_name %></h2>
+      <h2>Mon adresse <%= link_to edit_profile_path(current_user.profile.id) do %><i class="fas fa-pencil-alt"></i><% end %></h2>
+      <hr>
+      <% if current_user.profile.address %>
+        <%= current_user.profile.address %> <br>
+        <%= current_user.profile.address_zipcode %> <%= current_user.profile.address_city %> <br>
+        <%= current_user.profile.address_country %>
+      <% else %>
+        Merci d'ajouter votre adresse ;)
+      <% end %>
+      <h2>Mes commandes (<%= @orders.size %>)</h2>
+      <hr>
+      <% @orders.each do |order| %>
+        <div class="cards-order">
+          <div class="card-order">
+            <img src="/images/composition/planteMpot2.jpg" alt="">
+            <div class="card-order-infos">
+              <h3><%= order.composition_nickname %></h3>
+              <p>adoper le <%=order.created_at.strftime('%d-%m-%y')%></p>
+              <% contents = order.composition.variants_match.split(";") %>
+              <% contents.each do |content| %>
+                <% if Variant.find(content.to_i).product.category.name == "plant" %>
+                  <%= link_to "https://www.instagram.com/explore/tags/#{Variant.find(content.to_i).gender}/", target: "_blank" do %>
+                    <p>#<%= Variant.find(content.to_i).gender%></p>
+                  <% end %>
                 <% end %>
               <% end %>
-            <% end %>
-          </div>
-          <div class="card-order-status">
-            <h3 class="text-center">Status</h3>
+            </div>
+            <div class="card-order-status">
+              <h3 class="text-center">Status</h3>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
-    <div class="profile-end">&nbsp;</div>
+      <% end %>
+      <div class="profile-end">&nbsp;</div>
+    </div>
   </div>
 </div>
