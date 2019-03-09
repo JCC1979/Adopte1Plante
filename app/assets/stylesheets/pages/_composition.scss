@@ -67,5 +67,24 @@
   padding: 10px;
 }
 
+@media(max-width: 720px) {
+  .composition-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 3fr 1fr;
+  }
+
+  .composition-grid-main{
+    grid-row: 1 / span 1;
+    grid-column: 1 / span 3;
+  }
+
+  .prix{
+    position: absolute;
+    top: 50px;
+    right: 25px;
+  }
+}
+
 
 

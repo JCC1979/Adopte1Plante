@@ -1,10 +1,16 @@
 /* Main navbar */
 .navbar-bg {
+  background-color: transparent;
+}
+
+.navbar-bg-scrolled {
   background-color: $dark-gray;
+ 
 }
 
 .img-navbar {
   width: 170px;
+  padding-left:10px;
 }
 .nav-item{
   height: 35px;
@@ -26,4 +32,12 @@
   top: 0px;
   left: -6px;
   border-radius: 6px;
+}
+
+.navbar {
+  -webkit-transition: all 0.6s ease-out;
+  -moz-transition: all 0.6s ease-out;
+  -o-transition: all 0.6s ease-out;
+  -ms-transition: all 0.6s ease-out;
+  transition: all 0.6s ease-out;
 }

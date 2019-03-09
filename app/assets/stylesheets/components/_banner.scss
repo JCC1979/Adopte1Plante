@@ -1,22 +1,27 @@
+
 .banner-home{
   height: calc(60vh);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: bottom;
+  background-position: center;
+  // background-attachment: fixe
   display: flex;
   align-items: center;
   position: relative;
+
 }
+
 
 .left-title { 
     position: absolute;
     left:30px;
     width: 50%; 
+    top: 150px;
     p {
       text-decoration: none;
       font-size: 35px;
       color: $dark-gray;
-      margin-bottom: 15px;
+      margin-bottom: 50px;
     }
 }
 
@@ -32,11 +37,24 @@
 
 input::placeholder {
   color: $dark-green;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 input, select, textarea{
   color: $dark-green;
-  font-size: 20px;
+  font-size: 25px;
+}
+
+@media(max-width: 720px) {
+.left-title {
+  top: 70px;
+  width: 80%;
+  p {
+    font-size: 30px;
+    margin-bottom : 10px;
+
+  }
+}
+
 }
 

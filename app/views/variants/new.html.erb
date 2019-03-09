@@ -1,3 +1,8 @@
+<% content_for :before_html do %>
+  <%= cloudinary_js_config %>
+<% end %>
+
+<h1>Création variant</h1>
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-4 offset-sm-4">
@@ -5,17 +10,18 @@
       <%= simple_form_for [@product, @variant] do |f| %>
         <%= f.input :sku %>
         <%= f.input :diameter_cm %>
-        <%= f.input :height_format, collection: ["S","M", "L"] %>
-        <label class="btn btn-primary"> Add a picture
-          <span class="btn btn-success fileinput-button" i.fa.fa-pencil>
-            <%= f.file_field :cover_ar %>
-          </span>
-        </label>
-
+        <%= f.input :height_format, collection: ["L","M", "S"] %>
+        <%= cl_image_upload_tag(:image_id) %>
         <%= f.submit "add", class: "btn btn-primary" %>
-
       <% end %>
     </div>
   </div>
 </div>
 
+<script>
+  $(function() {
+    if($.fn.cloudinary_fileupload !== undefined) {
+      $("input.cloudinary-fileupload[type=file]").cloudinary_fileupload();
+    }
+  });
+</script>

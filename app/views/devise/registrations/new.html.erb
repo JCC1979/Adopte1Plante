@@ -1,12 +1,25 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-4 offset-md-4">
+    <div class="col-sm-4 offset-md-4 animated bounceIn">
+      <div class="form-login">
       <h2>Sign up</h2>
 
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= simple_form_for(resource , as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
 
         <div class="form-inputs">
+          <div class="form-group required">
+            <label for="first_name">First name</label>
+            <input type="text" class="form-control required" aria-required="true" name="profile[first_name]" id="first_name" required="required">
+          </div>
+          <div class="form-group required">
+            <label for="last_name">Last name</label>
+            <input type="text" class="form-control required" aria-required="true" name="profile[last_name]" id="last_name" required="required">
+          </div>
+          
+          
+          
+          
           <%= f.input :email,
                       required: true,
                       autofocus: true,
@@ -18,6 +31,7 @@
           <%= f.input :password_confirmation,
                       required: true,
                       input_html: { autocomplete: "new-password" } %>
+
         </div>
 
         <div class="form-actions">
@@ -27,6 +41,7 @@
 
       <%= render "devise/shared/links" %>
 
+      </div>
     </div>
   </div>
 </div>
