@@ -20,7 +20,7 @@ class SessionsController < Devise::SessionsController
   private
 
   def create_new_order
-    @profile = Profile.find(current_user.id)
+    @profile = Profile.find(current_user.profile.id)
     @cart = Cart.where(profile_id: @profile.id, state: "pending")[0]
     @cart = Cart.create(state:"pending",profile_id: @profile.id) unless @cart
     @guest_order = guest_user.profile.orders

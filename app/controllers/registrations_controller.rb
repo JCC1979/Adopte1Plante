@@ -3,7 +3,7 @@ class RegistrationsController < Devise::RegistrationsController
   def new
     super
   end
-  
+
   def create
     build_resource(sign_up_params)
 
@@ -24,14 +24,28 @@ class RegistrationsController < Devise::RegistrationsController
       set_minimum_password_length
       respond_with resource
     end
+    
     @profile = Profile.new(profile_params)
     @profile.user = User.last
     @profile.save if User.last.profile.nil?
+    create_new_order
 
   end
 
   private
   def profile_params
     params.require(:profile).permit(:first_name, :last_name)
+  end
+
+  def create_new_order
+    @cart = Cart.where(profile_id: @profile.id, state: "pending")[0]
+    @cart = Cart.create(state:"pending",profile_id: @profile.id) unless @cart
+    @guest_order = guest_user.profile.orders
+    @guest_order.each do |order|
+      o = Order.new(composition_nickname: order.composition_nickname, composition_id: order.composition_id)
+      o.profile = @profile
+      o.cart = @cart
+      o.save
+    end
   end
 end
