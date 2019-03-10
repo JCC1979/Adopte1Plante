@@ -1,5 +1,6 @@
 class VariantsController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
+  helper_method :current_or_guest_user
   def index
     @variants = Variant.all
   end
@@ -10,6 +11,7 @@ class VariantsController < ApplicationController
     @pots << Variant.find(5)
     @pots << Variant.find(8)
     @variant = Variant.find(params[:id])
+    @order = Order.new
   end
 
   def new
