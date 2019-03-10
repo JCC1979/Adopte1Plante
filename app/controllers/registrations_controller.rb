@@ -46,6 +46,8 @@ class RegistrationsController < Devise::RegistrationsController
       o.profile = @profile
       o.cart = @cart
       o.save
+      @cart.amount_cents += o.composition.price
+      @cart.save
     end
   end
 end
