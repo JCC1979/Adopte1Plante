@@ -14,19 +14,9 @@
   right: 10px;
 } 
 
-.card-main-size {
-  margin: 10px;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  color: white;
-  background-color: $dark-green;
-}
 
-.card-main-size-disable{
+
+.card-main-size{
   margin: 10px;
   width: 30px;
   height: 30px;
@@ -37,4 +27,9 @@
   color: $dark-gray;
   background-color: rgba(0,0,0,0.2);
   cursor: pointer;
+}
+
+.card-main-size-active {
+  color: white;
+  background-color: $dark-green;
 }

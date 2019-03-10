@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-5 offset-md-1">
+      <img class="img-fluid" src="/images/composition/planteMpot2.jpg" alt="">
+    </div>
+    <div class="col-md-5">
+      <%= simple_form_for([@profile,@order]) do |f| %>
+        <%= f.input :composition_nickname,label: 'Donnez un nom a votre plante' %>
+        <%= f.input :composition_id, as: :hidden, input_html: { value: @composition.id } %>
+        <%= f.submit "Adopter", class: "btn btn-primary btn-block" %>
+      <% end %>
+    </div>
+  </div>
+</div>

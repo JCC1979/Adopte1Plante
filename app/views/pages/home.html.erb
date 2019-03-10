@@ -1,7 +1,6 @@
 <div class="banner-home"  style = "background-image: linear-gradient(to bottom, rgba(255,255,255,0.0) 90%, rgba(255,255,255,1)), url(<%= image_path("home2.jpg") %>)">
-  <div class="left-title animated">
+  <div class="left-title">
     <p> Adoptez une plante à votre image, unique et préparée proche de chez vous </p>
-    <br>
       <input id="banner-typed-text" type="text" class="input" placeholder="" aria-label="Find your dream plant" aria-describedby="button-addon2">
     </div> 
   </div>
@@ -10,24 +9,29 @@
 
 <div class="wrapper-home">
   <%# <p class="text-center"> Nos compositions en vogue</p> %>
-  <div class="row">
-    <% 4.times do %>
-      <div class="cards col-sm-3 col-xs-6">
-        <div class="card">
-          <div class="card-content" style = "background-image: url(<%=image_path("plantest.png")%>)">
+  
+  <div id="resultSearch" >
+    <div class="row">
+      <% 4.times do %>
+        <div class="cards col-sm-3 col-xs-6">
+          <div class="card">
+            <div class="card-content" style = "background-image: url(<%=image_path("plantest.png")%>)">
+              <a class="polaroid-link" href="/variants/11"></a>
+            </div>
+            <div class="card-footerz hidden animated">
+              <div class="card-footerz-title"> Calathea Makoyana </div>
+              <div class="card-footerz-title2">Plante Paon </div> 
+              <div class="card-footerz-price"> A partir de 5€ </div>
+            </div>
           </div>
-          <div class="card-footerz hidden animated">
-            <div class="card-footerz-title"> Calathea Makoyana </div>
-            <div class="card-footerz-title2">Plante Paon </div> 
-            <div class="card-footerz-price"> A partir de 5€ </div>
-          </div>
+          
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 
         <div class="col text-center">
-            <button type="button" class="btn btn-outline-primary" id="margintop">Voir plus de suggestions</button>
+            <button type="button" id="voirplus" class="btn btn-outline-primary" id="margintop">Voir plus de suggestions</button>
         </div>
 </div>
 
@@ -39,19 +43,58 @@
     <h3> #AdopteUnePlante </h3>
   </div>
   <div class="row">
-    <% 4.times do %>
+    <%# <% 4.times do %> 
       <div class="col-sm-3 col-xs-6 polaroids">
         <div class="polaroid">
           <div class="polaroid-content">
-            <%= image_tag('plantest2.png', style: 'width:100%') %>
+            <%= image_tag('insta1.png', style: 'width:100%') %>
           </div>
           <div class="polaroid-footer text-center">
-           <p> #maranta #zamioculcas </p>
+            <p> #suculentas </p>
           </div>
-          <a class="polaroid-link" href=""></a>
+          <a class="polaroid-link" href="https://www.instagram.com/p/BstSygCFctC/" target="_blank"></a>
         </div>
       </div>
-    <% end %>
+    <%# <% end %> 
+        <%# <% 4.times do %> 
+      <div class="col-sm-3 col-xs-6 polaroids">
+        <div class="polaroid">
+          <div class="polaroid-content">
+            <%= image_tag('insta2.png', style: 'width:100%') %>
+          </div>
+          <div class="polaroid-footer text-center">
+           <p> #philodendron </p>
+          </div>
+          <a class="polaroid-link" href="https://www.instagram.com/p/BuoejBpnaD_/" target="_blank"></a>
+        </div>
+      </div>
+    <%# <% end %> 
+        <%# <% 4.times do %> 
+      <div class="col-sm-3 col-xs-6 polaroids">
+        <div class="polaroid">
+          <div class="polaroid-content">
+            <%= image_tag('insta3.png', style: 'width:100%') %>
+          </div>
+          <div class="polaroid-footer text-center">
+           <p> #zamioculcas </p>
+          </div>
+          <a class="polaroid-link" href="https://www.instagram.com/p/BulXUq6gUEC/" target="_blank"></a>
+        </div>
+      </div>
+    <%# <% end %> 
+        <%# <% 4.times do %> 
+      <div class="col-sm-3 col-xs-6 polaroids">
+        <div class="polaroid">
+          <div class="polaroid-content">
+            <%= image_tag('insta4.png', style: 'width:100%') %>
+          </div>
+          <div class="polaroid-footer text-center">
+           <p> #calathea </p>
+          </div>
+          <a class="polaroid-link" href="https://www.instagram.com/p/BuvhUJfDg6g/" target="_blank" ></a>
+        </div>
+      </div>
+    <%# <% end %> 
   </div>
 </div>
 

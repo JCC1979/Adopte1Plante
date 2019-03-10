@@ -10,19 +10,20 @@
           <div class="composition_cards">
             <div id="card-main-image" class="card-main" style="background-image: url('/images/composition/planteM.jpg')">
               <div class="card-main-size-box">
-                <div id="sizeS" data-price="<%= @variant.prices["S"] %>" class="card-main-size-disable">S</div>
-                <div id="sizeM" data-price="<%= @variant.prices["M"] %>" class="card-main-size">M</div>
-                <div id="sizeL" data-price="<%= @variant.prices["L"] %>" class="card-main-size-disable">L</div>
+                <div id="sizeS" data-plant-id="<%= @variant.ids["S"] %>" data-price="<%= @variant.prices["S"] %>" class="card-main-size">S</div>
+                <div id="sizeM" data-plant-id="<%= @variant.ids["M"] %>" data-price="<%= @variant.prices["M"] %>" class="card-main-size card-main-size-active">M</div>
+                <div id="sizeL" data-plant-id="<%= @variant.ids["L"] %>" data-price="<%= @variant.prices["L"] %>" class="card-main-size">L</div>
               </div>
             </div>
           </div>
         </div>
-        <% 3.times do |i| %>
-        <% image= "/images/composition/pot#{i+1}.jpg" %>
+        <% @pots.each_with_index do |pot, i| %>
+          <% image= "/images/composition/pot#{i+1}.jpg" %>
           <div class="composition_cards">
-            <div id="pot<%= i+1 %>" data-price-s="<%= @pot.prices["S"] %>" data-price-m="<%= @pot.prices["M"] %>" data-price-l="<%= @pot.prices["L"] %>" class="card-pot-contain" style="background-image: url(<%=image_url(image)  %>)">
+            <div id="pot<%= i+1 %>" data-pot-id="<%= pot.ids["M"] %>" data-price="<%= pot.prices["M"] %>" data-pot-id-s="<%= pot.ids["S"] %>" data-pot-id-m="<%= pot.ids["M"] %>" data-pot-id-l="<%= pot.ids["L"] %>" data-price-s="<%= pot.prices["S"] %>" data-price-m="<%= pot.prices["M"] %>" data-price-l="<%= pot.prices["L"] %>" class="card-pot-contain" style="background-image: url(<%=image_url(image)  %>)">
               <div class="card-pot-footer">
-                pot <%= i+1 %>
+                <div class="card-pot-name">pot <%= i+1 %></div>
+                <div class="card-pot-price"><%= pot.prices["M"]/100 %> €</div>
               </div>
             </div>
           </div>
@@ -33,12 +34,18 @@
           <p><i class="fas fa-tint"></i> <%= @variant.product.watering %></p>
           <p><i class="fas fa-cloud-sun"></i> <%= @variant.product.sun_exposure %></p>
         </div>
-        <div class="composition-detail-right">
-          <div class="btn-group prix" role="group" aria-label="Basic example">
-            <button id="price-compo" type="button" class="btn btn-outline-primary " data-toggle="modal" data-target="#compositionModal"><%= humanized_money(@variant.price) %> €</button>
-            <button type="button" class="btn btn-primary">Je la veux</button>
+        
+            
+        <form action="/profiles/<%= current_or_guest_user.profile.id %>/orders/new">
+          <input type="hidden" id="potId" name="potId" value="0">
+          <input type="hidden" id="plantId" name="plantId" value="<%= @variant.ids["M"] %>">
+          <div class="composition-detail-right">
+            <div class="btn-group prix" role="group" aria-label="Basic example">
+              <button id="price-compo" type="button" class="btn btn-outline-primary " data-toggle="modal" data-target="#compositionModal"><%= humanized_money(@variant.price) %> €</button>
+              <button type="submit"class="btn btn-primary">Je la veux</button>
+            </div>
           </div>
-        </div>
+        </form>
       </div>
       <div class="composition-description">
         <h3 class="description-title">Fiche botanique</h3>
