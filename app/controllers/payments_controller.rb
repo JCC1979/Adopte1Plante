@@ -1,6 +1,6 @@
 class PaymentsController < ApplicationController
   before_action :set_order
-
+  helper_method :current_or_guest_user
   def new
   end
 

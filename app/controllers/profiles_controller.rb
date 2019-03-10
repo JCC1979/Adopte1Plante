@@ -1,4 +1,6 @@
 class ProfilesController < ApplicationController
+  skip_before_action :authenticate_user!, only: :show
+  helper_method :current_or_guest_user
   def new
   end
 

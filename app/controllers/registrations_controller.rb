@@ -1,4 +1,9 @@
 class RegistrationsController < Devise::RegistrationsController
+  helper_method :current_or_guest_user
+  def new
+    super
+  end
+  
   def create
     build_resource(sign_up_params)
 
@@ -24,6 +29,7 @@ class RegistrationsController < Devise::RegistrationsController
     @profile.save if User.last.profile.nil?
 
   end
+
   private
   def profile_params
     params.require(:profile).permit(:first_name, :last_name)

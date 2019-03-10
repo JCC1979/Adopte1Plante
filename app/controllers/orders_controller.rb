@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[create new destroy]
+  helper_method :current_or_guest_user
   def new
     @order = Order.new
     @profile = Profile.find(params[:profile_id])

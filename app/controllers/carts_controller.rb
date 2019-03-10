@@ -1,4 +1,6 @@
 class CartsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[show index]
+  helper_method :current_or_guest_user
   def index
     @orders = []
     @profile = Profile.find(params[:profile_id])

@@ -3,8 +3,8 @@ class Profile < ApplicationRecord
   validates :last_name, presence: true
 
   belongs_to :user
-  has_many :orders
-  has_many :carts
+  has_many :orders, dependent: :destroy
+  has_many :carts, dependent: :destroy
 
   def nbr_orders
     if self.carts.where(state: "pending")[0]

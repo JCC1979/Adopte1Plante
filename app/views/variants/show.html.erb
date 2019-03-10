@@ -36,7 +36,7 @@
         </div>
         
             
-        <form action="/profiles/<%= current_user.profile.id %>/orders/new">
+        <form action="/profiles/<%= current_or_guest_user.profile.id %>/orders/new">
           <input type="hidden" id="potId" name="potId" value="0">
           <input type="hidden" id="plantId" name="plantId" value="<%= @variant.ids["M"] %>">
           <div class="composition-detail-right">

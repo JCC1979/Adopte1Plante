@@ -1,5 +1,6 @@
 class VariantsController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
+  helper_method :current_or_guest_user
   def index
     @variants = Variant.all
   end

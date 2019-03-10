@@ -45,8 +45,9 @@
           total : 0 €
         <% end %>
       </div>
-      <%= link_to "Commander",new_profile_cart_payment_path(@profile,@cart),class: "btn btn-primary"%>
-      
+      <% if @orders.size != 0 %>
+        <%= link_to "Commander",new_profile_cart_payment_path(@profile,@cart),class: "btn btn-primary"%>
+      <% end %>
     </div>
   </div>
 </div>
