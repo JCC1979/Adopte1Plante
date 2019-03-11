@@ -21,15 +21,6 @@ class Composition < ApplicationRecord
   end
 
   def price
-<<<<<<< HEAD
-    price = 0
-    variants = variants_match.split(";")
-    variants.each do |variant|
-      price += Variant.find(variant.to_i).price_cents
-    end
-    price
-=======
     Variant_pot.find(sku: variant_pot_sku).price_cents + Variant_plant.find(sku: variant_plant_sku).price_cents
->>>>>>> c8e82949dbf4d2a349df21272d716e31f073dd3e
   end
 end
