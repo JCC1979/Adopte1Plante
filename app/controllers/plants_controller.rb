@@ -1,5 +1,6 @@
 class PlantsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  helper_method :current_or_guest_user
 
   def index
     @plants = policy_scope(Plant)

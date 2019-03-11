@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-4 offset-sm-4">
+    <div class="col-xs-12 col-sm-8 offset-sm-2">
       <h1>Pots#index</h1>
       <ul>
-        <% @pots.each do |plant| %>
+        <% @pots.each do |pot| %>
           <li>
-            <%= pot.id + " - " + pot.name %>
+            <%= pot.id.to_s + " - " + pot.name + " - " + pot.material + " - " + pot.color %>
             <%= link_to edit_pot_path(pot) do %>
               <i class="fas fa-edit"></i>
             <% end %>
