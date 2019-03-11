@@ -65,5 +65,6 @@ class ApplicationController < ActionController::Base
     prof = Profile.new(first_name: "Gest", last_name: "Gest")
     prof.user = u
     prof.save!
+    u
   end
 end
