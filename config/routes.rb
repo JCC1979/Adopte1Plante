@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { registrations: 'registrations', sessions: "sessions" }
+  devise_for :users, controllers: { registrations: 'registrations', sessions: "sessions" }
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :profiles, only: %i[show new create update edit] do
@@ -23,6 +23,6 @@ Rails.application.routes.draw do
 
   resources :variant_pots, only: %i[edit update destroy]
   resources :variant_plants, only: %i[edit update destroy]
-  
-  get "/profiles/my_plants/:id", to: "profiles#my_plants", as: "profiles_my_plants"
+
+  get "/profiles/:id/my_plants/", to: "profiles#my_plants", as: "profiles_my_plants"
 end
