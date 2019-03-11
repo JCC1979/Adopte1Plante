@@ -4,15 +4,12 @@ puts 'Cleaning category database...'
 Order.destroy_all
 Profile.destroy_all
 User.destroy_all
-
 VariantPlant.destroy_all
 VariantPot.destroy_all
 Plant.destroy_all
 Pot.destroy_all
-
 Composition.destroy_all
 Taxref.destroy_all
-
 puts '... Cleaning -- OK'
 
 user1 = User.new(email: "jcc197959@hotmail.fr", password: "password", admin: true)
@@ -74,110 +71,92 @@ watering: "fort besoin", commercial_name: "Plan Paon", synonyms_list: "jean, mor
 
 puts "Ajout de 3 pots et 1 plante dans produc -- OK"
 
-varpot1 = VariantPot.new(sku: "pot-S", diameter_cm: 10, height_format: "S")
-varpot2 = VariantPot.new(sku: "pot-M", diameter_cm: 20, height_format: "M")
-varpot3 = VariantPot.new(sku: "pot-L", diameter_cm: 30, height_format: "L")
-varpot1.pot = pot1
-varpot2.pot = pot2
-varpot3.pot = pot3
-varpot1.save!
-varpot2.save!
-varpot3.save!
+varpot1s = VariantPot.new(sku: "pot1-S", diameter_cm: 10, height_format: "S", price: 10)
+varpot2s = VariantPot.new(sku: "pot2-S", diameter_cm: 10, height_format: "S", price: 12)
+varpot3s = VariantPot.new(sku: "pot3-S", diameter_cm: 10, height_format: "S", price: 14)
 
-varplant2 = VariantPlant.new(sku: "plant-M", diameter_cm: 20, height_format: "M")
-varplant2.plant = plant2
-varplant2.save!
+varpot1m = VariantPot.new(sku: "pot1-M", diameter_cm: 10, height_format: "M", price: 19)
+varpot2m = VariantPot.new(sku: "pot2-M", diameter_cm: 10, height_format: "M", price: 22)
+varpot3m = VariantPot.new(sku: "pot3-M", diameter_cm: 10, height_format: "M", price: 14)
 
-puts "Ajout des variantes S M L pour les pots et la plante -- OK"
+varpot1l = VariantPot.new(sku: "pot1-L", diameter_cm: 30, height_format: "L", price: 32)
+varpot2l = VariantPot.new(sku: "pot2-L", diameter_cm: 30, height_format: "L", price: 35)
+varpot3l = VariantPot.new(sku: "pot3-L", diameter_cm: 30, height_format: "L", price: 40)
 
-# match1 = { pot: variant_pot1m.id.to_s }
-# match2 = { pot: variant_pot2m.id.to_s }
-# match3 = { pot: variant_pot3m.id.to_s }
+varplant2s = VariantPlant.new(sku: 10, diameter_cm: 20, height_format: "S", price: 30)
+varplant2m = VariantPlant.new(sku: 11, diameter_cm: 30, height_format: "M", price: 45)
+varplant2l = VariantPlant.new(sku: 12, diameter_cm: 40, height_format: "L", price: 60)
 
-# match4 = { plant: variant_plant2s.id.to_s }
-# match5 = { plant: variant_plant2m.id.to_s }
-# match6 = { plant: variant_plant2l.id.to_s }
-# match7 = { plant: variant_plant2s.id.to_s, pot: variant_pot1s.id.to_s  }
-# match8 = { plant: variant_plant2m.id.to_s, pot: variant_pot1m.id.to_s  }
-# match9 = { plant: variant_plant2l.id.to_s, pot: variant_pot1l.id.to_s  }
+varpot1s.pot = pot1
+varpot1m.pot = pot1
+varpot1l.pot = pot1
+varpot2s.pot = pot2
+varpot2m.pot = pot2
+varpot2l.pot = pot2
+varpot3s.pot = pot3
+varpot3m.pot = pot3
+varpot3l.pot = pot3
+varplant2s.plant = plant2
+varplant2m.plant = plant2
+varplant2l.plant = plant2
 
-plant2_syno = Synonym.new
-plant2_syno.commercial_name = "Plan Paon"
-plant2_syno.product = plant2
-plant2_syno.synonyms_list = ["jean", "morise"]
-plant2_syno.save!
+varpot1s.save!
+varpot1m.save!
+varpot1l.save!
+varpot2s.save!
+varpot2m.save!
+varpot2l.save!
+varpot2s.save!
+varpot2m.save!
+varpot2l.save!
+varplant2s.save!
+varplant2m.save!
+varplant2l.save!
 
-puts "Ajout des synonyme pour la plante -- OK"
+puts "Ajout des variantes S M L pour 3 pots et 1 plante -- OK"
 
-# variant_pot1s = Variant.new(sku: 1, diameter_cm: 10, height_format: "S", price: 10)
-# variant_pot2s = Variant.new(sku: 2, diameter_cm: 10, height_format: "S", price: 12)
-# variant_pot3s = Variant.new(sku: 3, diameter_cm: 10, height_format: "S", price: 14)
+compo1 = Composition.new(variant_pot_sku: varpot1m.id.to_s, image_id: "/images/composition/pot1.jpg")
+compo2 = Composition.new(variant_pot_sku: varpot2m.id.to_s, image_id: "/images/composition/pot2.jpg")
+compo3 = Composition.new(variant_pot_sku: varpot3m.id.to_s, image_id: "/images/composition/pot3.jpg")
 
-# variant_pot1m = Variant.new(sku: 4, diameter_cm: 15, height_format: "M", price: 19)
-# variant_pot2m = Variant.new(sku: 5, diameter_cm: 15, height_format: "M", price: 22)
-# variant_pot3m = Variant.new(sku: 6, diameter_cm: 15, height_format: "M", price: 24)
+compo4 = Composition.new(variant_plant_sku: varplant2s.id.to_s, image_id: "/images/composition/planteS.jpg")
+compo5 = Composition.new(variant_plant_sku: varplant2m.id.to_s, image_id: "/images/composition/planteM.jpg")
+compo6 = Composition.new(variant_plant_sku: varplant2l.id.to_s, image_id: "/images/composition/planteL.jpg")
 
-# variant_pot1l = Variant.new(sku: 7, diameter_cm: 20, height_format: "L", price: 32)
-# variant_pot2l = Variant.new(sku: 8, diameter_cm: 20, height_format: "L", price: 40)
-# variant_pot3l = Variant.new(sku: 9, diameter_cm: 20, height_format: "L", price: 30)
+compo7 = Composition.new(variant_pot_sku: varplant2s.id.to_s, variant_plant_sku: varpot1s.id.to_s, image_id: "/images/composition/planteSpot1.jpg")
+compo8 = Composition.new(variant_pot_sku: varplant2m.id.to_s, variant_plant_sku: varpot1m.id.to_s, image_id: "/images/composition/planteMpot1.jpg")
+compo9 = Composition.new(variant_pot_sku: varplant2l.id.to_s, variant_plant_sku: varpot1l.id.to_s, image_id: "/images/composition/planteLpot1.jpg")
 
-# variant_plant2s = Variant.new(sku: 10, diameter_cm: 20, height_format: "S", price: 30)
-# variant_plant2m = Variant.new(sku: 11, diameter_cm: 30, height_format: "M", price: 45)
-# variant_plant2l = Variant.new(sku: 12, diameter_cm: 40, height_format: "L", price: 60)
+compo10 = Composition.new(variant_pot_sku: varplant2s.id.to_s, variant_plant_sku: varpot2s.id.to_s, image_id: "/images/composition/planteSpot2.jpg")
+compo11 = Composition.new(variant_pot_sku: varplant2m.id.to_s, variant_plant_sku: varpot2m.id.to_s, image_id: "/images/composition/planteMpot2.jpg")
+compo12 = Composition.new(variant_pot_sku: varplant2l.id.to_s, variant_plant_sku: varpot2l.id.to_s, image_id: "/images/composition/planteLpot2.jpg")
 
+compo13 = Composition.new(variant_pot_sku: varplant2s.id.to_s, variant_plant_sku: varpot3s.id.to_s, image_id: "/images/composition/planteSpot3.jpg")
+compo14 = Composition.new(variant_pot_sku: varplant2m.id.to_s, variant_plant_sku: varpot3m.id.to_s, image_id: "/images/composition/planteMpot3.jpg")
+compo15 = Composition.new(variant_pot_sku: varplant2l.id.to_s, variant_plant_sku: varpot3l.id.to_s, image_id: "/images/composition/planteLpot3.jpg")
 
-# match10 = { plant: variant_plant2s.id.to_s, pot: variant_pot2s.id.to_s  }
-# match11 = { plant: variant_plant2m.id.to_s, pot: variant_pot2m.id.to_s  }
-# match12 = { plant: variant_plant2l.id.to_s, pot: variant_pot2l.id.to_s }
+compo1.save!
+compo2.save!
+compo3.save!
+compo4.save!
+compo5.save!
+compo6.save!
+compo7.save!
+compo8.save!
+compo9.save!
+compo10.save!
+compo11.save!
+compo12.save!
+compo13.save!
+compo14.save!
+compo15.save!
 
-# match13 = { plant: variant_plant2s.id.to_s, pot: variant_pot3s.id.to_s }
-# match14 = { plant: variant_plant2m.id.to_s, pot: variant_pot3m.id.to_s }
-# match15 = { plant: variant_plant2l.id.to_s, pot: variant_pot3l.id.to_s  }
-
-
-# compo1 = Composition.new(variants_match: match1, image_id: "/images/composition/pot1.jpg")
-# compo2 = Composition.new(variants_match: match2, image_id: "/images/composition/pot2.jpg")
-# compo3 = Composition.new(variants_match: match3, image_id: "/images/composition/pot3.jpg")
-
-# compo4 = Composition.new(variants_match: match4, image_id: "/images/composition/planteS.jpg")
-# compo5 = Composition.new(variants_match: match5, image_id: "/images/composition/planteM.jpg")
-# compo6 = Composition.new(variants_match: match6, image_id: "/images/composition/planteL.jpg")
-
-# compo7 = Composition.new(variants_match: match7, image_id: "/images/composition/planteSpot1.jpg")
-# compo8 = Composition.new(variants_match: match8, image_id: "/images/composition/planteMpot1.jpg")
-# compo9 = Composition.new(variants_match: match9, image_id: "/images/composition/planteLpot1.jpg")
-
-# compo10 = Composition.new(variants_match: match10, image_id: "/images/composition/planteSpot2.jpg")
-# compo11 = Composition.new(variants_match: match11, image_id: "/images/composition/planteMpot2.jpg")
-# compo12 = Composition.new(variants_match: match12, image_id: "/images/composition/planteLpot2.jpg")
-
-# compo13 = Composition.new(variants_match: match13, image_id: "/images/composition/planteSpot3.jpg")
-# compo14 = Composition.new(variants_match: match14, image_id: "/images/composition/planteMpot3.jpg")
-# compo15 = Composition.new(variants_match: match15, image_id: "/images/composition/planteLpot3.jpg")
-
-# compo1.save!
-# compo2.save!
-# compo3.save!
-# compo4.save!
-# compo5.save!
-# compo6.save!
-# compo7.save!
-# compo8.save!
-# compo9.save!
-# compo10.save!
-# compo11.save!
-# compo12.save!
-# compo13.save!
-# compo14.save!
-# compo15.save!
-
-# puts "Ajout des compositions -- OK"
+puts "Ajout des compositions -- OK"
 
 
-# Order.create!(profile_id: profile1.id, composition_id: compo8.id, status:"done",composition_nickname:"Fanny")
-# Order.create!(profile_id: profile2.id, composition_id: compo8.id, status:"done",composition_nickname:"Fanny")
-# Order.create!(profile_id: profile3.id, composition_id: compo8.id, status:"done",composition_nickname:"Fanny")
-
+# Order.create!(profile_id: profile1.id, composition_id: compo8.id, status: "done", composition_nickname: "Fanny")
+# Order.create!(profile_id: profile2.id, composition_id: compo8.id, status: "done", composition_nickname: "Fanny")
+# Order.create!(profile_id: profile3.id, composition_id: compo8.id, status: "done", composition_nickname: "Fanny")
 
 # puts "Attribution d'une contribusion a chaque user --OK"
 
