@@ -3,6 +3,16 @@ class VariantPlant < ApplicationRecord
   validates :sku, presence: true, uniqueness: true
   validates :diameter_cm, presence: true
   validates :height_format, presence: true, inclusion: { in: %w(S M L)}
+  
+  monetize :price_cents
+
+  def prices
+    plant.variant_plants.pluck(:height_format, :price_cents).to_h
+  end
+
+  def ids
+    plant.variant_plants.pluck(:height_format, :id).to_h
+  end
 
   def findphoto
     search_composition = Composition.all.select do |comp|
