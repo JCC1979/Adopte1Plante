@@ -25,7 +25,7 @@ class PotsController < ApplicationController
     authorize @pot
 
     @newvariant = VariantPot.new
-    uthorize @newvariant
+    authorize @newvariant
   end
 
   def update

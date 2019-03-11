@@ -1,0 +1,108 @@
+<div>
+  <div class="row">
+    <div class="col">
+      <p class="text-center"><%= pot.id.to_s + " - " + pot.name + " - " + pot.material + " - " + pot.color %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col text-center">
+      <%= render 'cardvariant', variant: pot.givevariant("M"), format: "M", addr: "variants_pot/addvariantM.png" %>
+    </div>
+    <div class="col text-center">
+      <%= render 'cardvariant', variant: plant.givevariant("M"), format: "M", addr: "variants_plant/addvariantM.png" %>
+    </div>
+  </div>
+</div> 
+
+<br/>
+
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Pot-S</th>
+        <th scope="col">Pot-M</th>
+        <th scope="col">Pot-L</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <th scope="row">Plant-L</th>
+        <td>
+          <% if c = Composition.findcompo({variant_pot_sku: pot.givevariant("L")&.sku , variant_plant_sku: plant.givevariant("S")&.sku}).nil? %>
+            Create
+          <% else %>
+            Edit
+          <% end %>
+        </td>
+        <td>
+          <% if c = Composition.findcompo({variant_pot_sku: pot.givevariant("L")&.sku , variant_plant_sku: plant.givevariant("S")&.sku}).nil? %>
+            Create
+          <% else %>
+            Edit
+          <% end %>
+        </td>
+        <td>
+          <% if c = Composition.findcompo({variant_pot_sku: pot.givevariant("L")&.sku , variant_plant_sku: plant.givevariant("S")&.sku}).nil? %>
+             Create
+          <% else %>
+            Edit
+          <% end %>
+        </td>
+      </tr>
+
+      <tr>
+        <th scope="row">Plant-M</th>
+        <td>
+          <% if c = Composition.findcompo({variant_pot_sku: pot.givevariant("L")&.sku , variant_plant_sku: plant.givevariant("S")&.sku}).nil? %>
+            Create
+          <% else %>
+            Edit
+          <% end %>
+        </td>
+        <td>
+          <% if c = Composition.findcompo({variant_pot_sku: pot.givevariant("L")&.sku , variant_plant_sku: plant.givevariant("S")&.sku}).nil? %>
+            Create
+          <% else %>
+            Edit
+          <% end %>
+        </td>
+        <td>
+          <% if c = Composition.findcompo({variant_pot_sku: pot.givevariant("L")&.sku , variant_plant_sku: plant.givevariant("S")&.sku}).nil? %>
+            Create
+          <% else %>
+            Edit
+          <% end %>
+        </td>
+      </tr>
+
+      <tr>
+        <th scope="row">Plant-S</th>
+        <td>
+          <% if c = Composition.findcompo({variant_pot_sku: pot.givevariant("L")&.sku , variant_plant_sku: plant.givevariant("S")&.sku}).nil? %>
+            Create
+          <% else %>
+            Edit
+          <% end %>
+        </td>
+        <td>
+          <% if c = Composition.findcompo({variant_pot_sku: pot.givevariant("L")&.sku , variant_plant_sku: plant.givevariant("S")&.sku}).nil? %>
+            Create
+          <% else %>
+            Edit
+          <% end %>
+        </td>
+        <td>
+          <% if c = Composition.findcompo({variant_pot_sku: pot.givevariant("L")&.sku , variant_plant_sku: plant.givevariant("S")&.sku}).nil? %>
+            Create
+          <% else %>
+            Edit
+          <% end %>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
