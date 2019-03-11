@@ -27,9 +27,14 @@ initSelect2();
 
 import { scrolling } from '../components/navbar';
 
-if (document.getElementsByClassName('.nav')) {
+if (document.querySelector('.banner-home')) {
   scrolling();
+  console.log("scrolle")
 }
+else {
+  const nav = document.querySelector('nav')
+  nav.classList.add('navbar-bg-scrolled')
+};
 
 import { plus } from '../components/voirplus';
 if (document.getElementById("voirplus")) {

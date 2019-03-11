@@ -1,1 +1,48 @@
-<h1>Compositions#index</h1>
+<div class="container">
+  <h1>Compositions#index</h1>
+
+  <form>
+    <div class="form-group">
+      <label for="exampleFormControlFile1">Example file input</label>
+      <input type="file" class="form-control-file" id="exampleFormControlFile1">
+    </div>
+  </form>
+
+  <div class="row">
+    <div class="col-4">
+      <div class="list-group" id="list-tab" role="tablist">
+        <% @plants.each do |plant| %>
+          <a class="list-group-item list-group-item-action" 
+          id=<%= "list-" + plant.fullname + "-list"%> 
+          data-toggle="list" 
+          href=<%= "#list-" + plant.fullname %> 
+          role="tab" aria-controls=<%= plant.fullname %>>
+            <%= plant.id_code.to_s + " - " + plant.fullname %>
+          </a>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-8">
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">...</div>
+
+
+        <% @plants.each do |plant| %>
+          <div class="tab-pane fade" 
+          id=<%= "list-" + plant.fullname %> 
+          role="tabpanel" 
+          aria-labelledby=<%= "list-" + plant.fullname + "-list"%> >
+            blablablabla
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
+
+  <% if policy(Composition).create? %>
+    <br/>
+    <%= link_to "Create a new composition", new_composition_path,class: "btn btn-primary"  %>
+  <% end %>
+</div>
