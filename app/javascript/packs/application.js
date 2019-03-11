@@ -27,6 +27,8 @@ initSelect2();
 
 import { scrolling } from '../components/navbar';
 
+
+// Pour afficher la navbar non transparente sur autres pages que la home
 if (document.querySelector('.banner-home')) {
   scrolling();
 }
@@ -37,7 +39,7 @@ else {
   nav.classList.add('navbar-bg-scrolled');
   const img = document.querySelector('.img-navbar')
   img.src = '/assets/logowhite.png';
-  
+
   });
 };
 
