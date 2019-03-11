@@ -12,22 +12,7 @@
             <div class="card-order-infos">
               <h3><%= order.composition_nickname %></h3>
               <p>adoper le <%=order.created_at.strftime('%d-%m-%y')%></p>
-              <% contents = order.composition.variants_match.split(";") %>
-              <% contents.each do |content| %>
-                <% if Variant.find(content.to_i).product.category.name == "plant" %>
-                  <p>
-                    <%= Variant.find(content.to_i).gender%> 
-                    <%= Variant.find(content.to_i).family%> 
-                    <%= Variant.find(content.to_i).species%> 
-                    <%= Variant.find(content.to_i).cultivar%>
-                  </p>
-                <% end %>
-              <% end %>
-              <% contents.each do |content| %>
-                <% if Variant.find(content.to_i).product.category.name == "pot" %>
-                  <p>Pot : <%= Variant.find(content.to_i).material%> <%= Variant.find(content.to_i).color%></p>
-                <% end %>
-              <% end %>
+              
             </div>
           </div>
         </div>
