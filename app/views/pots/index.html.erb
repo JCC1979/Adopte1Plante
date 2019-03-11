@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 offset-sm-4">
+      <h1>Pots#index</h1>
+      <ul>
+        <% @pots.each do |pot| %>
+          <li>
+            <%= pot.id + " - " + pot.name + " - " + pot.material + " - " + pot.color %>
+            <%= link_to edit_pot_path(pot) do %>
+              <i class="fas fa-edit"></i>
+            <% end %>
+            <%= link_to pot_path(pot), method: :delete, data: {:confirm => "Are you sure to delete -" + pot.name + "- ?"} do %>
+              <i class="far fa-trash-alt"></i>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+      <% if policy(Pot).create? %>
+        <%= link_to "Create a new pot", new_pot_path,class: "btn btn-primary"  %>
+      <% end %>
+    </div>
+  </div>
+</div>

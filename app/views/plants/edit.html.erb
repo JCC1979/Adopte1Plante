@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="grid">
+    <div class="col">
+      <br/>
+      <div class="product-content">
+        <%= render 'plantform', product: @plant %>
+      </div>
+    </div>
+
+    <div class="card-variant-L">
+      <div class="card col">
+        <%= render 'cardvariant', variant: @variantL, format: "L", addr: "variants_plant/addvariantL.png" %>
+      </div>
+    </div>
+
+    <div class="card-variant-M">
+      <div class="card col">
+        <%= render 'cardvariant', variant: @variantM, format: "M", addr: "variants_plant/addvariantM.png" %>
+      </div>
+    </div>
+
+    <div class="card-variant-S">
+      <div class="card col">
+        <%= render 'cardvariant', variant: @variantS, format: "S", addr: "variants_plant/addvariantS.png" %>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
