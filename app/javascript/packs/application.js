@@ -31,9 +31,14 @@ if (document.querySelector('.banner-home')) {
   scrolling();
 }
 else {
+  document.querySelectorAll('.nav-link').forEach((element) => {
+  element.classList.add('nav-link-scrolled');
   const nav = document.querySelector('nav')
-  nav.classList.add('navbar-bg-scrolled')
+  nav.classList.add('navbar-bg-scrolled');
+  const img = document.querySelector('.img-navbar')
+  img.src = '/assets/logowhite.png';
   
+  });
 };
 
 import { plus } from '../components/voirplus';
