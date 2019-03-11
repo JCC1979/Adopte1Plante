@@ -14,6 +14,6 @@ class Composition < ApplicationRecord
   end
 
   def price
-    Variant_pot.find(sku: variant_pot_sku).price_cents + Variant_plant.find(sku: variant_plant_sku).price_cents
+    VariantPot.find_by(sku: variant_pot_sku).price_cents + VariantPlant.find_by(sku: variant_plant_sku).price_cents
   end
 end

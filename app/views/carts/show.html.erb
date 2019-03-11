@@ -13,7 +13,7 @@
                 <h3><%= order.composition_nickname %></h3>
                 <p>adoper le <%=order.created_at.strftime('%d-%m-%y')%></p>
                 
-                <% price = 0 %>
+                <% price = order.composition.price / 100 %>
                 
               </div>
               <div class="card-order-status">
