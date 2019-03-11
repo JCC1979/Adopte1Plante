@@ -27,12 +27,12 @@ initSelect2();
 
 import { scrolling } from '../components/navbar';
 
-if (document.getElementsByClassName('.banner-home')) {
+if (document.querySelector('.banner-home')) {
   scrolling();
+  console.log("scrolle")
 }
 else {
-
-  const nav = document.getElementsByClassName('nav')
+  const nav = document.querySelector('nav')
   nav.classList.add('navbar-bg-scrolled')
 };
 
