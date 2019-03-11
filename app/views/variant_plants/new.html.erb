@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 offset-sm-3">
+      <h1>VariantPlant#create</h1>
+      <h2>Format <%= params[:format] %></h2>
+      <%= simple_form_for @variant_plant, url: plant_variant_plants_path(@plant) do |f| %>
+        <%= f.input :sku %>
+        <%= f.input :diameter_cm %>
+        <%= f.input :height_format, as: :hidden, input_html: { value: params[:format] } %>
+        <label>Add photo file</label>
+        <input type="file" name="photo_file_variant" class="form-control-file"></input>
+        <br/>
+        <%= f.submit "Add", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

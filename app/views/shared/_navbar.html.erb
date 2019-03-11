@@ -7,10 +7,16 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <div class="caddie">
-          <a class="nav-link" href="#"><i class="fas fa-shopping-basket"></i></a>
-          <div class="caddie-nbr badge badge-primary">1</div>
-        </div>
+        <% if current_or_guest_user %>
+          <div class="caddie">  
+            <%= link_to profile_carts_path(current_or_guest_user.profile),class: "nav-link" do %>
+              <i class="fas fa-shopping-basket"></i>
+              <% if current_or_guest_user.profile.nbr_orders > 0%>
+                <div class="caddie-nbr badge badge-primary"><%= current_or_guest_user.profile.nbr_orders %></div>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
       </li>
       <% if user_signed_in? %>
         <li class="nav-item">

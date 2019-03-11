@@ -1,4 +1,6 @@
 class ProfilesController < ApplicationController
+  skip_before_action :authenticate_user!, only: :show
+  helper_method :current_or_guest_user
   def new
   end
 
@@ -6,7 +8,8 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @orders = current_user.profile.orders.order(created_at: :desc)
+    @profile = @profile = Profile.find(params[:id])
+    @carts = current_user.profile.carts.where.not(state: "pending").order(created_at: :desc)
   end
 
   def my_plants

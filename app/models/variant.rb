@@ -16,4 +16,8 @@ class Variant < ApplicationRecord
   def prices
     product.variants.pluck(:height_format, :price_cents).to_h
   end
+
+  def ids
+    product.variants.pluck(:height_format, :id).to_h
+  end
 end

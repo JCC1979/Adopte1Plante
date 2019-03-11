@@ -1,0 +1,22 @@
+<%= simple_form_for product do |f|%>        
+        <%= f.input :family, collection: Taxref.order('family').distinct.pluck("family") %>
+        <%= f.input :gender, collection: Taxref.order('gender').distinct.pluck("gender") %>
+        <div style="display: flex;justify-content: space-between;">
+                <%= f.input :species, collection: Taxref.distinct.order('species').pluck("species") %>
+                <%= f.input :cultivar %>
+                <%= f.input :variant %>
+        </div>
+        <div style="display: flex;justify-content: space-between;">
+                <%= f.input :id_code %>
+                <%= f.input :id_sup %>
+        </div>
+        <%= f.input :description, as: :text %>
+        <div style="display: flex;justify-content: space-between;">
+                <%= f.input :commercial_name %>
+                <%= f.input :sun_exposure, collection: ["jamais directement au soleil", "zone sombre", "ombragé", "ensoleillé", "désertique"] %>
+                <%= f.input :watering, collection: ["si la terre est sèche", "1 fois par semaine", "2 fois par semaine", "3 fois par semaine", "en abondance"] %>
+        </div>
+        <%= f.input :synonyms_list %>
+
+        <%= f.submit "Validate", class: "btn btn-primary" %>
+<% end %> 

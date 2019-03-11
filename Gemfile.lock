@@ -67,6 +67,7 @@ GEM
       rest-client
     coderay (1.1.2)
     concurrent-ruby (1.1.4)
+    connection_pool (2.2.2)
     countries (3.0.0)
       i18n_data (~> 0.8.0)
       sixarm_ruby_unaccent (~> 1.1)
@@ -89,6 +90,8 @@ GEM
       railties (>= 3.2, < 6.1)
     erubi (1.8.0)
     execjs (2.7.0)
+    faraday (0.15.4)
+      multipart-post (>= 1.2, < 3)
     ffi (1.10.0)
     font-awesome-sass (5.5.0.1)
       sassc (>= 1.11)
@@ -133,6 +136,9 @@ GEM
       railties (>= 3.0)
     msgpack (1.2.7)
     multi_json (1.13.1)
+    multipart-post (2.0.0)
+    net-http-persistent (3.0.0)
+      connection_pool (~> 2.2)
     netrc (0.11.0)
     nio4r (2.3.1)
     nokogiri (1.10.1)
@@ -148,6 +154,8 @@ GEM
     pry-rails (0.3.9)
       pry (>= 0.10.4)
     puma (3.12.0)
+    pundit (2.0.1)
+      activesupport (>= 3.0.0)
     rack (2.0.6)
     rack-proxy (0.6.5)
       rack
@@ -216,6 +224,9 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    stripe (4.9.0)
+      faraday (~> 0.13)
+      net-http-persistent (~> 3.0)
     thor (0.20.3)
     thread_safe (0.3.6)
     tilt (2.0.9)
@@ -262,12 +273,14 @@ DEPENDENCIES
   pry-byebug
   pry-rails
   puma
+  pundit
   rails (= 5.2.2)
   redis
   sassc-rails
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
+  stripe
   uglifier
   web-console (>= 3.3.0)
   webpacker

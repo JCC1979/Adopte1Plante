@@ -12,6 +12,7 @@ const changeSML = () => {
   const elementPot2 = document.getElementById("pot2");
   const elementPot3 = document.getElementById("pot3");
 
+
   //elements prix des pots
   const elementPot1Price = document.querySelector("#pot1 .card-pot-price");
   const elementPot2Price = document.querySelector("#pot2 .card-pot-price");
@@ -19,6 +20,11 @@ const changeSML = () => {
 
   // taille S
   elementSizeS.addEventListener("click", (event) => {
+
+    //mise a jour des ids des pots
+    elementPot1.dataset.potId = elementPot1.dataset.potIdS;
+    elementPot2.dataset.potId = elementPot2.dataset.potIdS;
+    elementPot3.dataset.potId = elementPot3.dataset.potIdS;
 
     // mise a jour des prix des pots
     elementPot1Price.innerHTML = `${ elementPot1.dataset.priceS / 100} €`;
@@ -37,10 +43,16 @@ const changeSML = () => {
     elementSizeM.classList.remove("card-main-size-active");
     elementSizeL.classList.remove("card-main-size-active");
     updatePrice();
+    updateComposition();
   });
 
   //taille M
   elementSizeM.addEventListener("click", (event) => {
+
+    //mise a jour des ids des pots
+    elementPot1.dataset.potId = elementPot1.dataset.potIdM;
+    elementPot2.dataset.potId = elementPot2.dataset.potIdM;
+    elementPot3.dataset.potId = elementPot3.dataset.potIdM;
 
     // mise a jour des prix des pots
     elementPot1Price.innerHTML = `${ elementPot1.dataset.priceM / 100} €`;
@@ -59,10 +71,16 @@ const changeSML = () => {
     elementSizeM.classList.add("card-main-size-active");
     elementSizeL.classList.remove("card-main-size-active");
     updatePrice();
+    updateComposition();
   });
 
   //taille L
   elementSizeL.addEventListener("click", (event) => {
+
+    //mise a jour des ids des pots
+    elementPot1.dataset.potId = elementPot1.dataset.potIdL;
+    elementPot2.dataset.potId = elementPot2.dataset.potIdL;
+    elementPot3.dataset.potId = elementPot3.dataset.potIdL;
 
     // mise a jour des prix des pots
     elementPot1Price.innerHTML = `${ elementPot1.dataset.priceL / 100} €`;
@@ -81,6 +99,7 @@ const changeSML = () => {
     elementSizeM.classList.remove("card-main-size-active");
     elementSizeL.classList.add("card-main-size-active");
     updatePrice();
+    updateComposition();
   });
 
 };
@@ -96,6 +115,7 @@ const changePot= () => {
     elementPot3.classList.remove("card-pot-active");
     
     updatePrice();
+    updateComposition();
   });
 
   elementPot2.addEventListener("click", (event) => {
@@ -105,6 +125,7 @@ const changePot= () => {
     
     
     updatePrice();
+    updateComposition();
   });
 
   elementPot3.addEventListener("click", (event) => {
@@ -113,6 +134,7 @@ const changePot= () => {
     elementPot3.classList.add("card-pot-active");
 
     updatePrice();
+    updateComposition();
   });
 
 };
@@ -120,13 +142,27 @@ const changePot= () => {
 const updatePrice = () => {
   //element de la case total du prix
   const elementPrice = document.getElementById("price-compo");
-  const sizeActive = document.querySelector(".card-main-size-active")
+  const sizeActive = document.querySelector(".card-main-size-active");
   let price = parseInt(sizeActive.dataset.price);
     if (document.querySelector(".card-pot-active")) {
       const elementPotActive = document.querySelector(".card-pot-active");
       price += parseInt(elementPotActive.dataset.price);
     } 
     elementPrice.innerText = `${ price / 100} €`;
+}
+
+const updateComposition = () => {
+  //recuperation de id de la plante
+  const sizeActive = document.querySelector(".card-main-size-active");
+  const formPlantId = document.getElementById("plantId");
+  formPlantId.value = sizeActive.dataset.plantId;
+
+  //recuperation de id du pot si actif
+  if (document.querySelector(".card-pot-active")) {
+    const elementPotActive = document.querySelector(".card-pot-active");
+    const formPotId = document.getElementById("potId");
+    formPotId.value = elementPotActive.dataset.potId;
+  } 
 }
 
 const changeImg = () => {
