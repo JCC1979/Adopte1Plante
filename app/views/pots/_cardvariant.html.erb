@@ -1,0 +1,24 @@
+<div id="variant-picture">
+  <% if variant.nil? %>
+    <%= image_tag(addr, width: 200, height: 190, class: "mx-auto d-block") %>
+  <% else %>
+    <%= image_tag(variant.findphoto, width: 200, height: 190, class: "mx-auto d-block") %>
+  <% end %>
+</div>
+
+<div  id="variant-action" class="card-body d-flex justify-content-between" style="height: 40px; padding: 10px;">
+  <% if variant.nil? %>
+    <%= link_to "Create", new_pot_variant_pot_path(@pot, format: format) %>
+  <% else %>
+    <h5 class="card-title"><%= format %> (sku : <%= variant.sku %>)</h5>
+
+    <%= link_to edit_variant_pot_path(variant, format: format) do %>    
+      <i class="fas fa-edit "></i>
+    <% end %>
+
+    <%= link_to variant_pot_path(variant), method: :delete, data: {:confirm => "Are you sure to delete this variant ?"} do %>
+      <i class="far fa-trash-alt"></i>
+    <% end %>
+
+  <% end %>
+</div>
