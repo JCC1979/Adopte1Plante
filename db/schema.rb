@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 2019_03_11_093010) do
 
-ActiveRecord::Schema.define(version: 2019_03_10_144511) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,12 +24,6 @@ ActiveRecord::Schema.define(version: 2019_03_10_144511) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["profile_id"], name: "index_carts_on_profile_id"
-  end
-
-  create_table "categories", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "compositions", force: :cascade do |t|
@@ -68,10 +62,8 @@ ActiveRecord::Schema.define(version: 2019_03_10_144511) do
     t.string "watering"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "synonym_id"
     t.string "commercial_name"
     t.text "synonyms_list"
-    t.index ["synonym_id"], name: "index_plants_on_synonym_id"
   end
 
   create_table "pots", force: :cascade do |t|
@@ -80,14 +72,6 @@ ActiveRecord::Schema.define(version: 2019_03_10_144511) do
     t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "products", force: :cascade do |t|
-    t.bigint "category_id"
-    t.jsonb "details"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_products_on_category_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -110,13 +94,6 @@ ActiveRecord::Schema.define(version: 2019_03_10_144511) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["composition_id"], name: "index_ratings_on_composition_id"
-  end
-
-  create_table "synonyms", force: :cascade do |t|
-    t.string "commercial_name"
-    t.text "synonyms_list"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "taxrefs", force: :cascade do |t|
@@ -153,6 +130,7 @@ ActiveRecord::Schema.define(version: 2019_03_10_144511) do
     t.string "height_format"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "price_cents", default: 0, null: false
     t.index ["plant_id"], name: "index_variant_plants_on_plant_id"
   end
 
@@ -163,31 +141,15 @@ ActiveRecord::Schema.define(version: 2019_03_10_144511) do
     t.string "height_format"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["pot_id"], name: "index_variant_pots_on_pot_id"
-  end
-
-  create_table "variants", force: :cascade do |t|
-    t.string "sku"
-    t.bigint "product_id"
-    t.integer "diameter_cm"
-    t.string "height_format"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "pot_id"
-    t.bigint "plant_id"
-    t.index ["plant_id"], name: "index_variants_on_plant_id"
-    t.index ["pot_id"], name: "index_variants_on_pot_id"
     t.integer "price_cents", default: 0, null: false
-    t.index ["product_id"], name: "index_variants_on_product_id"
+    t.index ["pot_id"], name: "index_variant_pots_on_pot_id"
   end
 
   add_foreign_key "carts", "profiles"
   add_foreign_key "orders", "compositions"
   add_foreign_key "orders", "profiles"
-  add_foreign_key "products", "categories"
   add_foreign_key "profiles", "users"
   add_foreign_key "ratings", "compositions"
   add_foreign_key "variant_plants", "plants"
   add_foreign_key "variant_pots", "pots"
-  add_foreign_key "variants", "products"
 end
