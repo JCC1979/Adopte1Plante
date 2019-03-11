@@ -1,0 +1,21 @@
+<% varpot = pot.givevariant(potformat) %>
+<% varplant = plant.givevariant(plantformat) %>
+<% compo = Composition.findcompo({variant_pot_sku: varpot.sku , variant_plant_sku: varplant.sku}) %>
+<% compo_photo = compo&.local_image %>
+
+
+<% if compo_photo.nil? %>
+
+  <% if policy(Composition).create? %>
+    <%= link_to "Create", new_composition_path(format: potformat), class: "btn btn-primary"  %>
+  <% end %>
+
+<% else %>
+
+  <% if policy(Composition).edit? %>
+    <%= link_to edit_composition_path(compo, format: (potformat + "-" + plantformat)) do %>    
+      <i class="fas fa-edit "></i>
+    <% end %>
+  <% end %>
+
+<% end %>
