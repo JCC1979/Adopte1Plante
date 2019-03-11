@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   include Pundit
 
   def pundit_user
-    current_user ||= guest_user # guest user
+    current_user ? current_user : guest_user
   end
 
   # Pundit: white-list approach.
