@@ -3,4 +3,8 @@ class Pot < ApplicationRecord
   validates :name, presence: true
   validates :material, presence: true
   validates :color, presence: true
+
+  def givevariant(size)
+    variant_pots.where(height_format: size)&.first
+  end
 end

@@ -1,5 +1,6 @@
 class VariantPotsController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
+  before_action :set_variant_pot, only: [:edit, :update, :destroy]
   helper_method :current_or_guest_user
 
   def new
@@ -13,11 +14,12 @@ class VariantPotsController < ApplicationController
     @pot = Pot.find(params[:pot_id])
     authorize @pot
     @variant_pot = VariantPot.new(variant_params)
-    authorize @variant_pot
     @variant_pot.pot = @pot
+    authorize @variant_pot
 
     if @variant_pot.save
       @composition = Composition.create!(local_image: ("variants_pot/" + params[:photo_file_variant]), variant_pot_sku: @variant_pot.sku)
+      authorize @composition
       redirect_to edit_pot_path(@pot)
     else
       render :new
@@ -25,17 +27,16 @@ class VariantPotsController < ApplicationController
   end
 
   def edit
-    @variant_pot = VariantPot.find(params[:id])
     authorize @variant_pot
   end
 
   def update
-    @variant_pot = VariantPot.find(params[:id])
     authorize @variant_pot
     if @variant_pot.update(variant_params)
       @composition = @variant_pot.findcompositionforpotvariant
       if @composition.nil?
-        Composition.create!(local_image: ("variants_pot/" + params[:photo_file_variant]), variant_pot_sku: @variant_pot.sku)
+        @composition = Composition.create!(local_image: ("variants_pot/" + params[:photo_file_variant]), variant_pot_sku: @variant_pot.sku)
+        authorize @composition
       else
         @composition.update!(local_image: ("variants_pot/" + params[:photo_file_variant]), variant_pot_sku: @variant_pot.sku)
       end
@@ -46,7 +47,6 @@ class VariantPotsController < ApplicationController
   end
 
   def destroy
-    @variant_pot = VariantPot.find(params[:id])
     authorize @variant_pot
     @variant_pot.destroy
     @pot = @variant_pot.pot
@@ -57,6 +57,10 @@ class VariantPotsController < ApplicationController
   private
 
   def variant_params
-    params.require(:variant_pot).permit(:sku, :diameter_cm, :height_format, :photo_file_variant)
+    params.require(:variant_pot).permit(:sku, :diameter_cm, :height_format, :photo_file_variant, :price)
+  end
+
+  def set_variant_pot
+    @variant_pot = VariantPot.find(params[:id])
   end
 end

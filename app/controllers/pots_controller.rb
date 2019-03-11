@@ -1,20 +1,9 @@
 class PotsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_pot, only: [:edit, :update, :destroy]
   helper_method :current_or_guest_user
 
   def index
     @pots = policy_scope(Pot)
-  end
-
-  def show
-    authorize @pot
-    @variant_pots = @pot.variant_pots
-    @variantS = @variant_pots.where(height_format: "S")&.first
-    @variantM = @variant_pots.where(height_format: "M")&.first
-    @variantL = @variant_pots.where(height_format: "L")&.first
-    authorize @variant_pots
-
-    @newvariant = VariantPot.new
   end
 
   def new
@@ -34,13 +23,9 @@ class PotsController < ApplicationController
 
   def edit
     authorize @pot
-    @variant_pots = @pot.variant_pots
-    authorize @variant_pots
-    @variantS = @variant_pots.where(height_format: "S")&.first
-    @variantM = @variant_pots.where(height_format: "M")&.first
-    @variantL = @variant_pots.where(height_format: "L")&.first
 
     @newvariant = VariantPot.new
+    uthorize @newvariant
   end
 
   def update
@@ -64,7 +49,7 @@ class PotsController < ApplicationController
     params.require(:pot).permit(:name, :material, :color)
   end
 
-  def set_product
+  def set_pot
     @pot = Pot.find(params[:id])
   end
 end

@@ -8,4 +8,8 @@ class Plant < ApplicationRecord
   def fullname
     gender.capitalize + ' ' + species
   end
+
+  def givevariant(size)
+    variant_plants.where(height_format: size)&.first
+  end
 end
