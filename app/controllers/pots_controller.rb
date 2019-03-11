@@ -5,6 +5,17 @@ class PotsController < ApplicationController
     @pots = policy_scope(Pot)
   end
 
+  def show
+    authorize @pot
+    @variant_pots = @pot.variant_pots
+    @variantS = @variant_pots.where(height_format: "S")&.first
+    @variantM = @variant_pots.where(height_format: "M")&.first
+    @variantL = @variant_pots.where(height_format: "L")&.first
+    authorize @variant_pots
+
+    @newvariant = VariantPot.new
+  end
+
   def new
     @pot = Pot.new
     authorize @pot
@@ -22,6 +33,13 @@ class PotsController < ApplicationController
 
   def edit
     authorize @pot
+    @variant_pots = @pot.variant_pots
+    authorize @variant_pots
+    @variantS = @variant_pots.where(height_format: "S")&.first
+    @variantM = @variant_pots.where(height_format: "M")&.first
+    @variantL = @variant_pots.where(height_format: "L")&.first
+
+    @newvariant = VariantPot.new
   end
 
   def update
@@ -49,4 +67,3 @@ class PotsController < ApplicationController
     @pot = Pot.find(params[:id])
   end
 end
-

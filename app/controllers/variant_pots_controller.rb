@@ -1,47 +1,62 @@
 class VariantPotsController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
-    
+  helper_method :current_or_guest_user
+
   def new
-    @plant = Plant.find(params[:product_id])
-    authorize @plant
+    @pot = Pot.find(params[:pot_id])
+    authorize @pot
     @variant_pot = VariantPot.new
     authorize @variant_pot
   end
-  
+
   def create
-    @plant = Plant.find(params[:product_id])
-    authorize @plant
+    @pot = Pot.find(params[:pot_id])
+    authorize @pot
     @variant_pot = VariantPot.new(variant_params)
     authorize @variant_pot
-    @variant_pot.pot = Plant.find(params[:product_id])
-    @composition = Composition.new
-    @composition.variants_match = { pot: @variant.sku }
+    @variant_pot.pot = @pot
 
-    if params[:image_id].present?
-      preloaded = Cloudinary::PreloadedFile.new(params[:image_id])
-      raise "Invalid upload signature" if !preloaded.valid?
-      @composition.image_id = preloaded.identifier
-      if @variant_pot.save! && @composition.save!
-        # set_flash_message! :notice, :"Variant saved"
-        redirect_to product_path(@plant)
-      else
-        # set_flash_message! :alert, :"Problem on save operation"
-        render :new
-      end
+    if @variant_pot.save
+      @composition = Composition.create!(local_image: ("variants_pot/" + params[:photo_file_variant]), variant_pot_sku: @variant_pot.sku)
+      redirect_to edit_pot_path(@pot)
+    else
+      render :new
     end
   end
 
+  def edit
+    @variant_pot = VariantPot.find(params[:id])
+    authorize @variant_pot
+  end
+
   def update
+    @variant_pot = VariantPot.find(params[:id])
+    authorize @variant_pot
+    if @variant_pot.update(variant_params)
+      @composition = @variant_pot.findcompositionforpotvariant
+      if @composition.nil?
+        Composition.create!(local_image: ("variants_pot/" + params[:photo_file_variant]), variant_pot_sku: @variant_pot.sku)
+      else
+        @composition.update!(local_image: ("variants_pot/" + params[:photo_file_variant]), variant_pot_sku: @variant_pot.sku)
+      end
+      redirect_to edit_pot_path(@variant_pot.pot)
+    else
+      render :edit
+    end
   end
 
   def destroy
-    
+    @variant_pot = VariantPot.find(params[:id])
+    authorize @variant_pot
+    @variant_pot.destroy
+    @pot = @variant_pot.pot
+    authorize @pot
+    redirect_to edit_pot_path(@pot)
   end
 
   private
 
   def variant_params
-    params.require(:variant_pot).permit(:sku, :diameter_cm, :heigh_format)
+    params.require(:variant_pot).permit(:sku, :diameter_cm, :height_format, :photo_file_variant)
   end
 end
-

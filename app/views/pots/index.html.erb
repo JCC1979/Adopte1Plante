@@ -3,13 +3,13 @@
     <div class="col-xs-12 col-sm-4 offset-sm-4">
       <h1>Pots#index</h1>
       <ul>
-        <% @pots.each do |pot| %>
+        <% @pots.each do |plant| %>
           <li>
-            <%= pot.id + " - " + pot.name + " - " + pot.material + " - " + pot.color %>
+            <%= pot.id + " - " + pot.name %>
             <%= link_to edit_pot_path(pot) do %>
               <i class="fas fa-edit"></i>
             <% end %>
-            <%= link_to pot_path(pot), method: :delete, data: {:confirm => "Are you sure to delete -" + pot.name + "- ?"} do %>
+            <%= link_to pot_path(pot), method: :delete, data: {:confirm => "Are you sure to delete ?"} do %>
               <i class="far fa-trash-alt"></i>
             <% end %>
           </li>

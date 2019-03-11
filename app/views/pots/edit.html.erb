@@ -1,10 +1,29 @@
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 offset-sm-2">
-      <h1>Pot#edit</h1>
-      <div class="col">
-        <%= render 'potform', pot: @pot %>
+  <div class="grid">
+    <div class="col">
+      <br/>
+      <div class="product-content">
+        <%= render 'potform', product: @pot %>
       </div>
     </div>
+
+    <div class="card-variant-L">
+      <div class="card col">
+        <%= render 'cardvariant', variant: @variantL, format: "L", addr: "variants_pot/addvariantL.png" %>
+      </div>
+    </div>
+
+    <div class="card-variant-M">
+      <div class="card col">
+        <%= render 'cardvariant', variant: @variantM, format: "M", addr: "variants_pot/addvariantM.png" %>
+      </div>
+    </div>
+
+    <div class="card-variant-S">
+      <div class="card col">
+        <%= render 'cardvariant', variant: @variantS, format: "S", addr: "variants_pot/addvariantS.png" %>
+      </div>
+    </div>
+
   </div>
 </div>
