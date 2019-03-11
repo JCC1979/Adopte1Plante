@@ -4,4 +4,8 @@ class Plant < ApplicationRecord
   validates :family, presence: true
   validates :species, presence: true
   validates :id_code, presence: true
+
+  def fullname
+    gender.capitalize + ' ' + species
+  end
 end
