@@ -88,7 +88,7 @@ varplant2 = VariantPlant.new(sku: "plant-M", diameter_cm: 20, height_format: "M"
 varplant2.plant = plant2
 varplant2.save!
 
- puts "Ajout des variantes S M L pour les pots et la plante -- OK"
+puts "Ajout des variantes S M L pour les pots et la plante -- OK"
 
 # match1 = { pot: variant_pot1m.id.to_s }
 # match2 = { pot: variant_pot2m.id.to_s }
@@ -100,6 +100,31 @@ varplant2.save!
 # match7 = { plant: variant_plant2s.id.to_s, pot: variant_pot1s.id.to_s  }
 # match8 = { plant: variant_plant2m.id.to_s, pot: variant_pot1m.id.to_s  }
 # match9 = { plant: variant_plant2l.id.to_s, pot: variant_pot1l.id.to_s  }
+
+plant2_syno = Synonym.new
+plant2_syno.commercial_name = "Plan Paon"
+plant2_syno.product = plant2
+plant2_syno.synonyms_list = ["jean", "morise"]
+plant2_syno.save!
+
+puts "Ajout des synonyme pour la plante -- OK"
+
+# variant_pot1s = Variant.new(sku: 1, diameter_cm: 10, height_format: "S", price: 10)
+# variant_pot2s = Variant.new(sku: 2, diameter_cm: 10, height_format: "S", price: 12)
+# variant_pot3s = Variant.new(sku: 3, diameter_cm: 10, height_format: "S", price: 14)
+
+# variant_pot1m = Variant.new(sku: 4, diameter_cm: 15, height_format: "M", price: 19)
+# variant_pot2m = Variant.new(sku: 5, diameter_cm: 15, height_format: "M", price: 22)
+# variant_pot3m = Variant.new(sku: 6, diameter_cm: 15, height_format: "M", price: 24)
+
+# variant_pot1l = Variant.new(sku: 7, diameter_cm: 20, height_format: "L", price: 32)
+# variant_pot2l = Variant.new(sku: 8, diameter_cm: 20, height_format: "L", price: 40)
+# variant_pot3l = Variant.new(sku: 9, diameter_cm: 20, height_format: "L", price: 30)
+
+# variant_plant2s = Variant.new(sku: 10, diameter_cm: 20, height_format: "S", price: 30)
+# variant_plant2m = Variant.new(sku: 11, diameter_cm: 30, height_format: "M", price: 45)
+# variant_plant2l = Variant.new(sku: 12, diameter_cm: 40, height_format: "L", price: 60)
+
 
 # match10 = { plant: variant_plant2s.id.to_s, pot: variant_pot2s.id.to_s  }
 # match11 = { plant: variant_plant2m.id.to_s, pot: variant_pot2m.id.to_s  }

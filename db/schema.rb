@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_10_144511) do
 
+ActiveRecord::Schema.define(version: 2019_03_10_144511) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "carts", force: :cascade do |t|
+    t.string "state"
+    t.string "cart_sku"
+    t.integer "amount_cents", default: 0, null: false
+    t.jsonb "payment"
+    t.bigint "profile_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_carts_on_profile_id"
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -38,6 +49,8 @@ ActiveRecord::Schema.define(version: 2019_03_10_144511) do
     t.string "composition_nickname"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "cart_id"
+    t.index ["cart_id"], name: "index_orders_on_cart_id"
     t.index ["composition_id"], name: "index_orders_on_composition_id"
     t.index ["profile_id"], name: "index_orders_on_profile_id"
   end
@@ -164,9 +177,11 @@ ActiveRecord::Schema.define(version: 2019_03_10_144511) do
     t.bigint "plant_id"
     t.index ["plant_id"], name: "index_variants_on_plant_id"
     t.index ["pot_id"], name: "index_variants_on_pot_id"
+    t.integer "price_cents", default: 0, null: false
     t.index ["product_id"], name: "index_variants_on_product_id"
   end
 
+  add_foreign_key "carts", "profiles"
   add_foreign_key "orders", "compositions"
   add_foreign_key "orders", "profiles"
   add_foreign_key "products", "categories"

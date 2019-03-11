@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 offest-md-1">
+      <h1>cart</h1>
+      <ul>
+        <li>Status: <%= @cart.state %></li>
+        <li>Item: </li>
+          <ul>
+          <% @orders.each do |order| %>
+            <li><%= order.composition.id %></li>
+          <% end %>
+          </ul>
+        <li>Amount: <%= humanized_money_with_symbol(@cart.amount) %></li>
+      <ul>
+    </div>
+  </div>
+</div>

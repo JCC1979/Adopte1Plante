@@ -24,3 +24,14 @@ if (document.getElementsByClassName('.card')) {
 // select2
 import { initSelect2 } from '../plugins/init_select2';
 initSelect2();
+
+import { scrolling } from '../components/navbar';
+
+if (document.getElementsByClassName('.nav')) {
+  scrolling();
+}
+
+import { plus } from '../components/voirplus';
+if (document.getElementById("voirplus")) {
+  plus();
+}

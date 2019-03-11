@@ -1,42 +1,44 @@
 <div class="container">
-  <div class="myplants-container">
-    <h2 class="text-center">Ma famille</h2>
-    <hr>
-    <div class="row">
-    <% @orders.each do |order| %>
-      <div class="cards-myplants col-md-6">
-      <div class="cards-order">
-        <div class="card-order">
-          <%= image_tag(order.composition.photo_url) %>
-          <div class="card-order-infos">
-            <h3><%= order.composition_nickname %></h3>
-            <p>adoper le <%=order.created_at.strftime('%d-%m-%y')%></p>
-            <% contents = order.composition.variants_match.split(";") %>
-            <% contents.each do |content| %>
-              <% if Variant.find(content.to_i).product.category.name == "plant" %>
-                <p>
-                  <%= Variant.find(content.to_i).gender%> 
-                  <%= Variant.find(content.to_i).family%> 
-                  <%= Variant.find(content.to_i).species%> 
-                  <%= Variant.find(content.to_i).cultivar%>
-                </p>
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <h2 class="text-center">Ma famille</h2>
+      <hr>
+      <div class="row">
+      <% @orders.each do |order| %>
+        <div class="cards-myplants col-md-6">
+        <div class="cards-order">
+          <div class="card-order">
+            <img src="/images/composition/planteMpot2.jpg" alt="">
+            <div class="card-order-infos">
+              <h3><%= order.composition_nickname %></h3>
+              <p>adoper le <%=order.created_at.strftime('%d-%m-%y')%></p>
+              <% contents = order.composition.variants_match.split(";") %>
+              <% contents.each do |content| %>
+                <% if Variant.find(content.to_i).product.category.name == "plant" %>
+                  <p>
+                    <%= Variant.find(content.to_i).gender%> 
+                    <%= Variant.find(content.to_i).family%> 
+                    <%= Variant.find(content.to_i).species%> 
+                    <%= Variant.find(content.to_i).cultivar%>
+                  </p>
+                <% end %>
               <% end %>
-            <% end %>
-            <% contents.each do |content| %>
-              <% if Variant.find(content.to_i).product.category.name == "pot" %>
-                <p>Pot : <%= Variant.find(content.to_i).material%> <%= Variant.find(content.to_i).color%></p>
+              <% contents.each do |content| %>
+                <% if Variant.find(content.to_i).product.category.name == "pot" %>
+                  <p>Pot : <%= Variant.find(content.to_i).material%> <%= Variant.find(content.to_i).color%></p>
+                <% end %>
               <% end %>
-            <% end %>
+            </div>
           </div>
         </div>
+        </div>
+      <% end %>
       </div>
+      <div class="profile-end">&nbsp;</div>
+      <div class="text-center">
+        <button type="button" class="btn btn-outline-primary">Adopte une plante de plus</button>
       </div>
-    <% end %>
+      <div class="profile-end">&nbsp;</div>
     </div>
-    <div class="profile-end">&nbsp;</div>
-    <div class="text-center">
-      <button type="button" class="btn btn-outline-primary">Adopte une plante de plus</button>
-    </div>
-    <div class="profile-end">&nbsp;</div>
   </div>
 </div>
