@@ -3,7 +3,6 @@ class VariantPlant < ApplicationRecord
   validates :sku, presence: true, uniqueness: true
   validates :diameter_cm, presence: true
   validates :height_format, presence: true, inclusion: { in: %w(S M L)}
-  
   monetize :price_cents
 
   def prices
