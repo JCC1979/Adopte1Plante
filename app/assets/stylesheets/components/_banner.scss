@@ -33,21 +33,25 @@
 }
 
 
-.search {width: 500px;
+.search {
+  width: 500px;
   height: 40px;
   margin: 10px auto;
   background: #444;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.966);
   border: 2px solid $dark-green;
   box-sizing: content-box;
 }
 
-.search input {width: 370px;
+.search input {
+  width: 370px;
   padding: 10px 5px;
   float: left;
   color: $dark-gray;
   border: 0;
-  background: transparent;border-radius: 0px 0 0 3px;}
+  background: transparent;border-radius: 0px 0 0 3px;
+}
+
 
 .search input:focus {
   outline: 0;
