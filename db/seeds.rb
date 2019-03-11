@@ -5,21 +5,17 @@ Order.destroy_all
 Profile.destroy_all
 User.destroy_all
 
-Variant.destroy_all
-Product.destroy_all
-Category.destroy_all
+VariantPlant.destroy_all
+VariantPot.destroy_all
+Plant.destroy_all
+Pot.destroy_all
 
 Composition.destroy_all
+Taxref.destroy_all
 
 puts '... Cleaning -- OK'
 
-category1 = Category.new(name: 'pot')
-category2 = Category.new(name: 'plant')
-category1.save!
-category2.save!
-puts "Ajout category -- OK"
-
-user1 = User.new(email: "jcc197959@hotmail.fr", password: "password")
+user1 = User.new(email: "jcc197959@hotmail.fr", password: "password", admin: true)
 profile1 = Profile.new(first_name: 'JC', 
 last_name: 'Coevoet', 
 address: '102 avenue de Bretagne', 
@@ -27,7 +23,7 @@ address_zipcode: 59_000,
 address_city: "Lille", 
 address_country: "France")
 
-user2 = User.new(email: "zpichetti@gmail.com", password: "password")
+user2 = User.new(email: "zpichetti@gmail.com", password: "password", admin: true)
 profile2 = Profile.new(first_name: 'Xavier',
 last_name: 'Pichetti',
 address: '7 avenue Hippolite Peslin',
@@ -35,9 +31,17 @@ address_zipcode: 59_000,
 address_city: "Lille", 
 address_country: "France")
 
-user3 = User.new(email: "antoinepotdevin@gmail.com", password: "password")
+user3 = User.new(email: "antoinepotdevin@gmail.com", password: "password", admin: true)
 profile3 = Profile.new(first_name: 'Antoine',
 last_name: "Potdevin",
+address: "25 avenue de Flandre",
+address_zipcode: 75_018,
+address_city: "Paris", 
+address_country: "France")
+
+user_not_admin = User.new(email: "nonadmin@gmail.com", password: "password", admin: false)
+profile_not_admin = Profile.new(first_name: 'User',
+last_name: "Lambda",
 address: "25 avenue de Flandre",
 address_zipcode: 75_018,
 address_city: "Paris", 
@@ -46,104 +50,45 @@ address_country: "France")
 profile1.user = user1
 profile2.user = user2
 profile3.user = user3
+profile_not_admin.user = user_not_admin
 
 user1.save!
 user2.save!
 user3.save!
+user_not_admin.save!
 
 profile1.save!
 profile2.save!
 profile3.save!
+profile_not_admin.user.save!
 
-puts "Ajout 3 profiles & users -- OK"
+puts "Ajout 3 profiles & users admin & 1 profil non admin -- OK"
 
-pot1 = Product.new
-pot2 = Product.new
-pot3 = Product.new
-pot1.category = category1
-pot2.category = category1
-pot3.category = category1
-
-details1 = { name: "Plastic pot", material: "plastic", color: "gray" }
-details2 = { name: "Natural pot", material: "terracotta", color: "red" }
-details3 = { name: "Metal pot", material: "metalic", color: "gray" }
-
-pot1.details = details1
-pot2.details = details2
-pot3.details = details3
-
-plant2 = Product.new
-plant2.category = category2
-
-details4 = { id_code: "447840", id_sup: "446231", family: "Marantacae", gender: "Calathea", species: "crotalifera", cultivar: "", variant: "", description: "blabla", sun_exposure: "fort besoin", watering: "fort besoin" }
-plant2.details = details4
-
-pot1.save!
-pot2.save!
-pot3.save!
-
-plant2.save!
+pot1 = Pot.create!({ name: "Plastic pot", material: "plastic", color: "gray" })
+pot2 = Pot.create!({ name: "Natural pot", material: "terracotta", color: "red" })
+pot3 = Pot.create!({ name: "Metal pot", material: "metalic", color: "gray" })
+plant2 = Plant.create!({ id_code: "447840", id_sup: "446231", family: "Marantaceae", 
+gender: "Calathea", species: "crotalifera", cultivar: "", 
+variant: "", description: "blabla", sun_exposure: "fort besoin", 
+watering: "fort besoin", commercial_name: "Plan Paon", synonyms_list: "jean, morise" })
 
 puts "Ajout de 3 pots et 1 plante dans produc -- OK"
 
-plant2_syno = Synonym.new
-plant2_syno.commercial_name = "Plan Paon"
-plant2_syno.product = plant2
-plant2_syno.synonyms_list = ["jean", "morise"]
-plant2_syno.save!
+varpot1 = VariantPot.new(sku: "pot-S", diameter_cm: 10, height_format: "S")
+varpot2 = VariantPot.new(sku: "pot-M", diameter_cm: 20, height_format: "M")
+varpot3 = VariantPot.new(sku: "pot-L", diameter_cm: 30, height_format: "L")
+varpot1.pot = pot1
+varpot2.pot = pot2
+varpot3.pot = pot3
+varpot1.save!
+varpot2.save!
+varpot3.save!
 
-puts "Ajout des synonyme pour la plante -- OK"
+varplant2 = VariantPlant.new(sku: "plant-M", diameter_cm: 20, height_format: "M")
+varplant2.plant = plant2
+varplant2.save!
 
-
-# variant_pot1s = Variant.new(sku: "1", diameter_cm: 10, height_format: "S")
-# variant_pot2s = Variant.new(sku: "2", diameter_cm: 10, height_format: "S")
-# variant_pot3s = Variant.new(sku: "3", diameter_cm: 10, height_format: "S")
-
-# variant_pot1m = Variant.new(sku: "4", diameter_cm: 15, height_format: "M")
-# variant_pot2m = Variant.new(sku: "5", diameter_cm: 15, height_format: "M")
-# variant_pot3m = Variant.new(sku: "6", diameter_cm: 15, height_format: "M")
-
-# variant_pot1l = Variant.new(sku: "7", diameter_cm: 20, height_format: "L")
-# variant_pot2l = Variant.new(sku: "8", diameter_cm: 20, height_format: "L")
-# variant_pot3l = Variant.new(sku: "9", diameter_cm: 20, height_format: "L")
-
-# variant_plant2s = Variant.new(sku: "10", diameter_cm: 20, height_format: "S")
-# variant_plant2m = Variant.new(sku: "11", diameter_cm: 30, height_format: "M")
-# variant_plant2l = Variant.new(sku: "12", diameter_cm: 40, height_format: "L")
-
-# variant_pot1s.product = pot1
-# variant_pot1m.product = pot1
-# variant_pot1l.product = pot1
-
-# variant_pot2s.product = pot2
-# variant_pot2m.product = pot2
-# variant_pot2l.product = pot2
-
-# variant_pot3s.product = pot3
-# variant_pot3m.product = pot3
-# variant_pot3l.product = pot3
-
-# variant_plant2s.product = plant2
-# variant_plant2m.product = plant2
-# variant_plant2l.product = plant2
-
-# variant_pot1s.save!
-# variant_pot1m.save!
-# variant_pot1l.save!
-
-# variant_pot2s.save!
-# variant_pot2m.save!
-# variant_pot2l.save!
-
-# variant_pot3s.save!
-# variant_pot3m.save!
-# variant_pot3l.save!
-
-# variant_plant2s.save!
-# variant_plant2m.save!
-# variant_plant2l.save!
-
-# puts "Ajout des variantes S M L pour les pots et la plante -- OK"
+ puts "Ajout des variantes S M L pour les pots et la plante -- OK"
 
 # match1 = { pot: variant_pot1m.id.to_s }
 # match2 = { pot: variant_pot2m.id.to_s }
@@ -211,9 +156,6 @@ puts "Ajout des synonyme pour la plante -- OK"
 
 # puts "Attribution d'une contribusion a chaque user --OK"
 
-
-Taxref.destroy_all
-
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'TAXREFv12-extract.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
@@ -227,6 +169,7 @@ csv.each do |row|
   t.species = row['LB_NOM'].split(" ")[1]
   t.cultivar = row['LB_NOM'].scan(/'.+'/)[0]
   t.variant = row['LB_NOM'].scan(/var\. (.*)/)[0]
+  t.commercial_name = row['NOM_VERN']
   t.save!
 end
 

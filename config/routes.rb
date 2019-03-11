@@ -10,14 +10,16 @@ Rails.application.routes.draw do
     resources :ratings, only: %i[create]
   end
 
-  resources :categories, only: %i[new create update edit]
-
-  resources :products, only: %i[index show new create update edit] do
-    resources :synonyms, only: %i[new create]
-    resources :variants, only: %i[new create]
+  resources :plants, only: %i[index show new create update edit destroy] do
+    resources :variant_plants, only: %i[new create]
   end
 
-  resources :variants, only: %i[index show edit update destroy]
-  resources :synonyms, only: %i[edit update]
+  resources :pots, only: %i[index new create update edit destroy] do
+    resources :variant_pots, only: %i[new create]
+  end
+
+  resources :variant_pots, only: %i[edit update destroy]
+  resources :variant_plants, only: %i[edit update destroy]
+  
   get "/profiles/my_plants/:id", to: "profiles#my_plants", as: "profiles_my_plants"
 end

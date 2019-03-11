@@ -10,6 +10,7 @@ gem 'rails', '5.2.2'
 gem 'redis'
 gem 'carrierwave', '~> 1.2'
 gem 'cloudinary', '~> 1.9.1'
+gem "pundit"
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.5.0'

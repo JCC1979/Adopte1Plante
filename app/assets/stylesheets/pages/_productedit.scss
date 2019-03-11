@@ -1,0 +1,32 @@
+.grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-template-rows: 250px 250px 250px;
+  justify-items: center;
+}
+
+.product-content {
+  grid-row: 1 / span 3;
+  grid-column: 1 / span 1;
+}
+
+.card-variant-L {
+  grid-row: 1 / span 1;
+  grid-column: 2 / span 1;
+  align-items: center;
+  padding: 5px;
+}
+
+.card-variant-M {
+  grid-row: 2 / span 1;
+  grid-column: 2 / span 1;
+  align-items: center;
+  padding: 5px;
+}
+
+.card-variant-S {
+  grid-row: 3 / span 1;
+  grid-column: 2 / span 1;
+  align-items: center;
+  padding: 5px;
+}

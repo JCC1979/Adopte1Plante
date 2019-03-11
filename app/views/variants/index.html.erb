@@ -1,5 +1,0 @@
-<ul>
-<% @variants.each do |variant| %>
-  <li><%= variant.product.category.name %>: <%= link_to variant.height_format , variant_path(variant)  %><%= variant.height_format %></li>
-<% end %>
-</ul>
