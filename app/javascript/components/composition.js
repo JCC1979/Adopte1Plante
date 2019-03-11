@@ -27,9 +27,9 @@ const changeSML = () => {
     elementPot3.dataset.potId = elementPot3.dataset.potIdS;
 
     // mise a jour des prix des pots
-    elementPot1Price.innerHTML = `${ elementPot1.dataset.priceS / 100} €`;
-    elementPot2Price.innerHTML = `${ elementPot2.dataset.priceS / 100} €`;
-    elementPot3Price.innerHTML = `${ elementPot3.dataset.priceS / 100} €`;
+    elementPot1Price.innerHTML = `${ elementPot1.dataset.priceS } €`;
+    elementPot2Price.innerHTML = `${ elementPot2.dataset.priceS } €`;
+    elementPot3Price.innerHTML = `${ elementPot3.dataset.priceS } €`;
 
     elementPot1.dataset.price = elementPot1.dataset.priceS;
     elementPot2.dataset.price = elementPot2.dataset.priceS;
@@ -55,9 +55,9 @@ const changeSML = () => {
     elementPot3.dataset.potId = elementPot3.dataset.potIdM;
 
     // mise a jour des prix des pots
-    elementPot1Price.innerHTML = `${ elementPot1.dataset.priceM / 100} €`;
-    elementPot2Price.innerHTML = `${ elementPot2.dataset.priceM / 100} €`;
-    elementPot3Price.innerHTML = `${ elementPot3.dataset.priceM / 100} €`;
+    elementPot1Price.innerHTML = `${ elementPot1.dataset.priceM } €`;
+    elementPot2Price.innerHTML = `${ elementPot2.dataset.priceM } €`;
+    elementPot3Price.innerHTML = `${ elementPot3.dataset.priceM } €`;
 
     elementPot1.dataset.price = elementPot1.dataset.priceM;
     elementPot2.dataset.price = elementPot2.dataset.priceM;
@@ -83,9 +83,9 @@ const changeSML = () => {
     elementPot3.dataset.potId = elementPot3.dataset.potIdL;
 
     // mise a jour des prix des pots
-    elementPot1Price.innerHTML = `${ elementPot1.dataset.priceL / 100} €`;
-    elementPot2Price.innerHTML = `${ elementPot2.dataset.priceL / 100} €`;
-    elementPot3Price.innerHTML = `${ elementPot3.dataset.priceL / 100} €`;
+    elementPot1Price.innerHTML = `${ elementPot1.dataset.priceL } €`;
+    elementPot2Price.innerHTML = `${ elementPot2.dataset.priceL } €`;
+    elementPot3Price.innerHTML = `${ elementPot3.dataset.priceL } €`;
     
     elementPot1.dataset.price = elementPot1.dataset.priceL
     elementPot2.dataset.price = elementPot2.dataset.priceL
@@ -148,7 +148,7 @@ const updatePrice = () => {
       const elementPotActive = document.querySelector(".card-pot-active");
       price += parseInt(elementPotActive.dataset.price);
     } 
-    elementPrice.innerText = `${ price / 100} €`;
+    elementPrice.innerText = `${ price } €`;
 }
 
 const updateComposition = () => {

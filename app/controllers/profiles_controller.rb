@@ -8,12 +8,15 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @profile = @profile = Profile.find(params[:id])
+    @profile = Profile.find(params[:id])
+    authorize @profile
     @carts = current_user.profile.carts.where.not(state: "pending").order(created_at: :desc)
   end
 
   def my_plants
-    @orders = current_user.profile.orders.order(created_at: :asc)
+    @profile = Profile.find(params[:id])
+    authorize @profile
+    @orders = @profile.orders.order(created_at: :asc)
   end
 
   def edit
