@@ -1,17 +1,47 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-10 offest-md-1">
-      <h1>cart</h1>
-      <ul>
-        <li>Status: <%= @cart.state %></li>
-        <li>Item: </li>
-          <ul>
-          <% @orders.each do |order| %>
-            <li><%= order.composition.id %></li>
-          <% end %>
-          </ul>
-        <li>Amount: <%= humanized_money_with_symbol(@cart.amount) %></li>
-      <ul>
+    <div class="col-md-10 offset-md-1">
+      <h2>Mon panier</h2>
+      <p>Status: <%= @cart.state %></p>
+      <hr>
+      <% if @orders.size != 0 %>
+        <% @orders.each do |order| %>
+          <div class="cards-order">
+            <div class="card-order">
+              <img src="/images/composition/planteMpot2.jpg" alt="">
+              <div class="card-order-infos">
+                <h3><%= order.composition_nickname %></h3>
+                <p>adoper le <%=order.created_at.strftime('%d-%m-%y')%></p>
+                
+                <% price = 0 %>
+                
+              </div>
+              <div class="card-order-status">
+                <h3 class="text-center"><%= humanized_money(price) %> € 
+                  <%= link_to profile_order_path(@profile, order),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } do %>
+                      <i class="fas fa-times"></i>
+                  <% end %>
+                </h3>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        Votre panier est vide !
+      <% end %>
+      <hr>
+      <div class="text-right">
+        <% if @orders.size != 0 %>
+          total : <%= humanized_money(@cart.amount) %> €
+        <% else %>
+          total : 0 €
+        <% end %>
+      </div>
+      <% if @orders.size != 0 %>
+        <%= link_to "Commander",new_profile_cart_payment_path(@profile,@cart),class: "btn btn-primary"%>
+      <% end %>
     </div>
   </div>
 </div>

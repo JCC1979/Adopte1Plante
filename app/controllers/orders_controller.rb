@@ -4,7 +4,10 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     @profile = Profile.find(params[:profile_id])
-    @composition = Composition.where(variants_match: params[:plantId] + ";" + params[:potId]).first
+    authorize @profile
+    variant_plant = VariantPlant.find(params[:plantId])
+    variant_pot = VariantPot.find(params[:potId])
+    @composition = Composition.where(variant_plant_sku: variant_plant.sku, variant_pot_sku: variant_pot.sku).first
   end
 
   def index

@@ -11,16 +11,9 @@
               <div class="card-order-infos">
                 <h3><%= order.composition_nickname %></h3>
                 <p>adoper le <%=order.created_at.strftime('%d-%m-%y')%></p>
-                <% contents = order.composition.variants_match.split(";") %>
+                
                 <% price = 0 %>
-                <% contents.each do |content| %>
-                  <% price += Variant.find(content.to_i).price %>
-                  <% if Variant.find(content.to_i).product.category.name == "plant" %>
-                    <%= link_to "https://www.instagram.com/explore/tags/#{Variant.find(content.to_i).gender}/", target: "_blank" do %>
-                      <p>#<%= Variant.find(content.to_i).gender%></p>
-                    <% end %>
-                  <% end %>
-                <% end %>
+                
               </div>
               <div class="card-order-status">
                 <h3 class="text-center"><%= humanized_money(price) %> € 

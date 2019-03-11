@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-10 offset-md-1">
-      <h1>Purchase of teddy <%= @cart.id %></h1>
+      <h1>Votre commande N°<%= @cart.id %></h1>
       <%= form_tag profile_cart_payments_path(@profile,@cart) do %>
         <article>
           <label class="amount">

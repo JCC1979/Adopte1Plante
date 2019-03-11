@@ -13,4 +13,12 @@ class Profile < ApplicationRecord
       0
     end
   end
+
+  def cart_id
+    if Cart.where(profile_id: self.id, state: "pending")[0]
+      Cart.where(profile_id: self.id, state: "pending")[0].id
+    else
+      Cart.create(state: "pending", profile_id: self.id).id
+    end
+  end
 end
