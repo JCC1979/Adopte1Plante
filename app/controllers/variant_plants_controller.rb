@@ -1,5 +1,6 @@
 class VariantPlantsController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
+  before_action :set_variant_plant, only: [:edit, :update, :destroy]
   helper_method :current_or_guest_user
 
   def show
@@ -22,11 +23,12 @@ class VariantPlantsController < ApplicationController
     @plant = Plant.find(params[:plant_id])
     authorize @plant
     @variant_plant = VariantPlant.new(variant_params)
-    authorize @variant_plant
     @variant_plant.plant = @plant
+    authorize @variant_plant
 
     if @variant_plant.save
       @composition = Composition.create!(local_image: ("variants_plant/" + params[:photo_file_variant]), variant_plant_sku: @variant_plant.sku)
+      authorize @composition
       redirect_to edit_plant_path(@plant)
     else
       render :new
@@ -34,17 +36,16 @@ class VariantPlantsController < ApplicationController
   end
 
   def edit
-    @variant_plant = VariantPlant.find(params[:id])
     authorize @variant_plant
   end
 
   def update
-    @variant_plant = VariantPlant.find(params[:id])
     authorize @variant_plant
     if @variant_plant.update(variant_params)
       @composition = @variant_plant.findcompositionforplantvariant
       if @composition.nil?
-        Composition.create!(local_image: ("variants_plant/" + params[:photo_file_variant]), variant_plant_sku: @variant_plant.sku)
+        @composition = Composition.create!(local_image: ("variants_plant/" + params[:photo_file_variant]), variant_plant_sku: @variant_plant.sku)
+        authorize @composition
       else
         @composition.update!(local_image: ("variants_plant/" + params[:photo_file_variant]), variant_plant_sku: @variant_plant.sku)
       end
@@ -55,7 +56,6 @@ class VariantPlantsController < ApplicationController
   end
 
   def destroy
-    @variant_plant = VariantPlant.find(params[:id])
     authorize @variant_plant
     @variant_plant.destroy
     @plant = @variant_plant.plant
@@ -66,6 +66,10 @@ class VariantPlantsController < ApplicationController
   private
 
   def variant_params
-    params.require(:variant_plant).permit(:sku, :diameter_cm, :height_format, :photo_file_variant)
+    params.require(:variant_plant).permit(:sku, :diameter_cm, :height_format, :photo_file_variant, :price)
+  end
+
+  def set_variant_plant
+    @variant_plant = VariantPlant.find(params[:id])
   end
 end

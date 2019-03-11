@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :compositions, only: %i[show index] do
+  resources :compositions, only: %i[show index new create edit update destroy] do
     resources :ratings, only: %i[create]
   end
 
