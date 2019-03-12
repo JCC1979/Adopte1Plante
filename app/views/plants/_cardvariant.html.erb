@@ -1,8 +1,8 @@
 <div id="variant-picture">
   <% unless variant.nil? %> 
-    <%= cl_image_tag(variant.findphoto, width: 200, height: 190, class: "mx-auto d-block") %>
+    <%= cl_image_tag(variant.findphoto, width: 150, height: 150, class: "mx-auto d-block") %>
   <% else %>
-    <%= cl_image_tag("Adopte1plante/default.png", width: 200, height: 190, class: "mx-auto d-block") %>
+    <%= cl_image_tag(addr, width: 150, height: 150, class: "mx-auto d-block") %>
   <% end %>
 </div>
 
@@ -10,7 +10,7 @@
   <% if variant.nil? %>
     <%= link_to "Create", new_plant_variant_plant_path(@plant, format: format) %>
   <% else %>
-    <h5 class="card-title"><%= format %> (sku : <%= variant.sku %>)</h5>
+    <h6 class="card-title"><%= format %> (sku : <%= variant.sku %>)</h6>
 
     <%= link_to edit_variant_plant_path(variant, format: format) do %>    
       <i class="fas fa-edit "></i>

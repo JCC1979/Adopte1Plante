@@ -36,7 +36,7 @@
             <p>
               <% @pots.each do |pot| %>
                 <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=<%= "#collapse" + pot.id.to_s %> aria-expanded="false" aria-controls=<%= "collapse" + pot.id.to_s %>>
-                  <%= "Pot - " + pot.id.to_s + " - 8/9" %>
+                  <%= pot.skuforpot("M") %>
                 </button>
               <% end %>
             </p>
