@@ -35,6 +35,15 @@ class Plant < ApplicationRecord
     list_variant_pots.uniq
   end
 
+  def min_price_compo
+    plant_s = self.givevariant("S")
+    variant_pots_s = Composition.findcompos_by_plant(plant_s.sku).pluck(:variant_pot_sku)
+    variant_pots_s.map! do |pot_sku|
+      VariantPot.find_by(sku: pot_sku)
+    end
+    variant_pots_s.compact!.pluck(:price_cents).min + plant_s.price_cents
+  end
+
 # ne fonctionne pas
   # def nbercompoforpot(pot)
   #   num = 0
