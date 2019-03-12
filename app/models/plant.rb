@@ -45,6 +45,11 @@ class Plant < ApplicationRecord
     variant_pots_s.compact!.pluck(:price_cents).min + plant_s.price_cents
   end
 
+  def image_random
+    plant_m = self.givevariant("M")
+    Composition.findcompos_by_plant(plant_m.sku).drop(1).sample.photo
+  end 
+
 # ne fonctionne pas
   # def nbercompoforpot(pot)
   #   num = 0
