@@ -52,6 +52,15 @@ class ApplicationController < ActionController::Base
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
 
+  def after_sign_in_path_for(resource_or_scope)
+    if session[:cart_guest]
+      session[:cart_guest] = false
+      profile_cart_path(resource.profile, resource.profile.cart_id)
+    else
+      super
+    end
+  end
+
   # called (once) when the user logs in, insert any code your application needs
   # to hand off from guest_user to current_user.
   def logging_in
