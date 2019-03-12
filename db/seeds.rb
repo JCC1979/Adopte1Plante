@@ -13,36 +13,36 @@ Taxref.destroy_all
 puts '... Cleaning -- OK'
 
 user1 = User.new(email: "jcc197959@hotmail.fr", password: "password", admin: true)
-profile1 = Profile.new(first_name: 'JC', 
-last_name: 'Coevoet', 
-address: '102 avenue de Bretagne', 
-address_zipcode: 59_000, 
-address_city: "Lille", 
-address_country: "France")
+profile1 = Profile.new(first_name: 'JC',
+  last_name: 'Coevoet',
+  address: '102 avenue de Bretagne',
+  address_zipcode: 59_000,
+  address_city: "Lille",
+  address_country: "France")
 
 user2 = User.new(email: "zpichetti@gmail.com", password: "password", admin: true)
 profile2 = Profile.new(first_name: 'Xavier',
-last_name: 'Pichetti',
-address: '7 avenue Hippolite Peslin',
-address_zipcode: 59_000,
-address_city: "Lille", 
-address_country: "France")
+  last_name: 'Pichetti',
+  address: '7 avenue Hippolite Peslin',
+  address_zipcode: 59_000,
+  address_city: "Lille",
+  address_country: "France")
 
 user3 = User.new(email: "antoinepotdevin@gmail.com", password: "password", admin: true)
 profile3 = Profile.new(first_name: 'Antoine',
-last_name: "Potdevin",
-address: "25 avenue de Flandre",
-address_zipcode: 75_018,
-address_city: "Paris", 
-address_country: "France")
+  last_name: "Potdevin",
+  address: "25 avenue de Flandre",
+  address_zipcode: 75_018,
+  address_city: "Paris",
+  address_country: "France")
 
 user_not_admin = User.new(email: "nonadmin@gmail.com", password: "password", admin: false)
 profile_not_admin = Profile.new(first_name: 'User',
-last_name: "Lambda",
-address: "25 avenue de Flandre",
-address_zipcode: 75_018,
-address_city: "Paris", 
-address_country: "France")
+  last_name: "Lambda",
+  address: "25 avenue de Flandre",
+  address_zipcode: 75_018,
+  address_city: "Paris",
+  address_country: "France")
 
 profile1.user = user1
 profile2.user = user2
@@ -61,15 +61,19 @@ profile_not_admin.user.save!
 
 puts "Ajout 3 profiles & users admin & 1 profil non admin -- OK"
 
-pot1 = Pot.create!({ name: "Plastic pot", material: "plastic", color: "gray" })
-pot2 = Pot.create!({ name: "Natural pot", material: "terracotta", color: "red" })
-pot3 = Pot.create!({ name: "Metal pot", material: "metalic", color: "gray" })
-plant2 = Plant.create!({ id_code: "447840", id_sup: "446231", family: "Marantaceae", 
-gender: "Calathea", species: "crotalifera", cultivar: "", 
-variant: "", description: "blabla", sun_exposure: "fort besoin", 
-watering: "fort besoin", commercial_name: "Plan Paon", synonyms_list: "jean, morise" })
+pot1 = Pot.create!(name: "Plastic pot", material: "plastic", color: "gray")
+pot2 = Pot.create!(name: "Natural pot", material: "terracotta", color: "red")
+pot3 = Pot.create!(name: "Metal pot", material: "metalic", color: "gray")
+plant2 = Plant.create!(id_code: "447840", id_sup: "446231", family: "Marantaceae",
+  gender: "Calathea", species: "crotalifera", cultivar: "",
+  variant: "", description: "blabla", sun_exposure: "fort besoin",
+  watering: "fort besoin", commercial_name: "Plan Paon", synonyms_list: "jean, morise")
+plant3 = Plant.create!(id_code: "334435", id_sup: "446231", family: "Asparagaceae",
+  gender: "Sansevieria", species: "altissima", cultivar: "",
+  variant: "", description: "blabla", sun_exposure: "fort besoin",
+  watering: "fort besoin", commercial_name: "", synonyms_list: "jean, morise")
 
-puts "Ajout de 3 pots et 1 plante dans produc -- OK"
+puts "Ajout de 3 pots et 2 planteq dans produc -- OK"
 
 varpot1s = VariantPot.new(sku: "pot1-S", diameter_cm: 10, height_format: "S", price: 10)
 varpot2s = VariantPot.new(sku: "pot2-S", diameter_cm: 10, height_format: "S", price: 12)
@@ -134,6 +138,7 @@ compo12 = Composition.new(variant_plant_sku: varplant2l.sku, variant_pot_sku: va
 compo13 = Composition.new(variant_plant_sku: varplant2s.sku, variant_pot_sku: varpot3s.sku, image_id: "/images/composition/planteSpot3.jpg")
 compo14 = Composition.new(variant_plant_sku: varplant2m.sku, variant_pot_sku: varpot3m.sku, image_id: "/images/composition/planteMpot3.jpg")
 compo15 = Composition.new(variant_plant_sku: varplant2l.sku, variant_pot_sku: varpot3l.sku, image_id: "/images/composition/planteLpot3.jpg")
+
 
 compo1.save!
 compo2.save!

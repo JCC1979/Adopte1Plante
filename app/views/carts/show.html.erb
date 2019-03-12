@@ -12,9 +12,7 @@
               <div class="card-order-infos">
                 <h3><%= order.composition_nickname %></h3>
                 <p>adoper le <%=order.created_at.strftime('%d-%m-%y')%></p>
-                
                 <% price = order.composition.price / 100 %>
-                
               </div>
               <div class="card-order-status">
                 <h3 class="text-center"><%= humanized_money(price) %> € 

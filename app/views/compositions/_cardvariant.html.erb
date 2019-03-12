@@ -1,0 +1,7 @@
+<div id="variant-picture">
+  <% unless variant.nil? %> 
+    <%= image_tag(variant&.findphoto, width: 100, height: 100, class: "mx-auto d-block") %>
+  <% else %>
+    <%= image_tag("variants_pot/default.png", width: 100, height: 100, class: "mx-auto d-block") %>
+  <% end %>
+</div>
