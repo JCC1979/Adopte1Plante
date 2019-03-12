@@ -1,15 +1,13 @@
 <div>
   <div class="row">
+    <div class="col text-center">
+      <%= render 'cardvariant', variant: pot.givevariant("M"), format: "M" %>
+    </div>
     <div class="col">
       <p class="text-center"><%= pot.id.to_s + " - " + pot.name + " - " + pot.material + " - " + pot.color %></p>
     </div>
-  </div>
-  <div class="row">
     <div class="col text-center">
-      <%= render 'cardvariant', variant: pot.givevariant("M"), format: "M", addr: "variants_pot/addvariantM.png" %>
-    </div>
-    <div class="col text-center">
-      <%= render 'cardvariant', variant: plant.givevariant("M"), format: "M", addr: "variants_plant/addvariantM.png" %>
+      <%= render 'cardvariant', variant: plant.givevariant("M"), format: "M" %>
     </div>
   </div>
 </div> 
@@ -21,85 +19,55 @@
     <thead>
       <tr>
         <th scope="col"></th>
-        <th scope="col">Pot-S</th>
-        <th scope="col">Pot-M</th>
-        <th scope="col">Pot-L</th>
+        <th scope="col">Pot/S-  "<%= pot.skuforpot("S") %>"</th>
+        <th scope="col">Pot/M-  "<%= pot.skuforpot("M") %>"</th>
+        <th scope="col">Pot/L-  "<%= pot.skuforpot("L") %>"</th>
       </tr>
     </thead>
     <tbody>
 
       <tr>
-        <th scope="row">Plant-L</th>
+        <th scope="row">
+          <p>Plant/L</p>
+          <p>"<%= plant.skuforplant("L") %>"</p>
+        </th>
         <td>
-          <% if c = Composition.findcompo({variant_pot_sku: pot.givevariant("L")&.sku , variant_plant_sku: plant.givevariant("S")&.sku}).nil? %>
-            Create
-          <% else %>
-            Edit
-          <% end %>
         </td>
         <td>
-          <% if c = Composition.findcompo({variant_pot_sku: pot.givevariant("L")&.sku , variant_plant_sku: plant.givevariant("S")&.sku}).nil? %>
-            Create
-          <% else %>
-            Edit
-          <% end %>
         </td>
         <td>
-          <% if c = Composition.findcompo({variant_pot_sku: pot.givevariant("L")&.sku , variant_plant_sku: plant.givevariant("S")&.sku}).nil? %>
-             Create
-          <% else %>
-            Edit
-          <% end %>
+          <% photo = Composition.findphoto({variant_pot_sku: pot.skuforpot("L"), variant_plant_sku: plant.skuforplant("L")}) %>
+          <%= image_tag(photo, width: 100, height: 100, class: "mx-auto d-block") %> 
         </td>
       </tr>
 
       <tr>
-        <th scope="row">Plant-M</th>
+        <th scope="row">
+          <p>Plant/M</p>
+          <p>"<%= plant.skuforplant("M") %>"</p>
+        </th>
         <td>
-          <% if c = Composition.findcompo({variant_pot_sku: pot.givevariant("L")&.sku , variant_plant_sku: plant.givevariant("S")&.sku}).nil? %>
-            Create
-          <% else %>
-            Edit
-          <% end %>
         </td>
         <td>
-          <% if c = Composition.findcompo({variant_pot_sku: pot.givevariant("L")&.sku , variant_plant_sku: plant.givevariant("S")&.sku}).nil? %>
-            Create
-          <% else %>
-            Edit
-          <% end %>
+          <% photo = Composition.findphoto({variant_pot_sku: pot.skuforpot("M"), variant_plant_sku: plant.skuforplant("M")}) %>
+          <%= image_tag(photo, width: 100, height: 100, class: "mx-auto d-block") %> 
         </td>
         <td>
-          <% if c = Composition.findcompo({variant_pot_sku: pot.givevariant("L")&.sku , variant_plant_sku: plant.givevariant("S")&.sku}).nil? %>
-            Create
-          <% else %>
-            Edit
-          <% end %>
         </td>
       </tr>
 
       <tr>
-        <th scope="row">Plant-S</th>
+        <th scope="row">
+          <p>Plant/S</p>
+          <p>"<%= plant.skuforplant("S") %>"</p>
+        </th>
         <td>
-          <% if c = Composition.findcompo({variant_pot_sku: pot.givevariant("L")&.sku , variant_plant_sku: plant.givevariant("S")&.sku}).nil? %>
-            Create
-          <% else %>
-            Edit
-          <% end %>
+          <% photo = Composition.findphoto({variant_pot_sku: pot.skuforpot("S"), variant_plant_sku: plant.skuforplant("S")}) %>
+          <%= image_tag(photo, width: 100, height: 100, class: "mx-auto d-block") %> 
         </td>
         <td>
-          <% if c = Composition.findcompo({variant_pot_sku: pot.givevariant("L")&.sku , variant_plant_sku: plant.givevariant("S")&.sku}).nil? %>
-            Create
-          <% else %>
-            Edit
-          <% end %>
         </td>
         <td>
-          <% if c = Composition.findcompo({variant_pot_sku: pot.givevariant("L")&.sku , variant_plant_sku: plant.givevariant("S")&.sku}).nil? %>
-            Create
-          <% else %>
-            Edit
-          <% end %>
         </td>
       </tr>
 
