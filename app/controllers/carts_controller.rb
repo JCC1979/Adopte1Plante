@@ -9,6 +9,7 @@ class CartsController < ApplicationController
   end
 
   def show
+    session[:cart_guest] = true if guest_user
     @cart = Cart.find(params[:id])
     authorize @cart
     @profile = Profile.find(params[:profile_id])

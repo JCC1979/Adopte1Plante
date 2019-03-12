@@ -13,36 +13,36 @@ Taxref.destroy_all
 puts '... Cleaning -- OK'
 
 user1 = User.new(email: "jcc197959@hotmail.fr", password: "password", admin: true)
-profile1 = Profile.new(first_name: 'JC', 
-last_name: 'Coevoet', 
-address: '102 avenue de Bretagne', 
-address_zipcode: 59_000, 
-address_city: "Lille", 
-address_country: "France")
+profile1 = Profile.new(first_name: 'JC',
+  last_name: 'Coevoet',
+  address: '102 avenue de Bretagne',
+  address_zipcode: 59_000,
+  address_city: "Lille",
+  address_country: "France")
 
 user2 = User.new(email: "zpichetti@gmail.com", password: "password", admin: true)
 profile2 = Profile.new(first_name: 'Xavier',
-last_name: 'Pichetti',
-address: '7 avenue Hippolite Peslin',
-address_zipcode: 59_000,
-address_city: "Lille", 
-address_country: "France")
+  last_name: 'Pichetti',
+  address: '7 avenue Hippolite Peslin',
+  address_zipcode: 59_000,
+  address_city: "Lille",
+  address_country: "France")
 
 user3 = User.new(email: "antoinepotdevin@gmail.com", password: "password", admin: true)
 profile3 = Profile.new(first_name: 'Antoine',
-last_name: "Potdevin",
-address: "25 avenue de Flandre",
-address_zipcode: 75_018,
-address_city: "Paris", 
-address_country: "France")
+  last_name: "Potdevin",
+  address: "25 avenue de Flandre",
+  address_zipcode: 75_018,
+  address_city: "Paris",
+  address_country: "France")
 
 user_not_admin = User.new(email: "nonadmin@gmail.com", password: "password", admin: false)
 profile_not_admin = Profile.new(first_name: 'User',
-last_name: "Lambda",
-address: "25 avenue de Flandre",
-address_zipcode: 75_018,
-address_city: "Paris", 
-address_country: "France")
+  last_name: "Lambda",
+  address: "25 avenue de Flandre",
+  address_zipcode: 75_018,
+  address_city: "Paris",
+  address_country: "France")
 
 profile1.user = user1
 profile2.user = user2
@@ -61,17 +61,17 @@ profile_not_admin.user.save!
 
 puts "Ajout 3 profiles & users admin & 1 profil non admin -- OK"
 
-pot1 = Pot.create!({ name: "Plastic pot", material: "plastic", color: "gray" })
-pot2 = Pot.create!({ name: "Natural pot", material: "terracotta", color: "red" })
-pot3 = Pot.create!({ name: "Metal pot", material: "metalic", color: "gray" })
-plant2 = Plant.create!({ id_code: "447840", id_sup: "446231", family: "Marantaceae", 
-gender: "Calathea", species: "crotalifera", cultivar: "", 
-variant: "", description: "blabla", sun_exposure: "fort besoin", 
-watering: "fort besoin", commercial_name: "Plan Paon", synonyms_list: "jean, morise" })
-plant3 = Plant.create!({ id_code: "334435", id_sup: "446231", family: "Asparagaceae", 
-gender: "Sansevieria", species: "altissima", cultivar: "", 
-variant: "", description: "blabla", sun_exposure: "fort besoin", 
-watering: "fort besoin", commercial_name: "", synonyms_list: "jean, morise" })
+pot1 = Pot.create!(name: "Plastic pot", material: "plastic", color: "gray")
+pot2 = Pot.create!(name: "Natural pot", material: "terracotta", color: "red")
+pot3 = Pot.create!(name: "Metal pot", material: "metalic", color: "gray")
+plant2 = Plant.create!(id_code: "447840", id_sup: "446231", family: "Marantaceae",
+  gender: "Calathea", species: "crotalifera", cultivar: "",
+  variant: "", description: "blabla", sun_exposure: "fort besoin",
+  watering: "fort besoin", commercial_name: "Plan Paon", synonyms_list: "jean, morise")
+plant3 = Plant.create!(id_code: "334435", id_sup: "446231", family: "Asparagaceae",
+  gender: "Sansevieria", species: "altissima", cultivar: "",
+  variant: "", description: "blabla", sun_exposure: "fort besoin",
+  watering: "fort besoin", commercial_name: "", synonyms_list: "jean, morise")
 
 puts "Ajout de 3 pots et 2 planteq dans produc -- OK"
 
@@ -119,25 +119,26 @@ varplant2l.save!
 
 puts "Ajout des variantes S M L pour 3 pots et 1 plante -- OK"
 
-compo1 = Composition.new(variant_pot_sku: varpot1m.sku, local_image: "variants_pot/pot1.jpg")
-compo2 = Composition.new(variant_pot_sku: varpot2m.sku, local_image: "variants_pot/pot2.jpg")
-compo3 = Composition.new(variant_pot_sku: varpot3m.sku, local_image: "variants_pot/pot3.jpg")
+compo1 = Composition.new(variant_pot_sku: varpot1m.sku, image_id: "/images/composition/pot1.jpg")
+compo2 = Composition.new(variant_pot_sku: varpot2m.sku, image_id: "/images/composition/pot2.jpg")
+compo3 = Composition.new(variant_pot_sku: varpot3m.sku, image_id: "/images/composition/pot3.jpg")
 
-compo4 = Composition.new(variant_plant_sku: varplant2s.sku, local_image: "variants_plant/planteS.jpg")
-compo5 = Composition.new(variant_plant_sku: varplant2m.sku, local_image: "variants_plant/planteM.jpg")
-compo6 = Composition.new(variant_plant_sku: varplant2l.sku, local_image: "variants_plant/planteL.jpg")
+compo4 = Composition.new(variant_plant_sku: varplant2s.sku, image_id: "/images/composition/planteS.jpg")
+compo5 = Composition.new(variant_plant_sku: varplant2m.sku, image_id: "/images/composition/planteM.jpg")
+compo6 = Composition.new(variant_plant_sku: varplant2l.sku, image_id: "/images/composition/planteL.jpg")
 
-compo7 = Composition.new(variant_plant_sku: varplant2s.sku, variant_pot_sku: varpot1s.sku, local_image: "compositions/planteSpot1.jpg")
-compo8 = Composition.new(variant_plant_sku: varplant2m.sku, variant_pot_sku: varpot1m.sku, local_image: "compositions/planteMpot1.jpg")
-compo9 = Composition.new(variant_plant_sku: varplant2l.sku, variant_pot_sku: varpot1l.sku, local_image: "compositions/planteLpot1.jpg")
+compo7 = Composition.new(variant_plant_sku: varplant2s.sku, variant_pot_sku: varpot1s.sku, image_id: "/images/composition/planteSpot1.jpg")
+compo8 = Composition.new(variant_plant_sku: varplant2m.sku, variant_pot_sku: varpot1m.sku, image_id: "/images/composition/planteMpot1.jpg")
+compo9 = Composition.new(variant_plant_sku: varplant2l.sku, variant_pot_sku: varpot1l.sku, image_id: "/images/composition/planteLpot1.jpg")
 
-compo10 = Composition.new(variant_plant_sku: varplant2s.sku, variant_pot_sku: varpot2s.sku, local_image: "compositions/planteSpot2.jpg")
-compo11 = Composition.new(variant_plant_sku: varplant2m.sku, variant_pot_sku: varpot2m.sku, local_image: "compositions/planteMpot2.jpg")
-compo12 = Composition.new(variant_plant_sku: varplant2l.sku, variant_pot_sku: varpot2l.sku, local_image: "compositions/planteLpot2.jpg")
+compo10 = Composition.new(variant_plant_sku: varplant2s.sku, variant_pot_sku: varpot2s.sku, image_id: "/images/composition/planteSpot2.jpg")
+compo11 = Composition.new(variant_plant_sku: varplant2m.sku, variant_pot_sku: varpot2m.sku, image_id: "/images/composition/planteMpot2.jpg")
+compo12 = Composition.new(variant_plant_sku: varplant2l.sku, variant_pot_sku: varpot2l.sku, image_id: "/images/composition/planteLpot2.jpg")
 
-compo13 = Composition.new(variant_plant_sku: varplant2s.sku, variant_pot_sku: varpot3s.sku, local_image: "compositions/planteSpot3.jpg")
-compo14 = Composition.new(variant_plant_sku: varplant2m.sku, variant_pot_sku: varpot3m.sku, local_image: "compositions/planteMpot3.jpg")
-compo15 = Composition.new(variant_plant_sku: varplant2l.sku, variant_pot_sku: varpot3l.sku, local_image: "compositions/planteLpot3.jpg")
+compo13 = Composition.new(variant_plant_sku: varplant2s.sku, variant_pot_sku: varpot3s.sku, image_id: "/images/composition/planteSpot3.jpg")
+compo14 = Composition.new(variant_plant_sku: varplant2m.sku, variant_pot_sku: varpot3m.sku, image_id: "/images/composition/planteMpot3.jpg")
+compo15 = Composition.new(variant_plant_sku: varplant2l.sku, variant_pot_sku: varpot3l.sku, image_id: "/images/composition/planteLpot3.jpg")
+
 
 compo1.save!
 compo2.save!
