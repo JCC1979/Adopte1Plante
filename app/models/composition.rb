@@ -12,6 +12,10 @@ class Composition < ApplicationRecord
     return good_composition&.local_image unless good_composition.nil?
   end
 
+  def price
+    VariantPot.find_by(sku: variant_pot_sku).price_cents + VariantPlant.find_by(sku: variant_plant_sku).price_cents
+  end
+  
   def self.findcompo(hash_sku)
     search_composition = Composition.all.select do |comp|
       (comp.variant_plant_sku == hash_sku[:variant_plant_sku]) && (comp.variant_pot_sku == hash_sku[:variant_pot_sku])
@@ -20,7 +24,4 @@ class Composition < ApplicationRecord
     return good_composition unless good_composition.nil?
   end
 
-  def price
-    Variant_pot.find(sku: variant_pot_sku).price_cents + Variant_plant.find(sku: variant_plant_sku).price_cents
-  end
 end
