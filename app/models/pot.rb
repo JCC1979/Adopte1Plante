@@ -1,8 +1,7 @@
 class Pot < ApplicationRecord
   has_many :variant_pots, dependent: :destroy
   validates :name, presence: true
-  validates :material, presence: true
-  validates :color, presence: true
+  validates :easy_seed_matching, presence: true, uniqueness: true
 
   def givevariant(size)
     variant_pots.where(height_format: size)&.first

@@ -7,6 +7,19 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
+        <% if current_user&.admin? %>
+          <li class="nav-item">
+            <%= link_to "Plants", plants_path, class: "nav-link", style: "color: blue;" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Pots", pots_path, class: "nav-link", style: "color: blue;" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Compositions", compositions_path, class: "nav-link", style: "color: blue;" %>
+          </li>
+        <% end %>
+
+
         <% if current_or_guest_user %>
           <div class="caddie">  
             <%= link_to profile_cart_path(current_or_guest_user.profile,current_or_guest_user.profile.cart_id),class: "nav-link" do %>
