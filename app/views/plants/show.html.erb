@@ -8,7 +8,7 @@
       <div class="composition-grid">
         <div class="composition-grid-main">
           <div class="composition_cards">
-            <div id="card-main-image" class="card-main" style="background-image: url('/images/composition/planteM.jpg')">
+            <div id="card-main-image" class="card-main" style="background-image: url('<%=cl_image_path(@plant.photo) %>')">
               <div class="card-main-size-box">
                 <div id="sizeS" data-plant-id="<%= @plant.givevariant("S").id %>" data-price="<%= @plant.givevariant("S").price %>" class="card-main-size">S</div>
                 <div id="sizeM" data-plant-id="<%= @plant.givevariant("M").id %>" data-price="<%= @plant.givevariant("M").price %>" class="card-main-size card-main-size-active">M</div>
@@ -18,9 +18,8 @@
           </div>
         </div>
         <% @pots.each_with_index do |pot, i| %>
-          <% image= "/images/composition/pot#{i+1}.jpg" %>
           <div class="composition_cards">
-            <div id="pot<%= i+1 %>" data-pot-id="<%= pot.givevariant("M").id %>" data-price="<%= pot.givevariant("M").price %>" data-pot-id-s="<%= pot.givevariant("S").id %>" data-pot-id-m="<%= pot.givevariant("M").id %>" data-pot-id-l="<%= pot.givevariant("L").id %>" data-price-s="<%= pot.givevariant("S").price %>" data-price-m="<%= pot.givevariant("M").price %>" data-price-l="<%= pot.givevariant("L").price %>" class="card-pot-contain" style="background-image: url(<%=image_url(image)  %>)">
+            <div id="pot<%= i+1 %>" data-pot-id="<%= pot.givevariant("M").id %>" data-price="<%= pot.givevariant("M").price %>" data-pot-id-s="<%= pot.givevariant("S").id %>" data-pot-id-m="<%= pot.givevariant("M").id %>" data-pot-id-l="<%= pot.givevariant("L").id %>" data-price-s="<%= pot.givevariant("S").price %>" data-price-m="<%= pot.givevariant("M").price %>" data-price-l="<%= pot.givevariant("L").price %>" class="card-pot-contain" style="background-image: url(<%=cl_image_path(pot.photo) %>)">
               <div class="card-pot-footer">
                 <div class="card-pot-name">pot <%= i+1 %></div>
                 <div class="card-pot-price"><%= pot.givevariant("M").price %> €</div>

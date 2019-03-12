@@ -32,6 +32,10 @@ class Composition < ApplicationRecord
     self.where(variant_plant_sku: plant_sku)
   end
 
+  def self.findcompos_by_pot(pot)
+    self.where(variant_pot_sku: pot.sku)
+  end
+
   def plant
     VariantPlant.find_by(sku: variant_plant_sku).plant
   end
