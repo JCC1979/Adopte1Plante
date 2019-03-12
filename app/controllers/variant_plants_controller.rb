@@ -27,7 +27,7 @@ class VariantPlantsController < ApplicationController
     authorize @variant_plant
 
     if @variant_plant.save
-      @composition = Composition.create!(local_image: ("variants_plant/" + params[:photo_file_variant]), variant_plant_sku: @variant_plant.sku)
+      @composition = Composition.create!(photo: ("Adopte1plante/" + params[:photo_file_variant]), variant_plant_sku: @variant_plant.sku)
       authorize @composition
       redirect_to edit_plant_path(@plant)
     else
@@ -44,10 +44,10 @@ class VariantPlantsController < ApplicationController
     if @variant_plant.update(variant_params)
       @composition = @variant_plant.findcompositionforplantvariant
       if @composition.nil?
-        @composition = Composition.create!(local_image: ("variants_plant/" + params[:photo_file_variant]), variant_plant_sku: @variant_plant.sku)
+        @composition = Composition.create!(photo: ("Adopte1plante/" + params[:photo_file_variant]), variant_plant_sku: @variant_plant.sku)
         authorize @composition
       else
-        @composition.update!(local_image: ("variants_plant/" + params[:photo_file_variant]), variant_plant_sku: @variant_plant.sku)
+        @composition.update!(photo: ("Adopte1plante/" + params[:photo_file_variant]), variant_plant_sku: @variant_plant.sku)
       end
       redirect_to edit_plant_path(@variant_plant.plant)
     else

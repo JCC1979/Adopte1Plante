@@ -20,9 +20,9 @@ class VariantPot < ApplicationRecord
     good_composition = search_composition&.first
 
     if good_composition.nil?
-      return "variants_pot/default.png"
+      return "Adopte1plante/default.png"
     else
-      return good_composition.local_image
+      return good_composition.photo
     end
   end
 

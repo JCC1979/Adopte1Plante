@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_11_154929) do
+ActiveRecord::Schema.define(version: 2019_03_12_162937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2019_03_11_154929) do
   end
 
   create_table "compositions", force: :cascade do |t|
-    t.text "image_id"
+    t.text "image_url", default: "https://res.cloudinary.com/pileas-frog/image/upload/v1552403903/Adopte1plante/default.png"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo"
@@ -50,8 +50,8 @@ ActiveRecord::Schema.define(version: 2019_03_11_154929) do
   end
 
   create_table "plants", force: :cascade do |t|
-    t.integer "id_code"
-    t.integer "id_sup"
+    t.string "id_code"
+    t.string "id_sup"
     t.string "family"
     t.string "gender"
     t.string "species"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2019_03_11_154929) do
     t.datetime "updated_at", null: false
     t.string "commercial_name"
     t.text "synonyms_list"
+    t.string "easy_seed_matching"
   end
 
   create_table "pots", force: :cascade do |t|
@@ -72,6 +73,7 @@ ActiveRecord::Schema.define(version: 2019_03_11_154929) do
     t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "easy_seed_matching"
   end
 
   create_table "profiles", force: :cascade do |t|

@@ -37,7 +37,7 @@
         </td>
         <td>
           <% photo = Composition.findphoto({variant_pot_sku: pot.skuforpot("L"), variant_plant_sku: plant.skuforplant("L")}) %>
-          <%= image_tag(photo, width: 100, height: 100, class: "mx-auto d-block") %> 
+          <%= cl_image_tag(photo, width: 100, height: 100, class: "mx-auto d-block") %> 
         </td>
       </tr>
 
@@ -50,7 +50,7 @@
         </td>
         <td>
           <% photo = Composition.findphoto({variant_pot_sku: pot.skuforpot("M"), variant_plant_sku: plant.skuforplant("M")}) %>
-          <%= image_tag(photo, width: 100, height: 100, class: "mx-auto d-block") %> 
+          <%= cl_image_tag(photo, width: 100, height: 100, class: "mx-auto d-block") %> 
         </td>
         <td>
         </td>
@@ -63,7 +63,7 @@
         </th>
         <td>
           <% photo = Composition.findphoto({variant_pot_sku: pot.skuforpot("S"), variant_plant_sku: plant.skuforplant("S")}) %>
-          <%= image_tag(photo, width: 100, height: 100, class: "mx-auto d-block") %> 
+          <%= cl_image_tag(photo, width: 100, height: 100, class: "mx-auto d-block") %> 
         </td>
         <td>
         </td>

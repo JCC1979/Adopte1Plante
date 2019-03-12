@@ -1,6 +1,4 @@
 class Composition < ApplicationRecord
-  validates :variant_plant_sku, uniqueness: { scope: :variant_pot_sku }
-
   has_many :orders
   has_many :ratings
 
@@ -12,9 +10,9 @@ class Composition < ApplicationRecord
     end
     good_composition = search_composition&.first
     if good_composition.nil?
-      return "variants_plant/default.png"
+      return "Adopte1plante/default.png"
     else
-      return good_composition.local_image
+      return good_composition.photo
     end
   end
 
