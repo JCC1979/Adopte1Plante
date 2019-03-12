@@ -5,7 +5,7 @@
       <ul>
         <% @plants.each do |plant| %>
           <li>
-            <%= plant.id_code + " - " + plant.gender + " " + plant.species %>
+            <%= plant.id_code.to_s + " - " + plant.gender + " " + plant.species %>
             <%= link_to edit_plant_path(plant) do %>
               <i class="fas fa-edit"></i>
             <% end %>
