@@ -27,13 +27,20 @@ initSelect2();
 
 import { scrolling } from '../components/navbar';
 
+
+// Pour afficher la navbar non transparente sur autres pages que la home
 if (document.querySelector('.banner-home')) {
   scrolling();
-  console.log("scrolle")
 }
 else {
+  document.querySelectorAll('.nav-link').forEach((element) => {
+  element.classList.add('nav-link-scrolled');
   const nav = document.querySelector('nav')
-  nav.classList.add('navbar-bg-scrolled')
+  nav.classList.add('navbar-bg-scrolled');
+  const img = document.querySelector('.img-navbar')
+  img.src = '/assets/logowhite.png';
+
+  });
 };
 
 import { plus } from '../components/voirplus';
