@@ -23,6 +23,7 @@
       font-size: 35px;
       color: $dark-gray;
       margin-bottom: 50px;
+      font-weight: 300;
     }
 }
 
@@ -36,7 +37,7 @@
 .search {
   width: 500px;
   height: 40px;
-  margin: 10px auto;
+  margin: 30px auto;
   background: #444;
   background: rgba(255, 255, 255, 0.8);
   border: 2px solid $dark-green;
