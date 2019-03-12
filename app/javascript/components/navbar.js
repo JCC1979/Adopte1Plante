@@ -8,7 +8,7 @@ const scrolling = () => {
   if ($(this).scrollTop() > 50) {
     $('.img-navbar').attr('src','/assets/logowhite.png');
   } else {
-    $('.img-navbar').attr('src','/assets/logogrey.png');
+    $('.img-navbar').attr('src','/assets/logogrey-259eb35ae39c10fbdd25be84a5dc90fc3d942edd4cea0913c38b4989e81a0340.png');
   }
 });
 }
