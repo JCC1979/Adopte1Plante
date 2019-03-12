@@ -27,7 +27,6 @@ initSelect2();
 
 import { scrolling } from '../components/navbar';
 
-
 // Pour afficher la navbar non transparente sur autres pages que la home
 if (document.querySelector('.banner-home')) {
   scrolling();
@@ -38,7 +37,7 @@ else {
   const nav = document.querySelector('nav')
   nav.classList.add('navbar-bg-scrolled');
   const img = document.querySelector('.img-navbar')
-  img.src = '/assets/logowhite.png';
+  img.src = '/assets/logowhite-ba41c5e521ef86596c859330277f86f2cd114fd0760c7a079d06a2aca5640760.png';
 
   });
 };
