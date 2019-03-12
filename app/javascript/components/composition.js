@@ -109,21 +109,25 @@ const changePot= () => {
   const elementPot1 = document.getElementById("pot1");
   const elementPot2 = document.getElementById("pot2");
   const elementPot3 = document.getElementById("pot3");
+  
+
   elementPot1.addEventListener("click", (event) => {
     elementPot1.classList.add("card-pot-active");
     elementPot2.classList.remove("card-pot-active");
     elementPot3.classList.remove("card-pot-active");
     
+    enablebtn();
     updatePrice();
     updateComposition();
   });
 
   elementPot2.addEventListener("click", (event) => {
+    
     elementPot1.classList.remove("card-pot-active");
     elementPot2.classList.add("card-pot-active");
     elementPot3.classList.remove("card-pot-active");
     
-    
+    enablebtn();
     updatePrice();
     updateComposition();
   });
@@ -133,6 +137,7 @@ const changePot= () => {
     elementPot2.classList.remove("card-pot-active");
     elementPot3.classList.add("card-pot-active");
 
+    enablebtn();
     updatePrice();
     updateComposition();
   });
@@ -163,6 +168,13 @@ const updateComposition = () => {
     const formPotId = document.getElementById("potId");
     formPotId.value = elementPotActive.dataset.potId;
   } 
+}
+
+const enablebtn = () => {
+  const submitbtn = document.getElementById("price-submit");
+  const textbtn = document.getElementById("text-submit");
+  submitbtn.removeAttribute("disabled");
+  textbtn.innerHTML="";
 }
 
 const changeImg = () => {

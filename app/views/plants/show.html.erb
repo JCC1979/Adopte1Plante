@@ -39,11 +39,14 @@
         <form action="/profiles/<%= current_or_guest_user.profile.id %>/orders/new">
           <input type="hidden" id="potId" name="potId" value="0">
           <input type="hidden" id="plantId" name="plantId" value="<%= @plant.givevariant("M").id %>">
-          <div class="composition-detail-right">
+          <div class="composition-detail-right text-center">
             <div class="btn-group prix" role="group" aria-label="Basic example">
               <button id="price-compo" type="button" class="btn btn-outline-primary " data-toggle="modal" data-target="#compositionModal"><%= humanized_money(@plant.givevariant("M").price) %> €</button>
-              <button type="submit"class="btn btn-primary">Je la veux</button>
+              <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Merci de choisir un pot">
+                <button id="price-submit" type="submit"class="btn btn-primary" disabled>Je la veux</button>
+              </span>
             </div>
+            <p id="text-submit" class="text-primary">Selectionner un pot</p>
           </div>
         </form>
       </div>
