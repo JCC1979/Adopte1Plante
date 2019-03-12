@@ -7,4 +7,13 @@ class Pot < ApplicationRecord
   def givevariant(size)
     variant_pots.where(height_format: size)&.first
   end
+
+  def skuforpot(size)
+    var = variant_pots.where(height_format: size)&.first
+    if var.nil?
+      return ""
+    else
+      return var.sku
+    end
+  end
 end

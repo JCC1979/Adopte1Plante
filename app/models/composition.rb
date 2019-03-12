@@ -1,4 +1,6 @@
 class Composition < ApplicationRecord
+  validates :variant_plant_sku, uniqueness: { scope: :variant_pot_sku }
+
   has_many :orders
   has_many :ratings
 
@@ -9,7 +11,11 @@ class Composition < ApplicationRecord
       (comp.variant_plant_sku == hash_sku[:variant_plant_sku]) && (comp.variant_pot_sku == hash_sku[:variant_pot_sku])
     end
     good_composition = search_composition&.first
-    return good_composition&.local_image unless good_composition.nil?
+    if good_composition.nil?
+      return "variants_plant/default.png"
+    else
+      return good_composition.local_image
+    end
   end
 
   def self.findcompo(hash_sku)

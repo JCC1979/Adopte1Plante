@@ -68,8 +68,12 @@ plant2 = Plant.create!({ id_code: "447840", id_sup: "446231", family: "Marantace
 gender: "Calathea", species: "crotalifera", cultivar: "", 
 variant: "", description: "blabla", sun_exposure: "fort besoin", 
 watering: "fort besoin", commercial_name: "Plan Paon", synonyms_list: "jean, morise" })
+plant3 = Plant.create!({ id_code: "334435", id_sup: "446231", family: "Asparagaceae", 
+gender: "Sansevieria", species: "altissima", cultivar: "", 
+variant: "", description: "blabla", sun_exposure: "fort besoin", 
+watering: "fort besoin", commercial_name: "", synonyms_list: "jean, morise" })
 
-puts "Ajout de 3 pots et 1 plante dans produc -- OK"
+puts "Ajout de 3 pots et 2 planteq dans produc -- OK"
 
 varpot1s = VariantPot.new(sku: "pot1-S", diameter_cm: 10, height_format: "S", price: 10)
 varpot2s = VariantPot.new(sku: "pot2-S", diameter_cm: 10, height_format: "S", price: 12)
@@ -115,25 +119,25 @@ varplant2l.save!
 
 puts "Ajout des variantes S M L pour 3 pots et 1 plante -- OK"
 
-compo1 = Composition.new(variant_pot_sku: varpot1m.sku, image_id: "/images/composition/pot1.jpg")
-compo2 = Composition.new(variant_pot_sku: varpot2m.sku, image_id: "/images/composition/pot2.jpg")
-compo3 = Composition.new(variant_pot_sku: varpot3m.sku, image_id: "/images/composition/pot3.jpg")
+compo1 = Composition.new(variant_pot_sku: varpot1m.sku, local_image: "variants_pot/pot1.jpg")
+compo2 = Composition.new(variant_pot_sku: varpot2m.sku, local_image: "variants_pot/pot2.jpg")
+compo3 = Composition.new(variant_pot_sku: varpot3m.sku, local_image: "variants_pot/pot3.jpg")
 
-compo4 = Composition.new(variant_plant_sku: varplant2s.sku, image_id: "/images/composition/planteS.jpg")
-compo5 = Composition.new(variant_plant_sku: varplant2m.sku, image_id: "/images/composition/planteM.jpg")
-compo6 = Composition.new(variant_plant_sku: varplant2l.sku, image_id: "/images/composition/planteL.jpg")
+compo4 = Composition.new(variant_plant_sku: varplant2s.sku, local_image: "variants_plant/planteS.jpg")
+compo5 = Composition.new(variant_plant_sku: varplant2m.sku, local_image: "variants_plant/planteM.jpg")
+compo6 = Composition.new(variant_plant_sku: varplant2l.sku, local_image: "variants_plant/planteL.jpg")
 
-compo7 = Composition.new(variant_plant_sku: varplant2s.sku, variant_pot_sku: varpot1s.sku, image_id: "/images/composition/planteSpot1.jpg")
-compo8 = Composition.new(variant_plant_sku: varplant2m.sku, variant_pot_sku: varpot1m.sku, image_id: "/images/composition/planteMpot1.jpg")
-compo9 = Composition.new(variant_plant_sku: varplant2l.sku, variant_pot_sku: varpot1l.sku, image_id: "/images/composition/planteLpot1.jpg")
+compo7 = Composition.new(variant_plant_sku: varplant2s.sku, variant_pot_sku: varpot1s.sku, local_image: "compositions/planteSpot1.jpg")
+compo8 = Composition.new(variant_plant_sku: varplant2m.sku, variant_pot_sku: varpot1m.sku, local_image: "compositions/planteMpot1.jpg")
+compo9 = Composition.new(variant_plant_sku: varplant2l.sku, variant_pot_sku: varpot1l.sku, local_image: "compositions/planteLpot1.jpg")
 
-compo10 = Composition.new(variant_plant_sku: varplant2s.sku, variant_pot_sku: varpot2s.sku, image_id: "/images/composition/planteSpot2.jpg")
-compo11 = Composition.new(variant_plant_sku: varplant2m.sku, variant_pot_sku: varpot2m.sku, image_id: "/images/composition/planteMpot2.jpg")
-compo12 = Composition.new(variant_plant_sku: varplant2l.sku, variant_pot_sku: varpot2l.sku, image_id: "/images/composition/planteLpot2.jpg")
+compo10 = Composition.new(variant_plant_sku: varplant2s.sku, variant_pot_sku: varpot2s.sku, local_image: "compositions/planteSpot2.jpg")
+compo11 = Composition.new(variant_plant_sku: varplant2m.sku, variant_pot_sku: varpot2m.sku, local_image: "compositions/planteMpot2.jpg")
+compo12 = Composition.new(variant_plant_sku: varplant2l.sku, variant_pot_sku: varpot2l.sku, local_image: "compositions/planteLpot2.jpg")
 
-compo13 = Composition.new(variant_plant_sku: varplant2s.sku, variant_pot_sku: varpot3s.sku, image_id: "/images/composition/planteSpot3.jpg")
-compo14 = Composition.new(variant_plant_sku: varplant2m.sku, variant_pot_sku: varpot3m.sku, image_id: "/images/composition/planteMpot3.jpg")
-compo15 = Composition.new(variant_plant_sku: varplant2l.sku, variant_pot_sku: varpot3l.sku, image_id: "/images/composition/planteLpot3.jpg")
+compo13 = Composition.new(variant_plant_sku: varplant2s.sku, variant_pot_sku: varpot3s.sku, local_image: "compositions/planteSpot3.jpg")
+compo14 = Composition.new(variant_plant_sku: varplant2m.sku, variant_pot_sku: varpot3m.sku, local_image: "compositions/planteMpot3.jpg")
+compo15 = Composition.new(variant_plant_sku: varplant2l.sku, variant_pot_sku: varpot3l.sku, local_image: "compositions/planteLpot3.jpg")
 
 compo1.save!
 compo2.save!
