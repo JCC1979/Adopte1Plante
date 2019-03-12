@@ -2,29 +2,37 @@
   <div class="row">
     <div class="col-md-10 offset-md-1">
       <h2>Profile de <%= current_user.profile.first_name %> <%= current_user.profile.last_name %></h2>
-      <h2>Mon adresse <%= link_to edit_profile_path(current_user.profile.id) do %><i class="fas fa-pencil-alt"></i><% end %></h2>
-      <hr>
-      <% if current_user.profile.address %>
-        <%= current_user.profile.address %> <br>
-        <%= current_user.profile.address_zipcode %> <%= current_user.profile.address_city %> <br>
-        <%= current_user.profile.address_country %>
-      <% else %>
-        Merci d'ajouter votre adresse ;)
-      <% end %>
       <h2>Mes commandes (<%= @carts.size %>)</h2>
       <hr>
       <% @carts.each do |cart| %>
-        <div class="cards-order">
-          <div class="card-order">
-            <img src="/images/composition/planteMpot2.jpg" alt="">
-            <div class="card-order-infos">
-              <h3>Commande n°<%= link_to cart.id, profile_cart_path(@profile,cart.id) %></h3>
-              <p>commandé le <%=cart.created_at.strftime('%d-%m-%y')%></p>
-              <p>nombre d'article : <%= cart.orders.size %></p>
+        <div class="cards-command">
+          <div class="card-command">
+            <div class="card-command-title">
+              <div class="card-command-title-content">
+                Commande n°<%= cart.id %>
+                <p> Total TTC : <%= cart.amount %> €</p>
+              </div>
+              <div class="card-command-title-content text-right">
+                commandé le <%=cart.created_at.strftime('%d-%m-%y')%>
+                <p>Status <%= cart.state %></p>
+              </div>
+              
             </div>
-            <div class="card-order-status">
-              <h3 class="text-center">Status</h3>
-              <p class="text-center"><%= cart.state %></p>
+            <div class="card-command-content">
+              <% cart.orders.each do |order| %>
+                <div class="card-command-content-plant">
+                  <img src="/images/composition/planteMpot2.jpg" alt="">
+                  <div>
+                    <h4><%= order.composition_nickname.capitalize %></h4>
+                    <p>
+                      Plante : <%= order.composition.plant.fullname.capitalize %> - <%= order.composition.variant_plant.height_format %>
+                    </p>
+                    <p>
+                      Pot : <%= order.composition.pot.name %> - <%= order.composition.variant_pot.height_format %>
+                    </p>
+                  </div>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
