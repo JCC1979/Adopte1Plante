@@ -19,7 +19,13 @@
         </div>
         <% @pots.each_with_index do |pot, i| %>
           <div class="composition_cards">
-            <div id="pot<%= i+1 %>" data-pot-id="<%= pot.givevariant("M").id %>" data-price="<%= pot.givevariant("M").price %>" data-pot-id-s="<%= pot.givevariant("S").id %>" data-pot-id-m="<%= pot.givevariant("M").id %>" data-pot-id-l="<%= pot.givevariant("L").id %>" data-price-s="<%= pot.givevariant("S").price %>" data-price-m="<%= pot.givevariant("M").price %>" data-price-l="<%= pot.givevariant("L").price %>" class="card-pot-contain" style="background-image: url(<%=cl_image_path(pot.photo) %>)">
+            <div id="pot<%= i+1 %>" data-pot-id="<%= pot.givevariant("M").id %>" data-price="<%= pot.givevariant("M").price %> " data-photo="<%=cl_image_path(Composition.photo(variant_pot_sku: pot.skuforpot("M"), variant_plant_sku: @plant.skuforplant("M") ))%>" 
+              data-pot-id-s="<%= pot.givevariant("S").id %>" data-pot-id-m="<%= pot.givevariant("M").id %>" data-pot-id-l="<%= pot.givevariant("L").id %>" 
+              data-price-s="<%= pot.givevariant("S").price %>" data-price-m="<%= pot.givevariant("M").price %>" data-price-l="<%= pot.givevariant("L").price %>" 
+              data-photo-s="<%= cl_image_path(Composition.photo(variant_pot_sku: pot.skuforpot("S"), variant_plant_sku: @plant.skuforplant("S") ))%>" 
+              data-photo-m="<%= cl_image_path(Composition.photo(variant_pot_sku: pot.skuforpot("M"), variant_plant_sku: @plant.skuforplant("M") ))%>" 
+              data-photo-l="<%= cl_image_path(Composition.photo(variant_pot_sku: pot.skuforpot("L"), variant_plant_sku: @plant.skuforplant("L") ))%>"
+              class="card-pot-contain" style="background-image: url(<%=cl_image_path(pot.photo) %>)">
               <div class="card-pot-footer">
                 <div class="card-pot-name">pot <%= i+1 %></div>
                 <div class="card-pot-price"><%= pot.givevariant("M").price %> €</div>
