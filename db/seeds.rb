@@ -13,36 +13,36 @@ Taxref.destroy_all
 puts '... Cleaning -- OK'
 
 user1 = User.new(email: "jcc197959@hotmail.fr", password: "password", admin: true)
-profile1 = Profile.new(first_name: 'JC', 
-last_name: 'Coevoet', 
-address: '102 avenue de Bretagne', 
-address_zipcode: 59_000, 
-address_city: "Lille", 
-address_country: "France")
+profile1 = Profile.new(first_name: 'JC',
+  last_name: 'Coevoet',
+  address: '102 avenue de Bretagne',
+  address_zipcode: 59_000,
+  address_city: "Lille",
+  address_country: "France")
 
 user2 = User.new(email: "zpichetti@gmail.com", password: "password", admin: true)
 profile2 = Profile.new(first_name: 'Xavier',
-last_name: 'Pichetti',
-address: '7 avenue Hippolite Peslin',
-address_zipcode: 59_000,
-address_city: "Lille", 
-address_country: "France")
+  last_name: 'Pichetti',
+  address: '7 avenue Hippolite Peslin',
+  address_zipcode: 59_000,
+  address_city: "Lille",
+  address_country: "France")
 
 user3 = User.new(email: "antoinepotdevin@gmail.com", password: "password", admin: true)
 profile3 = Profile.new(first_name: 'Antoine',
-last_name: "Potdevin",
-address: "25 avenue de Flandre",
-address_zipcode: 75_018,
-address_city: "Paris", 
-address_country: "France")
+  last_name: "Potdevin",
+  address: "25 avenue de Flandre",
+  address_zipcode: 75_018,
+  address_city: "Paris",
+  address_country: "France")
 
 user_not_admin = User.new(email: "nonadmin@gmail.com", password: "password", admin: false)
 profile_not_admin = Profile.new(first_name: 'User',
-last_name: "Lambda",
-address: "25 avenue de Flandre",
-address_zipcode: 75_018,
-address_city: "Paris", 
-address_country: "France")
+  last_name: "Lambda",
+  address: "25 avenue de Flandre",
+  address_zipcode: 75_018,
+  address_city: "Paris",
+  address_country: "France")
 
 profile1.user = user1
 profile2.user = user2

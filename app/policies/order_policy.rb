@@ -16,5 +16,4 @@ class OrderPolicy < ApplicationPolicy
   def destroy?
     true
   end
-
 end
