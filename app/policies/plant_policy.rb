@@ -4,7 +4,20 @@ class PlantPolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def show?
+    true
+  end
+
+  def new?
+    user.admin?
+  end
+
   def create?
+    user.admin?
+  end
+
+  def edit?
     user.admin?
   end
 

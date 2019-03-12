@@ -1,6 +1,7 @@
 class PaymentsController < ApplicationController
   before_action :set_order
   helper_method :current_or_guest_user
+
   def new
   end
 
@@ -30,5 +31,6 @@ private
   def set_order
     @cart = Cart.find(params[:cart_id])
     @profile = Profile.find(params[:profile_id])
+    authorize @cart
   end
 end

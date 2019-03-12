@@ -8,4 +8,29 @@ class Plant < ApplicationRecord
   def fullname
     gender.capitalize + ' ' + species
   end
+
+  def givevariant(size)
+    variant_plants.where(height_format: size)&.first
+  end
+
+  def skuforplant(size)
+    var = variant_plants.where(height_format: size)&.first
+    if var.nil?
+      return ""
+    else
+      return var.sku
+    end
+  end
+
+# ne fonctionne pas
+  # def nbercompoforpot(pot)
+  #   num = 0
+  #   variant_plants.each do |var|
+  #     search_composition = Composition.all.select do |comp|
+  #       (comp.variant_plant_sku == var.sku) && (comp.variant_pot_sku.present?)
+  #     end
+  #     num += search_composition.size unless search_composition.nil?
+  #   end
+  #   num
+  # end
 end

@@ -1,0 +1,10 @@
+<% compo = Composition.findcompo({variant_pot_sku: varpot.sku , variant_plant_sku: varplant.sku}) %>
+<% compo_photo = Composition.findphoto({variant_pot_sku: varpot.sku , variant_plant_sku: varplant.sku})%>
+
+
+
+  <% if policy(Composition).new? %>
+    <% formatplantpot = formatplant + formatpot %>
+    <%= link_to "Create", new_composition_path(format: formatplantpot), class: "btn btn-primary"  %>
+  <% end %>
+

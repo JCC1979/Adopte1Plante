@@ -1,5 +1,6 @@
 class PotsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_pot, only: [:edit, :update, :destroy]
+  helper_method :current_or_guest_user
 
   def index
     @pots = policy_scope(Pot)
@@ -22,6 +23,9 @@ class PotsController < ApplicationController
 
   def edit
     authorize @pot
+
+    @newvariant = VariantPot.new
+    authorize @newvariant
   end
 
   def update
@@ -45,8 +49,7 @@ class PotsController < ApplicationController
     params.require(:pot).permit(:name, :material, :color)
   end
 
-  def set_product
+  def set_pot
     @pot = Pot.find(params[:id])
   end
 end
-

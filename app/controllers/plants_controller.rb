@@ -1,5 +1,7 @@
 class PlantsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_plant, only: %i[edit update destroy show]
+  skip_before_action :authenticate_user!, only: %i[show]
+  helper_method :current_or_guest_user
 
   def index
     @plants = policy_scope(Plant)
@@ -7,13 +9,7 @@ class PlantsController < ApplicationController
 
   def show
     authorize @plant
-    @variant_plants = @plant.variant_plants
-    @variantS = @variant_plants.where(height_format: "S")&.first
-    @variantM = @variant_plants.where(height_format: "M")&.first
-    @variantL = @variant_plants.where(height_format: "L")&.first
-    authorize @variant_plants
-
-    @newvariant = VariantPlant.new
+    @pots = Pot.all
   end
 
   def new
@@ -33,13 +29,9 @@ class PlantsController < ApplicationController
 
   def edit
     authorize @plant
-    @variant_plants = @plant.variant_plants
-    authorize @variant_plants
-    @variantS = @variant_plants.where(height_format: "S")&.first
-    @variantM = @variant_plants.where(height_format: "M")&.first
-    @variantL = @variant_plants.where(height_format: "L")&.first
 
     @newvariant = VariantPlant.new
+    authorize @newvariant
   end
 
   def update
@@ -63,7 +55,7 @@ class PlantsController < ApplicationController
     params.require(:plant).permit(:id_code, :id_sup, :family, :gender, :species, :variant, :cultivar, :watering, :description, :sun_exposure, :commercial_name, :synonyms_list)
   end
 
-  def set_product
+  def set_plant
     @plant = Plant.find(params[:id])
   end
 end

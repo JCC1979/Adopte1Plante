@@ -3,14 +3,18 @@ class OrdersController < ApplicationController
   helper_method :current_or_guest_user
   def new
     @order = Order.new
+    authorize @order
     @profile = Profile.find(params[:profile_id])
-    @composition = Composition.where(variants_match: params[:plantId] + ";" + params[:potId]).first
+    variant_plant = VariantPlant.find(params[:plantId])
+    variant_pot = VariantPot.find(params[:potId])
+    @composition = Composition.where(variant_plant_sku: variant_plant.sku, variant_pot_sku: variant_pot.sku).first
   end
 
   def index
   end
 
   def create
+    
     @profile = Profile.find(params[:profile_id])
     @cart = Cart.where(profile_id: params[:profile_id], state: "pending")[0]
     @cart = Cart.create(state:"pending",profile_id: @profile.id) unless @cart
@@ -18,9 +22,10 @@ class OrdersController < ApplicationController
     @order.profile = @profile
     @order.cart = @cart
     if @order.save
+      authorize @order
       @cart.amount_cents += @order.composition.price
       @cart.save
-      redirect_to "/"
+      redirect_to profile_cart_path(@profile, @cart)
     else
       render :new
     end
@@ -34,10 +39,11 @@ class OrdersController < ApplicationController
     @profile = params[:profile_id]
     @cart = Cart.where(profile_id: params[:profile_id], state: "pending")[0]
     @order = Order.find(params[:id])
+    authorize @order
     @cart.amount_cents -= @order.composition.price
     @cart.save
     @order.destroy
-    redirect_to profile_carts_path(@profile)
+    redirect_to profile_cart_path(@profile, @cart)
   end
 
   private

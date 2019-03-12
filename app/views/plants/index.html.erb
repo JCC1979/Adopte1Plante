@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-4 offset-sm-4">
+    <div class="col-xs-12 col-sm-8 offset-sm-2">
       <h1>Plants#index</h1>
       <ul>
         <% @plants.each do |plant| %>
           <li>
-            <%= plant.id_code.to_s + " - " + plant.gender + " " + plant.species %>
+            <%= "Id_code (taxref_id) = " + plant.id_code.to_s + " - " + plant.gender + " " + plant.species %>
             <%= link_to edit_plant_path(plant) do %>
               <i class="fas fa-edit"></i>
             <% end %>

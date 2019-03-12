@@ -9,19 +9,19 @@
 
     <div class="card-variant-L">
       <div class="card col">
-        <%= render 'cardvariant', variant: @variantL, format: "L", addr: "variants_plant/addvariantL.png" %>
+        <%= render 'cardvariant', variant: @plant.givevariant("L"), format: "L" %>
       </div>
     </div>
 
     <div class="card-variant-M">
       <div class="card col">
-        <%= render 'cardvariant', variant: @variantM, format: "M", addr: "variants_plant/addvariantM.png" %>
+        <%= render 'cardvariant', variant: @plant.givevariant("M"), format: "M" %>
       </div>
     </div>
 
     <div class="card-variant-S">
       <div class="card col">
-        <%= render 'cardvariant', variant: @variantS, format: "S", addr: "variants_plant/addvariantS.png" %>
+        <%= render 'cardvariant', variant: @plant.givevariant("S"), format: "S" %>
       </div>
     </div>
 

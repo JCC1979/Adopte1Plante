@@ -7,6 +7,7 @@
         <%= f.input :sku %>
         <%= f.input :diameter_cm %>
         <%= f.input :height_format, as: :hidden, input_html: { value: @variant_plant.height_format } %>
+        <%= f.input :price %>
         <label>Modify photo file</label>
         <input type="file" name="photo_file_variant" class="form-control-file" value=<%= @variant_plant.findphoto %>></input>
         <br/>

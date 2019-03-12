@@ -1,1 +1,57 @@
-<h1>Compositions#index</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <div class="list-group" style="height: 200px;font-size: 13px;" id="list-tab" role="tablist">
+        <% @plants.each do |plant| %>
+          <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" 
+          id=<%= "list-" + plant.id_code.to_s + "-list"%> 
+          data-toggle="list" 
+          href=<%= "#list-" + plant.id_code.to_s %> 
+          role="tab" aria-controls=<%= plant.id_code.to_s %>>
+            <%= plant.id_code.to_s + " - " + plant.fullname %>
+          </a>
+        <% end %>
+      </div>
+    </div>
+    
+    <div class="col-9">
+      <div>
+        <form action="/compositions" method="post">
+          <div>
+            <input type="text" id="plantsku" name="variant_plant_sku" class="col-2" placeholder="plant sku">
+            <input type="text" id="potsku" name="variant_pot_sku" class="col-2" placeholder="pot sku">
+            <input type="file" id="filecompo" class="col-6" name="local_image">
+            <input name="authenticity_token" type="hidden" value="token_value">
+            <button type="submit">Validate</button>
+          </div>
+        </form>
+      </div>
+      <br/>
+      <div class="tab-content align-items-top" id="nav-tabContent">
+        <% @plants.each do |plant| %>          
+          <div class="tab-pane fade" 
+          id=<%= "list-" + plant.id_code.to_s %> 
+          role="tabpanel" 
+          aria-labelledby=<%= "list-" + plant.id_code.to_s + "-list"%>>      
+            <p>
+              <% @pots.each do |pot| %>
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=<%= "#collapse" + pot.id.to_s %> aria-expanded="false" aria-controls=<%= "collapse" + pot.id.to_s %>>
+                  <%= "Pot - " + pot.id.to_s + " - 8/9" %>
+                </button>
+              <% end %>
+            </p>
+
+            <% @pots.each do |pot| %>
+              <div class="collapse" id=<%= "collapse" + pot.id.to_s %>>
+                <div class="card card-body">
+                  <%= render 'tablecompo', plant: plant, pot: pot %>
+                </div>
+              </div>
+            <% end %>
+
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
