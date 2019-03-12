@@ -1,43 +1,51 @@
-<div class="banner-home"  style = "background-image: linear-gradient(90deg, rgba(130,119,119,0.300) 0%, rgba(255,255,255,0.300) 0%) , url(<%= image_path("back2.jpg") %>)">
-  <div class="center-title"> <p class="text-center"> Adoptez une plante à votre image, unique et préparée proche de chez vous </p>  </div>
-    <div class="searchizi">
-        <form class="search" action="">
-          <input  id="banner-typed-text" type="text" placeholder="" required>
-          <button type="submit">Rechercher</button>
-        </form> 
+<section>
+  <div class="banner-home"  style = "background-image: linear-gradient(90deg, rgba(130,119,119,0.300) 0%, rgba(255,255,255,0.300) 0%) , url(<%= image_path("back2.jpg") %>)">
+    <div class="center-title"> <p class="text-center"> Adoptez une plante à votre image, unique et préparée proche de chez vous </p>  </div>
+      <div class="searchizi">
+          <form class="search" action="">
+            <input  type="text" placeholder="Entrez le nom d'une plante" required>
+            <button type="submit">Rechercher</button>
+          </form> 
+          <%# <a id="seeall" href="#"> Voir toutes les compositions </a> %>
+          <a href="#" class="scroll-down" address="true"></a>
+      </div>
     </div>
-  </div>
-</div> 
+  </div> 
+</section>
 
 
+<%# id="banner-typed-text" %>
 
-<div class="wrapper-home">
-  <%# <p class="text-center"> Nos compositions en vogue</p> %>
-  
-  <div id="resultSearch" >
-    <div class="row">
-      <% 4.times do %>
-        <div class="cards col-sm-3 col-xs-6">
-          <div class="card">
-            <div class="card-content" style = "background-image: url(<%=image_path("plantest.png")%>)">
-              <a class="polaroid-link" href="/variants/11"></a>
+
+<section class="ok">
+  <div class="wrapper-home">
+    <%# <p class="text-center"> Nos compositions en vogue</p> %>
+    
+    <div id="resultSearch" >
+      <div class="row">
+        <% 4.times do %>
+          <div class="cards col-sm-3 col-xs-6">
+            <div class="card">
+              <div class="card-content" style = "background-image: url(<%=image_path("plantest.png")%>)">
+                <a class="polaroid-link" href="/variants/11"></a>
+              </div>
+              <div class="card-footerz hidden animated">
+                <div class="card-footerz-title"> Calathea Makoyana </div>
+                <div class="card-footerz-title2">Plante Paon </div> 
+                <div class="card-footerz-price"> A partir de 5€ </div>
+              </div>
             </div>
-            <div class="card-footerz hidden animated">
-              <div class="card-footerz-title"> Calathea Makoyana </div>
-              <div class="card-footerz-title2">Plante Paon </div> 
-              <div class="card-footerz-price"> A partir de 5€ </div>
-            </div>
+            
           </div>
-          
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
-  </div>
 
-        <div class="col text-center">
-            <button type="button" id="voirplus" class="btn btn-outline-primary" id="margintop">Voir plus de suggestions</button>
-        </div>
-</div>
+          <div class="col text-center">
+              <button type="button" id="voirplus" class="btn btn-outline-primary" id="margintop">Voir plus de suggestions</button>
+          </div>
+  </div>
+</section>
 
 
 
@@ -48,7 +56,7 @@
   </div>
   <div class="row">
     <%# <% 4.times do %> 
-      <div class="col-sm-3 col-xs-6 polaroids">
+      <div class="col-sm-3  col-xs-6 polaroids">
         <div class="polaroid">
           <div class="polaroid-content">
             <%= image_tag('insta1.png', style: 'width:100%') %>
@@ -61,7 +69,7 @@
       </div>
     <%# <% end %> 
         <%# <% 4.times do %> 
-      <div class="col-sm-3 col-xs-6 polaroids">
+      <div class="col-sm-3  col-xs-6 polaroids">
         <div class="polaroid">
           <div class="polaroid-content">
             <%= image_tag('insta2.png', style: 'width:100%') %>
@@ -74,7 +82,7 @@
       </div>
     <%# <% end %> 
         <%# <% 4.times do %> 
-      <div class="col-sm-3 col-xs-6 polaroids">
+      <div class="col-sm-3  col-xs-6 polaroids">
         <div class="polaroid">
           <div class="polaroid-content">
             <%= image_tag('insta3.png', style: 'width:100%') %>
@@ -87,7 +95,7 @@
       </div>
     <%# <% end %> 
         <%# <% 4.times do %> 
-      <div class="col-sm-3 col-xs-6 polaroids">
+      <div class="col-sm-3  col-xs-6 polaroids">
         <div class="polaroid">
           <div class="polaroid-content">
             <%= image_tag('insta4.png', style: 'width:100%') %>

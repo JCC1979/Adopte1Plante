@@ -46,3 +46,9 @@ import { plus } from '../components/voirplus';
 if (document.getElementById("voirplus")) {
   plus();
 }
+
+
+import { scrolldown } from '../components/scroll';
+if (document.querySelector('.scroll-down')) {
+  scrolldown();
+}
