@@ -9,9 +9,8 @@ class PlantsController < ApplicationController
 
   def show
     authorize @plant
-    @pots = Pot.all
+    @pots = @plant.pots
     session[:cart_guest] = false
-    raise
   end
 
   def new

@@ -29,4 +29,8 @@ class Composition < ApplicationRecord
     good_composition = search_composition&.first
     return good_composition unless good_composition.nil?
   end
+
+  def self.findcompos_by_plant(plant_sku)
+    self.where(variant_plant_sku: plant_sku)
+  end
 end

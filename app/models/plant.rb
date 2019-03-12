@@ -22,6 +22,19 @@ class Plant < ApplicationRecord
     end
   end
 
+  def pots
+    sku_plants = self.variant_plants.pluck(:sku)
+    list_variant_pots = []
+    sku_plants.each do |sku_plant|
+      list_variant_pots << Composition.findcompos_by_plant(sku_plant).pluck(:variant_pot_sku)
+    end
+    list_variant_pots.flatten!.compact!
+    list_variant_pots.map! do |pot_sku|
+      VariantPot.find_by(sku: pot_sku).pot
+    end
+    list_variant_pots.uniq
+  end
+
 # ne fonctionne pas
   # def nbercompoforpot(pot)
   #   num = 0
