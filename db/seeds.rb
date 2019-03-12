@@ -61,112 +61,8 @@ profile_not_admin.user.save!
 
 puts "Ajout 3 profiles & users admin & 1 profil non admin -- OK"
 
-pot1 = Pot.create!(name: "Plastic pot", material: "plastic", color: "gray")
-pot2 = Pot.create!(name: "Natural pot", material: "terracotta", color: "red")
-pot3 = Pot.create!(name: "Metal pot", material: "metalic", color: "gray")
-plant2 = Plant.create!(id_code: "447840", id_sup: "446231", family: "Marantaceae",
-  gender: "Calathea", species: "crotalifera", cultivar: "",
-  variant: "", description: "blabla", sun_exposure: "fort besoin",
-  watering: "fort besoin", commercial_name: "Plan Paon", synonyms_list: "jean, morise")
-plant3 = Plant.create!(id_code: "334435", id_sup: "446231", family: "Asparagaceae",
-  gender: "Sansevieria", species: "altissima", cultivar: "",
-  variant: "", description: "blabla", sun_exposure: "fort besoin",
-  watering: "fort besoin", commercial_name: "", synonyms_list: "jean, morise")
-
-puts "Ajout de 3 pots et 2 planteq dans produc -- OK"
-
-varpot1s = VariantPot.new(sku: "pot1-S", diameter_cm: 10, height_format: "S", price: 10)
-varpot2s = VariantPot.new(sku: "pot2-S", diameter_cm: 10, height_format: "S", price: 12)
-varpot3s = VariantPot.new(sku: "pot3-S", diameter_cm: 10, height_format: "S", price: 14)
-
-varpot1m = VariantPot.new(sku: "pot1-M", diameter_cm: 10, height_format: "M", price: 19)
-varpot2m = VariantPot.new(sku: "pot2-M", diameter_cm: 10, height_format: "M", price: 22)
-varpot3m = VariantPot.new(sku: "pot3-M", diameter_cm: 10, height_format: "M", price: 14)
-
-varpot1l = VariantPot.new(sku: "pot1-L", diameter_cm: 30, height_format: "L", price: 32)
-varpot2l = VariantPot.new(sku: "pot2-L", diameter_cm: 30, height_format: "L", price: 35)
-varpot3l = VariantPot.new(sku: "pot3-L", diameter_cm: 30, height_format: "L", price: 40)
-
-varplant2s = VariantPlant.new(sku: 10, diameter_cm: 20, height_format: "S", price: 30)
-varplant2m = VariantPlant.new(sku: 11, diameter_cm: 30, height_format: "M", price: 45)
-varplant2l = VariantPlant.new(sku: 12, diameter_cm: 40, height_format: "L", price: 60)
-
-varpot1s.pot = pot1
-varpot1m.pot = pot1
-varpot1l.pot = pot1
-varpot2s.pot = pot2
-varpot2m.pot = pot2
-varpot2l.pot = pot2
-varpot3s.pot = pot3
-varpot3m.pot = pot3
-varpot3l.pot = pot3
-varplant2s.plant = plant2
-varplant2m.plant = plant2
-varplant2l.plant = plant2
-
-varpot1s.save!
-varpot1m.save!
-varpot1l.save!
-varpot2s.save!
-varpot2m.save!
-varpot2l.save!
-varpot3s.save!
-varpot3m.save!
-varpot3l.save!
-varplant2s.save!
-varplant2m.save!
-varplant2l.save!
-
-puts "Ajout des variantes S M L pour 3 pots et 1 plante -- OK"
-
-compo1 = Composition.new(variant_pot_sku: varpot1m.sku, image_id: "/images/composition/pot1.jpg")
-compo2 = Composition.new(variant_pot_sku: varpot2m.sku, image_id: "/images/composition/pot2.jpg")
-compo3 = Composition.new(variant_pot_sku: varpot3m.sku, image_id: "/images/composition/pot3.jpg")
-
-compo4 = Composition.new(variant_plant_sku: varplant2s.sku, image_id: "/images/composition/planteS.jpg")
-compo5 = Composition.new(variant_plant_sku: varplant2m.sku, image_id: "/images/composition/planteM.jpg")
-compo6 = Composition.new(variant_plant_sku: varplant2l.sku, image_id: "/images/composition/planteL.jpg")
-
-compo7 = Composition.new(variant_plant_sku: varplant2s.sku, variant_pot_sku: varpot1s.sku, image_id: "/images/composition/planteSpot1.jpg")
-compo8 = Composition.new(variant_plant_sku: varplant2m.sku, variant_pot_sku: varpot1m.sku, image_id: "/images/composition/planteMpot1.jpg")
-compo9 = Composition.new(variant_plant_sku: varplant2l.sku, variant_pot_sku: varpot1l.sku, image_id: "/images/composition/planteLpot1.jpg")
-
-compo10 = Composition.new(variant_plant_sku: varplant2s.sku, variant_pot_sku: varpot2s.sku, image_id: "/images/composition/planteSpot2.jpg")
-compo11 = Composition.new(variant_plant_sku: varplant2m.sku, variant_pot_sku: varpot2m.sku, image_id: "/images/composition/planteMpot2.jpg")
-compo12 = Composition.new(variant_plant_sku: varplant2l.sku, variant_pot_sku: varpot2l.sku, image_id: "/images/composition/planteLpot2.jpg")
-
-compo13 = Composition.new(variant_plant_sku: varplant2s.sku, variant_pot_sku: varpot3s.sku, image_id: "/images/composition/planteSpot3.jpg")
-compo14 = Composition.new(variant_plant_sku: varplant2m.sku, variant_pot_sku: varpot3m.sku, image_id: "/images/composition/planteMpot3.jpg")
-compo15 = Composition.new(variant_plant_sku: varplant2l.sku, variant_pot_sku: varpot3l.sku, image_id: "/images/composition/planteLpot3.jpg")
-
-
-compo1.save!
-compo2.save!
-compo3.save!
-compo4.save!
-compo5.save!
-compo6.save!
-compo7.save!
-compo8.save!
-compo9.save!
-compo10.save!
-compo11.save!
-compo12.save!
-compo13.save!
-compo14.save!
-compo15.save!
-
-puts "Ajout des compositions -- OK"
-
-
-# Order.create!(profile_id: profile1.id, composition_id: compo8.id, status: "done", composition_nickname: "Fanny")
-# Order.create!(profile_id: profile2.id, composition_id: compo8.id, status: "done", composition_nickname: "Fanny")
-# Order.create!(profile_id: profile3.id, composition_id: compo8.id, status: "done", composition_nickname: "Fanny")
-
-# puts "Attribution d'une contribusion a chaque user --OK"
-
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'TAXREFv12-extract.csv'))
-csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+csv = CSV.parse(csv_text, headers: true, encoding: 'ISO-8859-1')
 csv.each do |row|
   t = Taxref.new
   t.id_code = row['CD_REF']
@@ -188,8 +84,84 @@ Taxref.all.each do |line|
     line.save!
   end
 end
+puts "taxref table : #{Taxref.count} new rows"
 
-puts "There are now #{Taxref.count} rows in the taxref table"
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'plants.csv'))
+csv = CSV.parse(csv_text, headers: true, encoding: 'ISO-8859-1')
+csv.each do |row|
+  t = Plant.new
+  t.id_code = row['id_code']
+  t.id_sup = row['id_sup']
+  t.family = row['family']
+  t.gender = row['gender']
+  t.species = row['species']
+  t.variant = row['variant']
+  t.cultivar = row['cultivar']
+  t.description = row['description']
+  t.sun_exposure = row['sun_exposure']
+  t.watering = row['watering']
+  t.commercial_name = row['wcommercial_name']
+  t.synonyms_list = row['synonyms_list']
+  t.easy_seed_matching = row['easy_seed_matching']
+  t.save!
+end
+puts "plants table : #{Plant.count} new rows"
+
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'pots.csv'))
+csv = CSV.parse(csv_text, headers: true, encoding: 'ISO-8859-1')
+csv.each do |row|
+  t = Pot.new
+  t.name = row['name'].to_s
+  t.material = row['material']
+  t.color = row['color']
+  t.easy_seed_matching = row['easy_seed_matching']
+  t.save!
+end
+puts "pots table : #{Pot.count} new rows"
+
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'variants_plant.csv'))
+csv = CSV.parse(csv_text, headers: true, encoding: 'ISO-8859-1')
+csv.each do |row|
+  var = VariantPlant.new
+  var.sku = row['sku']
+  match_index = row['sku'].split(/(\w*)-/)[1]
+  var.diameter_cm = row['diameter_cm']
+  var.height_format = row['height_format']
+  var.price = row['price']
+  Plant.all.each do |p|
+    var.plant = p if p.easy_seed_matching == match_index
+  end
+  var.save!
+end
+puts "variant_plants table :  #{VariantPlant.count} new rows"
+
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'variants_pot.csv'))
+csv = CSV.parse(csv_text, headers: true, encoding: 'ISO-8859-1')
+csv.each do |row|
+  var = VariantPot.new
+  var.sku = row['sku']
+  match_index = row['sku'].split(/(\w*)-/)[1]
+  #  ou .chop.chop.split(/(\w*)-/)
+  var.diameter_cm= row['diameter_cm']
+  var.height_format = row['height_format']
+  var.price = row['price']
+  Pot.all.each do |p|
+    var.pot = p if p.easy_seed_matching == match_index
+  end
+  var.save!
+end
+puts "variant_pots table : #{VariantPot.count} new rows"
+
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'compositions.csv'))
+csv = CSV.parse(csv_text, headers: true, encoding: 'ISO-8859-1')
+csv.each do |row|
+  comp = Composition.new
+  comp.variant_plant_sku = row['variant_plant_sku']
+  comp.variant_pot_sku = row['variant_pot_sku']
+  comp.remote_photo_url = row['image_url']
+  comp.save!
+end
+puts "compositions table :  #{Composition.count} new rows"
 
 puts 'Finished!'
 

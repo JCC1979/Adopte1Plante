@@ -1,1 +1,4 @@
-﻿name,material,colorPlastic pot,plastic,greyNatural pot,terracotta,redMetal pot,metal,grey
+ghost,name,material,color,easy_seed_matching
+,modern,copper,gold,PotA
+,graphic,concrete,grey,PotB
+,classic,terracota,white,PotC

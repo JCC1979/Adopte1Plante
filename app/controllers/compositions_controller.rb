@@ -18,13 +18,13 @@ class CompositionsController < ApplicationController
   def create
     @composition = Composition.new(compo_params_direct)
     authorize @composition
-    addr = "compositions/" + compo_params_direct[:local_image]
+    addr = "compositions/" + compo_params_direct[:photo]
     result = Composition.where(variant_pot_sku: compo_params_direct[:variant_pot_sku], variant_plant_sku: compo_params_direct[:variant_plant_sku])&.first
 
     if (result.nil? && result&.variant_pot_sku.present? && result&.variant_plant_sku.present? )
-      Composition.create!(variant_pot_sku: compo_params_direct[:variant_pot_sku], variant_plant_sku: compo_params_direct[:variant_plant_sku], local_image: addr)
+      Composition.create!(variant_pot_sku: compo_params_direct[:variant_pot_sku], variant_plant_sku: compo_params_direct[:variant_plant_sku], photo: addr)
     elsif result.present?
-      result.update!(local_image: addr)
+      result.update!(photo: addr)
     else
       # message alerte
     end
@@ -54,11 +54,11 @@ class CompositionsController < ApplicationController
   private
 
   def compo_params
-    params.require(:composition).permit(:local_image, :variant_pot_sku, :variant_plant_sku)
+    params.require(:composition).permit(:photo, :variant_pot_sku, :variant_plant_sku)
   end
 
   def compo_params_direct
-    params.permit(:local_image, :variant_pot_sku, :variant_plant_sku)
+    params.permit(:photo, :variant_pot_sku, :variant_plant_sku)
   end
 
   def set_composition
