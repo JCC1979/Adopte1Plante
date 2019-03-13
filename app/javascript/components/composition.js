@@ -174,11 +174,13 @@ const changeImg = () => {
     const elementPotActive = document.querySelector(".card-pot-active");
     const photo = elementPotActive.dataset.photo;
     elementImg.style.backgroundImage = `url(${ photo })`;
+
   } else {
     const sizeActive = document.querySelector(".card-main-size-active");
     const photo = sizeActive.dataset.plantPhoto;
     elementImg.style.backgroundImage = `url(${ photo })`;
-  }
+  } 
+
 }
 
 const updateComposition = () => {

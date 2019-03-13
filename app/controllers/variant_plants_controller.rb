@@ -3,15 +3,6 @@ class VariantPlantsController < ApplicationController
   before_action :set_variant_plant, only: [:edit, :update, :destroy]
   helper_method :current_or_guest_user
 
-  def show
-    @pots = []
-    @pots << VariantPot.find(2)
-    @pots << VariantPot.find(5)
-    @pots << VariantPot.find(8)
-    @variant_plant = VariantPlant.find(params[:id])
-    @order = Order.new
-  end
-
   def new
     @plant = Plant.find(params[:plant_id])
     authorize @plant
