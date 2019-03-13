@@ -1,21 +1,40 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-8 offset-sm-2">
-      <h1>Pots#index</h1>
-      <ul>
-        <% @pots.each do |pot| %>
-          <li>
-            <%= pot.id.to_s + " - " + pot.name + " - " + pot.material + " - " + pot.color %>
-            <%= link_to edit_pot_path(pot) do %>
-              <i class="fas fa-edit"></i>
-            <% end %>
-            <%= link_to pot_path(pot), method: :delete, data: {:confirm => "Are you sure to delete ?"} do %>
-              <i class="far fa-trash-alt"></i>
-            <% end %>
-          </li>
-        <% end %>
-      </ul>
-      <% if policy(Pot).create? %>
+    <div class="col-xs-12 col-sm-10 offset-sm-1">
+      <h1>List of Pots</h1>
+      <table class="table table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Material</th>
+            <th scope="col">Color</th>
+            <th scope="col"><i class="fas fa-edit"></i></th>
+            <th scope="col"><i class="far fa-trash-alt"></i></i></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @pots.each do |pot| %>
+              <tr>
+                <th scope="row"><%= pot.id.to_s %></th>
+                <td><%= pot.name %></td>
+                <td><%= pot.material %></td>
+                <td><%= pot.color %></td>
+                <td>
+                  <%= link_to edit_pot_path(pot) do %>
+                    <i class="fas fa-edit"></i>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to pot_path(pot), method: :delete, data: {:confirm => "Are you sure to delete ?"} do %>
+                    <i class="far fa-trash-alt"></i>
+                  <% end %>
+                </td>
+              </tr>
+          <% end %>
+        </tbody>
+      </table>
+     <% if policy(Pot).create? %>
         <%= link_to "Create a new pot", new_pot_path,class: "btn btn-primary"  %>
       <% end %>
     </div>
