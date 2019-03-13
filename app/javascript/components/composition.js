@@ -24,9 +24,9 @@ const changeSML = () => {
     elementPot3.dataset.potId = elementPot3.dataset.potIdS;
 
     // mise a jour des prix des pots
-    elementPot1Price.innerHTML = `${ elementPot1.dataset.priceS } €`;
-    elementPot2Price.innerHTML = `${ elementPot2.dataset.priceS } €`;
-    elementPot3Price.innerHTML = `${ elementPot3.dataset.priceS } €`;
+    elementPot1Price.innerHTML = `${ parseInt(elementPot1.dataset.priceS) } €`;
+    elementPot2Price.innerHTML = `${ parseInt(elementPot2.dataset.priceS) } €`;
+    elementPot3Price.innerHTML = `${ parseInt(elementPot3.dataset.priceS) } €`;
 
     elementPot1.dataset.price = elementPot1.dataset.priceS;
     elementPot2.dataset.price = elementPot2.dataset.priceS;
@@ -55,9 +55,9 @@ const changeSML = () => {
     elementPot3.dataset.potId = elementPot3.dataset.potIdM;
 
     // mise a jour des prix des pots
-    elementPot1Price.innerHTML = `${ elementPot1.dataset.priceM } €`;
-    elementPot2Price.innerHTML = `${ elementPot2.dataset.priceM } €`;
-    elementPot3Price.innerHTML = `${ elementPot3.dataset.priceM } €`;
+    elementPot1Price.innerHTML = `${ parseInt(elementPot1.dataset.priceM) } €`;
+    elementPot2Price.innerHTML = `${ parseInt(elementPot2.dataset.priceM) } €`;
+    elementPot3Price.innerHTML = `${ parseInt(elementPot3.dataset.priceM) } €`;
 
     elementPot1.dataset.price = elementPot1.dataset.priceM;
     elementPot2.dataset.price = elementPot2.dataset.priceM;
@@ -86,9 +86,9 @@ const changeSML = () => {
     elementPot3.dataset.potId = elementPot3.dataset.potIdL;
 
     // mise a jour des prix des pots
-    elementPot1Price.innerHTML = `${ elementPot1.dataset.priceL } €`;
-    elementPot2Price.innerHTML = `${ elementPot2.dataset.priceL } €`;
-    elementPot3Price.innerHTML = `${ elementPot3.dataset.priceL } €`;
+    elementPot1Price.innerHTML = `${ parseInt(elementPot1.dataset.priceL) } €`;
+    elementPot2Price.innerHTML = `${ parseInt(elementPot2.dataset.priceL) } €`;
+    elementPot3Price.innerHTML = `${ parseInt(elementPot3.dataset.priceL) } €`;
     
     elementPot1.dataset.price = elementPot1.dataset.priceL
     elementPot2.dataset.price = elementPot2.dataset.priceL
@@ -174,7 +174,13 @@ const changeImg = () => {
     const elementPotActive = document.querySelector(".card-pot-active");
     const photo = elementPotActive.dataset.photo;
     elementImg.style.backgroundImage = `url(${ photo })`;
+
+  } else {
+    const sizeActive = document.querySelector(".card-main-size-active");
+    const photo = sizeActive.dataset.plantPhoto;
+    elementImg.style.backgroundImage = `url(${ photo })`;
   } 
+
 }
 
 const updateComposition = () => {

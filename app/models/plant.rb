@@ -52,6 +52,11 @@ class Plant < ApplicationRecord
     Composition.findcompos_by_plant(plant_m.sku).drop(1).sample.photo
   end 
 
+  def photo(size)
+    plant_m = self.givevariant(size)
+    Composition.findcompos_by_plant(plant_m.sku).first.photo
+  end
+
 # ne fonctionne pas
   # def nbercompoforpot(pot)
   #   num = 0
