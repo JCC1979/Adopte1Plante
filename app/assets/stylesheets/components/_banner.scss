@@ -1,6 +1,6 @@
 
 .banner-home{
-  height: calc(60vh);
+  height: calc(50vh);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -24,6 +24,7 @@
       color: $dark-gray;
       margin-bottom: 50px;
       font-weight: 300;
+      padding-bottom: 40px;
     }
 }
 
@@ -37,7 +38,7 @@
 .search {
   width: 500px;
   height: 40px;
-  margin: 30px auto;
+  // margin: 30px auto;
   background: #444;
   background: rgba(255, 255, 255, 0.8);
   border: 2px solid $dark-green;
