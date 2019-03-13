@@ -49,7 +49,12 @@ class Plant < ApplicationRecord
 
   def image_random
     plant_m = self.givevariant("M")
-    Composition.findcompos_by_plant(plant_m.sku).drop(1).sample.photo
+    compos = Composition.findcompos_by_plant(plant_m.sku)
+    list = []
+    compos.each do |compo|
+      list << compo unless compo.variant_pot_sku.nil?
+    end
+    list.sample.photo
   end 
 
   def photo(size)

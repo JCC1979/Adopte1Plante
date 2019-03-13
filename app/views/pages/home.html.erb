@@ -17,32 +17,30 @@
 <%# id="banner-typed-text" %>
 
 
-<section class="ok">
-  <div class="wrapper-home">
+<section class="ok" media="screen">
+  <div id="resultSearch" class="wrapper-home" style="height: 28vw" data-max-click="<%= @plants.size / 4 %>"> 
     <h2 class="text-center"> Nos meilleures compositions </h2>
-    <div id="resultSearch" >
-      <div class="row">
-        <% @plants.each do |plant| %>
-          <div class="cards col-sm-3 col-xs-6">
-            <div class="card">
-              <div class="card-content" style='background-image: url( "<%= cl_image_path(plant.image_random) %> ")'>
-                <a class="polaroid-link" href="<%= plant_path(plant) %>"></a>
-              </div>
-              <div class="card-footerz hidden animated">
-                <div class="card-footerz-title"> <%= plant.fullname %> </div>
-                <%# <div class="card-footerz-title2"> <%= plant.commercial_name </div> %>
-                <div class="card-footerz-title2"> A partir de <%= humanized_money(plant.min_price_compo / 100) %> €</div>
-              </div>
+    <div class="row">
+      <% @plants.each do |plant| %>
+        <div class="cards col-12 col-sm-6	col-md-3 ">
+          <div class="card">
+            <div class="card-content" style='background-image: url( "<%= cl_image_path(plant.image_random) %> ")'>
+              <a class="polaroid-link" href="<%= plant_path(plant) %>"></a>
             </div>
-            
-          </div>
-        <% end %>
-      </div>
+            <div class="card-footerz hidden animated">
+              <div class="card-footerz-title"> <%= plant.fullname %> </div>
+              <%# <div class="card-footerz-title2"> <%= plant.commercial_name </div> %>
+              <div class="card-footerz-title2"> A partir de <%= humanized_money(plant.min_price_compo / 100) %> €</div>
+            </div>
+          </div> 
+        </div>
+      <% end %>
     </div>
-
-          <div class="col text-center">
-              <button type="button" id="voirplus" class="btn btn-outline-primary" id="margintop">Voir plus de suggestions</button>
-          </div>
+  </div>
+  <div class="wrapper-home-btn">
+    <div class="col text-center">
+        <button type="button" id="voirplus" class="btn btn-outline-primary" id="margintop">Voir plus de suggestions</button>
+    </div>
   </div>
 </section>
 

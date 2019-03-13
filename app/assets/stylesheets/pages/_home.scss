@@ -7,6 +7,16 @@
   width: 100%;
   padding-top: 20px;
   padding-bottom: 20px;
+  overflow: hidden;
+}
+
+.wrapper-home-btn {
+  padding-right: 40px;
+  padding-left: 40px;
+  background-color: white;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .wrapper-home-bottom {
@@ -34,4 +44,12 @@ margin-bottom: 10px;
 
 #margintop {
   margin-top: 25px;
+}
+
+
+@media(max-width: 720px) {
+  .wrapper-home {
+    
+    height: 100vw;
+  }
 }
