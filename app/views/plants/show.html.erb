@@ -28,7 +28,7 @@
               class="card-pot-contain" style="background-image: url(<%=cl_image_path(pot.photo) %>)">
               <div class="card-pot-footer">
                 <div class="card-pot-name"> <%= pot.name %></div>
-                <div class="card-pot-price"><%= pot.givevariant("M").price %> €</div>
+                <div class="card-pot-price"><%= pot.givevariant("M").price.to_i %> €</div>
               </div>
             </div>
           </div>
