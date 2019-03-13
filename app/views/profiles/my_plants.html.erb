@@ -8,11 +8,11 @@
         <div class="cards-myplants col-md-6">
         <div class="cards-order">
           <div class="card-order">
-            <img src="/images/composition/planteMpot2.jpg" alt="">
+            <%= cl_image_tag(order.composition.photo) %>
             <div class="card-order-infos">
               <h3><%= order.composition_nickname %></h3>
+              <p><a href="https://www.instagram.com/explore/tags/<%=order.composition.plant.fullname.delete(' ')%>/" target="_blank" >#<%=order.composition.plant.fullname.capitalize%></a></p>
               <p>adoper le <%=order.created_at.strftime('%d-%m-%y')%></p>
-              
             </div>
           </div>
         </div>
@@ -21,7 +21,7 @@
       </div>
       <div class="profile-end">&nbsp;</div>
       <div class="text-center">
-        <button type="button" class="btn btn-outline-primary">Adopte une plante de plus</button>
+        <a href="/" class="btn btn-outline-primary">Adopte une plante de plus</a>
       </div>
       <div class="profile-end">&nbsp;</div>
     </div>

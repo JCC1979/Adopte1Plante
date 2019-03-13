@@ -21,7 +21,7 @@
             <div class="card-command-content">
               <% cart.orders.each do |order| %>
                 <div class="card-command-content-plant">
-                  <img src="/images/composition/planteMpot2.jpg" alt="">
+                  <%= cl_image_tag(order.composition.photo) %>
                   <div>
                     <h4><%= order.composition_nickname.capitalize %></h4>
                     <p>

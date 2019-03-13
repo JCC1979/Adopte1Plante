@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-5 offset-md-1">
-      <img class="img-fluid" src="/images/composition/planteMpot2.jpg" alt="">
+      <%= cl_image_tag(@composition.photo, class: "img-fluid") %>
     </div>
     <div class="col-md-5">
       <%= simple_form_for([@profile,@order]) do |f| %>
