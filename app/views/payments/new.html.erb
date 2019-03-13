@@ -1,11 +1,10 @@
 <div class="container">
-  <div class="row">
     <div class="col-md-10 offset-md-1">
-      <h1>Votre commande N°<%= @cart.id %></h1>
+      <h2 class="text-center">Votre commande N°<%= @cart.id %></h2>
       <%= form_tag profile_cart_payments_path(@profile,@cart) do %>
         <article>
           <label class="amount">
-            <span>Amount: <%= humanized_money_with_symbol(@cart.amount) %></span>
+            <span>Total <%= humanized_money_with_symbol(@cart.amount) %></span>
           </label>
         </article>
         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
@@ -18,7 +17,6 @@
         </script>
       <% end %>
     </div>
-  </div>
 </div>
 
   
