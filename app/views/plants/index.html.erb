@@ -1,20 +1,37 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-8 offset-sm-2">
-      <h1>Plants#index</h1>
-      <ul>
-        <% @plants.each do |plant| %>
-          <li>
-            <%= plant.id_code.to_s + " - " + plant.gender + " " + plant.species %>
-            <%= link_to edit_plant_path(plant) do %>
-              <i class="fas fa-edit"></i>
-            <% end %>
-            <%= link_to plant_path(plant), method: :delete, data: {:confirm => "Are you sure to delete -" + plant.gender + "- ?"} do %>
-              <i class="far fa-trash-alt"></i>
-            <% end %>
-          </li>
-        <% end %>
-      </ul>
+    <div class="col-xs-12 col-sm-10 offset-sm-1">
+      <h1>List of Plants</h1>
+      <table class="table table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Id_code</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Species</th>
+            <th scope="col"><i class="fas fa-edit"></i></th>
+            <th scope="col"><i class="far fa-trash-alt"></i></i></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @plants.each do |plant| %>
+              <tr>
+                <th scope="row"><%= plant.id_code.to_s %></th>
+                <td><%= plant.gender %></td>
+                <td><%= plant.species %></td>
+                <td>
+                  <%= link_to edit_plant_path(plant) do %>
+                    <i class="fas fa-edit"></i>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to plant_path(plant), method: :delete, data: {:confirm => "Are you sure to delete -" + plant.gender + "- ?"} do %>
+                    <i class="far fa-trash-alt"></i>
+                  <% end %>
+                </td>
+              </tr>
+          <% end %>
+        </tbody>
+      </table>
       <% if policy(Plant).create? %>
         <%= link_to "Create a new plant", new_plant_path,class: "btn btn-primary"  %>
       <% end %>
