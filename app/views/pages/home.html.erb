@@ -7,7 +7,7 @@
             <button type="submit">Rechercher</button>
           </form> 
           <%# <a id="seeall" href="#"> Voir toutes les compositions </a> %>
-          <a href="#" class="scroll-down" address="true"></a>
+          <%# <a href="#" class="scroll-down" address="true"></a> %>
       </div>
     </div>
   </div> 
@@ -19,7 +19,7 @@
 
 <section class="ok">
   <div class="wrapper-home">
-    <h2 class="text-center"> Nos meilleurs compositions </h2>
+    <h2 class="text-center"> Nos meilleures compositions </h2>
     <div id="resultSearch" >
       <div class="row">
         <% @plants.each do |plant| %>
@@ -30,8 +30,8 @@
               </div>
               <div class="card-footerz hidden animated">
                 <div class="card-footerz-title"> <%= plant.fullname %> </div>
-                <div class="card-footerz-title2"> <%= plant.commercial_name %> </div> 
-                <div class="card-footerz-price"> A partir de <%= humanized_money(plant.min_price_compo / 100) %> €</div>
+                <%# <div class="card-footerz-title2"> <%= plant.commercial_name </div> %>
+                <div class="card-footerz-title2"> A partir de <%= humanized_money(plant.min_price_compo / 100) %> €</div>
               </div>
             </div>
             
