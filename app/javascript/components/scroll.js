@@ -26,26 +26,3 @@ const scrolldown = () => {
 };
 
 export {scrolldown};
-
-
-// const scrolldown = () => {
-//   var top = $('html').offset().top;
-
-//   $('#voirplus').click(function(event) {
-//     console.log("lol")
-//       // Preventing default action of the event
-//       event.preventDefault();
-//       // Getting the height of the document
-//       var n = $(document).height();
-//       $('html, body').animate({ scrollTop: top + 350 }, 1500);
-
-//   // $('#voirplus').click(function () {
-//   //   console.log("lol")
-//   //   var n = $(document).height();
-//   //     $('html, body').animate({ scrollTop: 700 }, 1500);
-//   //   });
-//   });
-//   $('#voirplus').off("click");
-// };
-
-// export {scrolldown};
