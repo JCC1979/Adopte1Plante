@@ -5,6 +5,7 @@
       <table class="table table-hover">
         <thead class="thead-dark">
           <tr>
+            <th scope="col">Id_db</th>
             <th scope="col">Id_code</th>
             <th scope="col">Gender</th>
             <th scope="col">Species</th>
@@ -15,7 +16,10 @@
         <tbody>
           <% @plants.each do |plant| %>
               <tr>
-                <th scope="row"><%= plant.id_code.to_s %></th>
+                <th scope="row"><%= plant.id.to_s %></th>
+                <%= link_to edit_plant_path(plant) do %>
+                  <td><%= plant.id_code %></td>
+                <% end %>
                 <td><%= plant.gender %></td>
                 <td><%= plant.species %></td>
                 <td>
