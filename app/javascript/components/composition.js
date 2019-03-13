@@ -178,7 +178,7 @@ const changeImg = () => {
     const sizeActive = document.querySelector(".card-main-size-active");
     const photo = sizeActive.dataset.plantPhoto;
     elementImg.style.backgroundImage = `url(${ photo })`;
-  }
+  } 
 }
 
 const updateComposition = () => {
