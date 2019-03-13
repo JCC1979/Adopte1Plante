@@ -49,6 +49,6 @@ if (document.getElementById("voirplus")) {
 
 
 import { scrolldown } from '../components/scroll';
-if (document.querySelector('.scroll-down')) {
+if (document.querySelector('#voirplus')) {
   scrolldown();
 }
