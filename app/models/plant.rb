@@ -50,8 +50,8 @@ class Plant < ApplicationRecord
     Composition.findcompos_by_plant(plant_m.sku).drop(1).sample.photo
   end 
 
-  def photo
-    plant_m = self.givevariant("M")
+  def photo(size)
+    plant_m = self.givevariant(size)
     Composition.findcompos_by_plant(plant_m.sku).first.photo
   end
 
