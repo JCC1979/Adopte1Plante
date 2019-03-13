@@ -8,6 +8,7 @@ class PlantsController < ApplicationController
   end
 
   def show
+    @plants = Plant.all.sample(3)
     authorize @plant
     @pots = @plant.pots
     session[:cart_guest] = false
