@@ -32,6 +32,10 @@ class Composition < ApplicationRecord
     self.where(variant_plant_sku: plant_sku)
   end
 
+  def self.findcompos_by_pot(pot)
+    self.where(variant_pot_sku: pot.sku)
+  end
+
   def plant
     VariantPlant.find_by(sku: variant_plant_sku).plant
   end
@@ -46,5 +50,10 @@ class Composition < ApplicationRecord
 
   def variant_pot
     VariantPot.find_by(sku: variant_pot_sku)
+  end
+
+  def self.photo(hash_sku)
+    comp = self.where(variant_plant_sku: hash_sku[:variant_plant_sku], variant_pot_sku: hash_sku[:variant_pot_sku])
+    comp.size > 0 ? comp[0].photo : "Adopte1plante/default.png"
   end
 end
