@@ -6,9 +6,7 @@ const plus = () => {
   const xht = wrapper.style.height
   bouton.addEventListener("click", (event) => {
     const x = document.getElementById("resultSearch").style.height
-    console.log(x)
     const newht = (parseInt(xht.replace(/vw/,""))+parseInt(x.replace(/vw/,""))-3)+"vw"
-    console.log(newht)
     if (maxclick > clic) {
       document.getElementById("resultSearch").style.height = newht ;
       clic = clic + 1 ;
