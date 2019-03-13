@@ -40,8 +40,8 @@
       </div>
       <div class="composition-detail">
         <div class="composition-detail-left">
-          <p> <%= image_tag "watering.png", alt: "humidité", width: 28, height: 28 %> <%= @plant.watering %></p>
-          <p> <%= image_tag "ground.png", alt: "exposition", width: 28, height: 28 %> <%= @plant.sun_exposure %></p>
+          <p><i class="fas fa-tint"></i> <%= @plant.watering %></p>
+          <p><i class="fas fa-cloud-sun"></i> <%= @plant.sun_exposure %></p>
         </div>
         
             
@@ -55,7 +55,7 @@
                 <button id="price-submit" type="submit"class="btn btn-primary" disabled>Je la veux</button>
               </span>
             </div>
-            <p id="text-submit" class="text-primary">Veuillez sélectionner un pot</p>
+            <p id="text-submit" class="text-primary">Selectionner un pot</p>
           </div>
         </form>
       </div>
