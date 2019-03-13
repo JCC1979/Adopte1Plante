@@ -2,3 +2,9 @@ ghost,sku,diameter_cm,height_format,price
 ,PotA-M,20,M,19
 ,PotB-M,20,M,22
 ,PotC-M,20,M,24
+,PotA-S,25,S,15
+,PotB-S,25,S,19
+,PotC-S,25,S,27
+,PotA-L,30,L,25
+,PotB-L,30,L,30
+,PotC-L,30,L,35

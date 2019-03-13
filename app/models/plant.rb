@@ -5,6 +5,8 @@ class Plant < ApplicationRecord
   validates :gender, presence: true
   validates :species, presence: true
   validates :easy_seed_matching, presence: true, uniqueness: true
+  validates :sun_exposure, presence: true, inclusion: ["jamais directement au soleil", "zone sombre", "ombragé", "ensoleillé", "désertique"]
+  validates :watering, presence: true, inclusion: ["si la terre est sèche", "1 fois par semaine", "2 fois par semaine", "3 fois par semaine", "en abondance"]
 
   def fullname
     gender.capitalize + ' ' + species
@@ -49,6 +51,11 @@ class Plant < ApplicationRecord
     plant_m = self.givevariant("M")
     Composition.findcompos_by_plant(plant_m.sku).drop(1).sample.photo
   end 
+
+  def photo
+    plant_m = self.givevariant("M")
+    Composition.findcompos_by_plant(plant_m.sku).first.photo
+  end
 
 # ne fonctionne pas
   # def nbercompoforpot(pot)

@@ -15,4 +15,9 @@ class Pot < ApplicationRecord
       return var.sku
     end
   end
+
+  def photo
+    pot = self.givevariant("M")
+    Composition.findcompos_by_pot(pot).first.photo
+  end
 end

@@ -1,13 +1,14 @@
 <div>
   <div class="row">
     <div class="col text-center">
-      <%= render 'cardvariant', variant: pot.givevariant("M"), format: "M" %>
+      <%= render 'cardvariant', variant: plant.givevariant("M"), format: "M" %>
     </div>
     <div class="col">
+      <p class="text-center"><strong>Association with "POT"</strong></p>
       <p class="text-center"><%= pot.id.to_s + " - " + pot.name + " - " + pot.material + " - " + pot.color %></p>
     </div>
     <div class="col text-center">
-      <%= render 'cardvariant', variant: plant.givevariant("M"), format: "M" %>
+      <%= render 'cardvariant', variant: pot.givevariant("M"), format: "M" %>
     </div>
   </div>
 </div> 
@@ -19,9 +20,9 @@
     <thead>
       <tr>
         <th scope="col"></th>
-        <th scope="col">Pot/S-  "<%= pot.skuforpot("S") %>"</th>
-        <th scope="col">Pot/M-  "<%= pot.skuforpot("M") %>"</th>
-        <th scope="col">Pot/L-  "<%= pot.skuforpot("L") %>"</th>
+        <th scope="col">"<%= pot.skuforpot("S") %>"</th>
+        <th scope="col">"<%= pot.skuforpot("M") %>"</th>
+        <th scope="col">"<%= pot.skuforpot("L") %>"</th>
       </tr>
     </thead>
     <tbody>

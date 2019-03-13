@@ -1,9 +1,19 @@
 ﻿ghost,id_code,id_sup,family,gender,species,variant,cultivar,description,sun_exposure,watering,commercial_name,synonyms_list,easy_seed_matching
 ,NoId-1,,Marantaceae,Calathea,rufibarba,,Wave Star,,zone sombre,2 fois par semaine,Calathea wavestar,"Calathea rufibarba, Calathea velours",Plant1
-,NoId-2,,Marantaceae,Calathea,crocata,,Eternal Flame,,zone sombre,3 fois par semaine,Calathea crocata,Calathea 'Eternal flame',Plant2
-,853358,,Marantaceae,Calathea,roseopicta,,medaillon,,zone sombre,4 fois par semaine,Calathea medaillon,Calathea 'medaillon',Plant3
-,853395,,Marantaceae,Calathea,warscewiczii,,,,zone sombre,5 fois par semaine,Calathea warscewiczii,,Plant4
-,NoId-5,,Marantaceae,Calathea,sanguinea,,Trio Star,,zone sombre,6 fois par semaine,Calathea triostar,Stromanthe sanguinea 'Triostar',Plant5
-,853353,,Marantaceae,Calathea,ornata,sanderiana,,,zone sombre,7 fois par semaine,Calathea ornata sanderiana,,Plant6
-,NoId-7,,Marantaceae,Calathea,musaica,,Network,,zone sombre,8 fois par semaine,Calathea network,Calathea musaica 'Network',Plant7
-,NoId-8,,Marantaceae,Calathea,roseopicta,,flamestar,,zone sombre,9 fois par semaine,Calathea flamestar,"Calathea 'flamestar', Prayer plant",Plant8
+,NoId-2,,Marantaceae,Calathea,crocata,,Eternal Flame,,zone sombre,2 fois par semaine,Calathea crocata,Calathea 'Eternal flame',Plant2
+,853358,,Marantaceae,Calathea,roseopicta,,medaillon,,zone sombre,2 fois par semaine,Calathea medaillon,Calathea 'medaillon',Plant3
+,853395,,Marantaceae,Calathea,warscewiczii,,,,zone sombre,2 fois par semaine,Calathea warscewiczii,,Plant4
+,NoId-5,,Marantaceae,Calathea,sanguinea,,Trio Star,,zone sombre,2 fois par semaine,Calathea triostar,Stromanthe sanguinea 'Triostar',Plant5
+,853353,,Marantaceae,Calathea,ornata,sanderiana,,,zone sombre,2 fois par semaine,Calathea ornata sanderiana,,Plant6
+,NoId-7,,Marantaceae,Calathea,musaica,,Network,,zone sombre,2 fois par semaine,Calathea network,Calathea musaica 'Network',Plant7
+,NoId-8,,Marantaceae,Calathea,roseopicta,,flamestar,,zone sombre,2 fois par semaine,Calathea flamestar,"Calathea 'flamestar', Prayer plant",Plant8
+,NoId-9,,Asparagaceae,Sansevieria,fernwood,,Punk,,ensoleillé,si la terre est sèche,Sansevieria fernwood 'Punk',,Plant9
+,NoId-16,,Asparagaceae,Sansevieria,jiboia,,,,ensoleillé,si la terre est sèche,Sansevieria jiboia,,Plant10
+,NoId-10,,Asparagaceae,Sansevieria,katana,,,,ensoleillé,si la terre est sèche,Sansevieria katana,,Plant11
+,448720,,Asparagaceae,Sansevieria,laurentii,,,,ensoleillé,si la terre est sèche,Sansevieria laurentii,,Plant12
+,NoId-11,,Asparagaceae,Sansevieria,mikado,,,,ensoleillé,si la terre est sèche,Sansevieria mikado,,Plant13
+,NoId-12,,Asparagaceae,Sansevieria,fernwood,,Mikado,,ensoleillé,si la terre est sèche,Sansevieria fernwood 'Mikado',,Plant14
+,NoId-13,,Asparagaceae,Sansevieria,robusta,,,,ensoleillé,si la terre est sèche,Sansevieria robusta,,Plant15
+,NoId-14,,Asparagaceae,Sansevieria,straight,,,,ensoleillé,si la terre est sèche,Sansevieria straight,,Plant16
+,447702,,Asparagaceae,Sansevieria,cylndrica,,,,ensoleillé,si la terre est sèche,Sansevieria cylindrica,,Plant17
+,NoId-16,,Asparagaceae,Sansevieria,zeylanica,,,,ensoleillé,si la terre est sèche,Sansevieria zylanica,,Plant18
