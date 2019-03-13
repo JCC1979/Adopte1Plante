@@ -9,13 +9,13 @@
       <li class="nav-item">
         <% if current_user&.admin? %>
           <li class="nav-item">
-            <%= link_to "Plants", plants_path, class: "nav-link", style: "color: blue;" %>
+            <%= link_to "Plants", plants_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Pots", pots_path, class: "nav-link", style: "color: blue;" %>
+            <%= link_to "Pots", pots_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Compositions", compositions_path, class: "nav-link", style: "color: blue;" %>
+            <%= link_to "Compositions", compositions_path, class: "nav-link" %>
           </li>
         <% end %>
 
