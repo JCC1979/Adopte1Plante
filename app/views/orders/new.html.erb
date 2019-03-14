@@ -1,14 +1,19 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-5 offset-md-1">
-      <%= cl_image_tag(@composition.photo, class: "img-fluid") %>
+    <div class="text-center">
+        <h3> De grandes responsabilitées commencent pour vous... </h3>
+        <h3> Quel nom voulez-vous donner à votre plante ? </h3>
     </div>
-    <div class="col-md-5">
+  <div class="row">
+    <div class="col-sm-4 offset-md-4">
+      <div class="form-adopt">
+      <%= cl_image_tag(@composition.photo, class: "img-fluid") %>
       <%= simple_form_for([@profile,@order]) do |f| %>
-        <%= f.input :composition_nickname,label: 'Donnez un nom a votre plante' %>
+        <%= f.input :composition_nickname, placeholder: 'Entrez un prénom ici', label: false, autocomplete: false %>
         <%= f.input :composition_id, as: :hidden, input_html: { value: @composition.id } %>
         <%= f.submit "Adopter", class: "btn btn-primary btn-block" %>
       <% end %>
+        </div>
+      </div>
     </div>
-  </div>
 </div>
+

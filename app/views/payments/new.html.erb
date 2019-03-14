@@ -1,25 +1,76 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-10 offset-md-1">
-      <h1>Votre commande N°<%= @cart.id %></h1>
-      <%= form_tag profile_cart_payments_path(@profile,@cart) do %>
-        <article>
-          <label class="amount">
-            <span>Amount: <%= humanized_money_with_symbol(@cart.amount) %></span>
-          </label>
-        </article>
-        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-name="Ma commande"
-          data-email="<%= current_user.email %>"
-          data-description="Teddy <%= @cart.id %>"
-          data-amount="<%= @cart.amount_cents %>"
-          data-currency="<%= @cart.amount.currency %>">
-        </script>
-      <% end %>
+  <div class="col-md-10 offset-md-1">
+
+    <h2 class="text-center" id="paddz">Récapitulatif de votre commande </h2>
+
+  <div class="col">
+      <div class="cards-command">
+        <div class="card-command">
+          <div class="card-command-title">
+            <div class="card-command-title-content">
+              Commande n°<%= @cart.id %>
+            </div>
+          </div>
+          <div class="card-command-content">
+            <% @cart.orders.each do |order| %>
+              <div class="card-command-content-plant">
+                <%= cl_image_tag(order.composition.photo) %>
+                <div>
+                  <h5><%= order.composition_nickname.capitalize %></h5>
+                  <p>
+                  Plante : <%= order.composition.plant.fullname.capitalize %> - <%= order.composition.variant_plant.height_format %> : <%= order.composition.variant_plant.price.to_i %> €
+                </p>
+                <p>
+                  Pot : <%= order.composition.pot.name %> - <%= order.composition.variant_pot.height_format %> : <%= order.composition.variant_pot.price.to_i %> €
+                </p>
+                <p>Préparation : <strong>inclus</strong></p>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <p style="padding-left: 105px ; font-weight: bold"> Total TTC : <%= @cart.amount %> €</p>
+        </div>
+      </div>
+  </div>
+
+    <div class="col">
+      <div class="cards-command">
+        <div class="card-command">
+          <div class="card-command-title">
+            <div class="card-command-title-content">
+              <p><strong> Votre profil </strong></p>
+            </div>
+          </div>
+          <div class="card-command-content">
+          <p><strong>Prénom et nom : </strong><%= current_user.profile.first_name %> <%= current_user.profile.last_name  %> </p>
+          <hr>
+          <p><strong> Email </strong> : <%= current_user.email %> </p>
+          <hr>
+          <p><strong> Address : </strong>  <%= current_user.profile.address %>, <%= current_user.profile. address_city %> , <%= current_user.profile.address_zipcode %> , <%= current_user.profile.address_country%>  </p>
+          </div>
+        </div>
+      </div>
+  </div>
+    </div> 
+    <div class="col text-center">
+
+    <%= form_tag profile_cart_payments_path(@profile,@cart) do %>
+          <article>
+            <label class="amount">
+            </label>
+          </article>
+          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-name="Ma commande"
+            data-email="<%= current_user.email %>"
+            data-description="Commande n° <%= @cart.id %>"
+            data-amount="<%= @cart.amount_cents %>"
+            data-currency="<%= @cart.amount.currency %>">
+          </script>
+        <% end %>
+
     </div>
+    <div class="profile-end">&nbsp;</div>
+
   </div>
 </div>
-
-  
-  
