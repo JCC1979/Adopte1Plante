@@ -1,5 +1,5 @@
-meta_product_name: "Adopte1Plante"
-meta_title: "Adopte1Plante - préparée par des pros !"
-meta_description: "Adoptez une plante à votre image, unique et préparée proche de chez vous"
-meta_image: "compositions/default.png" # should exist in `app/assets/images/`
-twitter_account: "@product_twitter_account"   # required for Twitter Cards
+meta_product_name: 'Adopte1Plante'
+meta_title: 'Adopte1Plante - préparée par des pros !'
+meta_description: 'Adoptez une plante à votre image, unique et préparée proche de chez vous'
+meta_image: 'compositions/default.png' # should exist in `app/assets/images/`
+twitter_account: '@product_twitter_account'   # required for Twitter Cards

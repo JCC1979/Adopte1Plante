@@ -1,22 +1,12 @@
 <section>
   <div class="banner-home"  style = "background-image: linear-gradient(90deg, rgba(130,119,119,0.300) 0%, rgba(255,255,255,0.300) 0%) , url(<%= image_path("back2.jpg") %>)">
-    <div class="center-title"> <p class="text-center"> Adoptez une plante à votre image, unique et préparée proche de chez vous </p>  </div>
-      <div class="searchizi">
-        <form class="search" action="">
-            <input  type="text" placeholder="Entrez le nom d'une plante" required>
-            <button type="submit">Rechercher</button>
-          </form>
-
+    <div class="center-title"> <p class="text-center"> Adoptez une plante à votre image, unique et préparée proche de chez vous </p>
+      <select data-type="select-one" class="form-control" name="choices-multiple-remote-fetch" placeholder="Entrez la plante de vos rêves" id="term"></select> 
           <%# <a id="seeall" href="#"> Voir toutes les compositions </a> %>
           <%# <a href="#" class="scroll-down" address="true"></a> %>
-      </div>
     </div>
   </div> 
 </section>
-
-
-<%# id="banner-typed-text" %>
-
 
 <section>
   <div id="resultSearch" class="wrapper-home" style="height: 28vw" data-max-click="<%= @plants.size / 4 %>"> 
@@ -53,58 +43,50 @@
     <h3> #AdopteUnePlante </h3>
   </div>
   <div class="row">
-    <%# <% 4.times do %> 
-      <div class="col-sm-3  col-xs-6 polaroids">
-        <div class="polaroid">
-          <div class="polaroid-content">
-            <%= image_tag('insta1.png', style: 'width:100%') %>
-          </div>
-          <div class="polaroid-footer text-center">
-            <p> #suculentas </p>
-          </div>
-          <a class="polaroid-link" href="https://www.instagram.com/p/BstSygCFctC/" target="_blank"></a>
+    <div class="col-sm-3  col-xs-6 polaroids">
+      <div class="polaroid">
+        <div class="polaroid-content">
+          <%= image_tag('insta1.png', style: 'width:100%') %>
         </div>
-      </div>
-    <%# <% end %> 
-        <%# <% 4.times do %> 
-      <div class="col-sm-3  col-xs-6 polaroids">
-        <div class="polaroid">
-          <div class="polaroid-content">
-            <%= image_tag('insta2.png', style: 'width:100%') %>
-          </div>
-          <div class="polaroid-footer text-center">
-           <p> #philodendron </p>
-          </div>
-          <a class="polaroid-link" href="https://www.instagram.com/p/BuoejBpnaD_/" target="_blank"></a>
+        <div class="polaroid-footer text-center">
+          <p> #suculentas </p>
         </div>
+        <a class="polaroid-link" href="https://www.instagram.com/p/BstSygCFctC/" target="_blank"></a>
       </div>
-    <%# <% end %> 
-        <%# <% 4.times do %> 
-      <div class="col-sm-3  col-xs-6 polaroids">
-        <div class="polaroid">
-          <div class="polaroid-content">
-            <%= image_tag('insta3.png', style: 'width:100%') %>
-          </div>
-          <div class="polaroid-footer text-center">
-           <p> #zamioculcas </p>
-          </div>
-          <a class="polaroid-link" href="https://www.instagram.com/p/BulXUq6gUEC/" target="_blank"></a>
+    </div>
+    <div class="col-sm-3  col-xs-6 polaroids">
+      <div class="polaroid">
+        <div class="polaroid-content">
+          <%= image_tag('insta2.png', style: 'width:100%') %>
         </div>
-      </div>
-    <%# <% end %> 
-        <%# <% 4.times do %> 
-      <div class="col-sm-3  col-xs-6 polaroids">
-        <div class="polaroid">
-          <div class="polaroid-content">
-            <%= image_tag('insta4.png', style: 'width:100%') %>
-          </div>
-          <div class="polaroid-footer text-center">
-           <p> #calathea </p>
-          </div>
-          <a class="polaroid-link" href="https://www.instagram.com/p/BuvhUJfDg6g/" target="_blank" ></a>
+        <div class="polaroid-footer text-center">
+          <p> #philodendron </p>
         </div>
+        <a class="polaroid-link" href="https://www.instagram.com/p/BuoejBpnaD_/" target="_blank"></a>
       </div>
-    <%# <% end %> 
+    </div>
+    <div class="col-sm-3  col-xs-6 polaroids">
+      <div class="polaroid">
+        <div class="polaroid-content">
+          <%= image_tag('insta3.png', style: 'width:100%') %>
+        </div>
+        <div class="polaroid-footer text-center">
+          <p> #zamioculcas </p>
+        </div>
+        <a class="polaroid-link" href="https://www.instagram.com/p/BulXUq6gUEC/" target="_blank"></a>
+      </div>
+    </div>
+    <div class="col-sm-3  col-xs-6 polaroids">
+      <div class="polaroid">
+        <div class="polaroid-content">
+          <%= image_tag('insta4.png', style: 'width:100%') %>
+        </div>
+        <div class="polaroid-footer text-center">
+          <p> #calathea </p>
+        </div>
+        <a class="polaroid-link" href="https://www.instagram.com/p/BuvhUJfDg6g/" target="_blank" ></a>
+      </div>
+    </div>
   </div>
 </div>
 

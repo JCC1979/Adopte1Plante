@@ -53,4 +53,7 @@ if (document.querySelector('#voirplus')) {
   scrolldown();
 }
 
-import '../plugins/plantsearch';
+import { searchplant } from '../plugins/plantsearch';
+if (document.getElementById("term")) {
+  searchplant();
+}
