@@ -1,4 +1,4 @@
-const Choices = require('choices.js/public/assets/scripts/choices');
+const Choices = require('choices.js');
 require('choices.js/public/assets/styles/choices.css');
 
 const searchplant = () => {

@@ -58,14 +58,14 @@ class Plant < ApplicationRecord
     variant_pots_s.compact!.pluck(:price_cents).min + plant_s.price_cents
   end
 
-  def image_random
+  def composition_random
     plant_m = self.givevariant("M")
     compos = Composition.findcompos_by_plant(plant_m.sku)
     list = []
     compos.each do |compo|
       list << compo unless compo.variant_pot_sku.nil?
     end
-    list.sample.photo
+    list.sample
   end 
 
   def photo(size)

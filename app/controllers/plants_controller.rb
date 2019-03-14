@@ -24,6 +24,7 @@ class PlantsController < ApplicationController
   end
 
   def show
+    @composition = Composition.find(params[:format]) if params[:format]
     @plants = Plant.all.sample(3)
     authorize @plant
     @pots = @plant.pots

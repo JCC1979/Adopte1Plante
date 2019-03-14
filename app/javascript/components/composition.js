@@ -110,6 +110,8 @@ const changeSML = () => {
 
 };
 
+
+
 const changePot= () => {
   //element des pots
   const elementPot1 = document.getElementById("pot1");
@@ -200,6 +202,13 @@ const enablebtn = () => {
   const textbtn = document.getElementById("text-submit");
   submitbtn.removeAttribute("disabled");
   textbtn.innerHTML="";
+}
+window.onload = function() {
+    const evt = document.createEvent("MouseEvents");
+    evt.initMouseEvent("click", true, true, window,0, 0, 0, 0, 0, false, false, false, false, 0, null);
+    if (document.querySelector(".card-pot-active")){
+      document.querySelector(".card-pot-active").dispatchEvent(evt);  
+    }
 }
 
 export { changeSML, changePot, changeImg };
