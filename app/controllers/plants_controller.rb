@@ -1,6 +1,6 @@
 class PlantsController < ApplicationController
   before_action :set_plant, only: %i[edit update destroy show]
-  skip_before_action :authenticate_user!, only: %i[show]
+  skip_before_action :authenticate_user!, only: %i[index show]
   helper_method :current_or_guest_user
 
   def index
