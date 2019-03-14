@@ -1,7 +1,6 @@
 <% content_for :meta_title, "#{@plant.fullname}" %>
 <% content_for :meta_description, @plant.description %>
 <% content_for :meta_image, cl_image_path(@plant.photo("M").url) %>
-
 <div class="container">
   <div class="row">
     <div class="col-md-10 offset-md-1">
@@ -29,7 +28,7 @@
               data-photo-s="<%= cl_image_path(Composition.photo(variant_pot_sku: pot.skuforpot("S"), variant_plant_sku: @plant.skuforplant("S") ))%>" 
               data-photo-m="<%= cl_image_path(Composition.photo(variant_pot_sku: pot.skuforpot("M"), variant_plant_sku: @plant.skuforplant("M") ))%>" 
               data-photo-l="<%= cl_image_path(Composition.photo(variant_pot_sku: pot.skuforpot("L"), variant_plant_sku: @plant.skuforplant("L") ))%>"
-              class="card-pot-contain" style="background-image: url(<%=cl_image_path(pot.photo) %>)">
+              class="card-pot-contain <%= ("card-pot-active" if pot.skuforpot("M") == @composition.variant_pot_sku) if @composition %>" style="background-image: url(<%=cl_image_path(pot.photo) %>)">
               <div class="card-pot-footer">
                 <div class="card-pot-name"> <%= pot.name %></div>
                 <div class="card-pot-price"><%= pot.givevariant("M").price.to_i %> €</div>
@@ -72,15 +71,16 @@
     <h2 class="text-center"> Nos meilleures compositions </h2>
     <div class="row">
       <% @plants.each do |plant| %>
+        <% compo_rand = plant.composition_random  %>
         <div class="cards col-md-4 ">
           <div class="card">
-            <div class="card-content" style='background-image: url( "<%= cl_image_path(plant.image_random) %> ")'>
-              <a class="polaroid-link" href="<%= plant_path(plant) %>"></a>
+            <div class="card-content" style='background-image: url( "<%= cl_image_path(compo_rand.photo) %> ")'>
+              <a class="polaroid-link" href="<%= plant_path(plant,compo_rand.id) %>"></a>
             </div>
             <div class="card-footerz hidden animated">
               <div class="card-footerz-title"> <%= plant.fullname %> </div>
               <%# <div class="card-footerz-title2"> <%= plant.commercial_name </div> %>
-              <div class="card-footerz-title2"> A partir de <%= humanized_money(plant.min_price_compo / 100) %> €</div>
+              <div class="card-footerz-title2"><%= humanized_money(compo_rand.price / 100) %> €</div>
             </div>
           </div> 
         </div>
@@ -89,7 +89,7 @@
     </div>
   </div>
 </div>
-
+<div id="<%= "compo" %>"></div>
 
 <%= render '/plants/showModal' %>
 

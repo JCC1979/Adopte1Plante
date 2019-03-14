@@ -15,7 +15,7 @@
       <% @plants.each do |plant| %>
         <div class="cards col-12 col-sm-6	col-md-3 ">
           <div class="card">
-            <div class="card-content" style='background-image: url( "<%= cl_image_path(plant.image_random) %> ")'>
+            <div class="card-content" style='background-image: url( "<%= cl_image_path(plant.composition_random.photo) %> ")'>
               <a class="polaroid-link" href="<%= plant_path(plant) %>"></a>
             </div>
             <div class="card-footerz hidden animated">
