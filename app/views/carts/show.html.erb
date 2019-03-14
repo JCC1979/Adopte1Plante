@@ -37,9 +37,9 @@
       <hr>
       <div class="text-right">
         <% if @orders.size != 0 %>
-          total : <%= humanized_money(@cart.amount) %> €
+          Total : <%= humanized_money(@cart.amount) %> €
         <% else %>
-          total : 0 €
+          Total : 0 €
         <% end %>
       </div>
       <% if @orders.size != 0 %>

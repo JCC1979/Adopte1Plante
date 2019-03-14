@@ -1,6 +1,7 @@
 <section>
   <div class="banner-home"  style = "background-image: linear-gradient(90deg, rgba(130,119,119,0.300) 0%, rgba(255,255,255,0.300) 0%) , url(<%= image_path("back2.jpg") %>)">
-    <div class="center-title"> <p class="text-center"> Adoptez une plante à votre image, unique et préparée proche de chez vous </p>
+    <div class="center-title"> 
+      <p class="text-center"> Adoptez une plante à votre image, unique et préparée proche de chez vous </p>
       <div class="col-xs-6 col-sm-8 offset-sm-2">
         <form action="/#searchresultscroll">
           <select onchange="this.form.submit()" data-type="select-one" class="form-control" name="choices-multiple-remote-fetch" placeholder="Entrez la plante de vos rêves" id="term">
@@ -17,10 +18,15 @@
 <section class="ok">
   <div id="resultSearch" class="wrapper-home" style="height: 28vw" data-max-click="<%= @plants.size / 4 %>"> 
     <% if params["choices-multiple-remote-fetch"] %>
-      <h2 class="text-center"> Les résultats de votre recherche </h2>
+      <% if @searchstatut %>
+        <h2 class="text-center"> Nous n'avons pas trouvé votre plante mais voici nos meilleures compositions</h2>
+      <% else %>
+        <h2 class="text-center"> Les résultats de votre recherche </h2>
+      <% end %>
     <% else %>
       <h2 class="text-center"> Nos meilleures compositions </h2>
     <% end %>
+
     <div class="row">
       <% @plants.each_with_index do |plant, i| %>
       <% if i%4 ==0 %>
@@ -53,7 +59,7 @@
 <div class="wrapper-home-bottom" style= "background-image: linear-gradient(rgba(255, 255, 255, 0.616), rgba(255, 255, 255, 0.616)), url(<%=image_path("homedownpage.jpg")%>)">
   <div class="text-center">
     <h2> Partagez vos créations !</h2>
-    <h3> #AdopteUnePlante </h3>
+    <h3> #Adopte1Plante </h3>
   </div>
   <div class="row">
     <div class="col-sm-3  col-xs-6 polaroids">
