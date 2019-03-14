@@ -52,3 +52,7 @@ import { scrolldown } from '../components/scroll';
 if (document.querySelector('#voirplus')) {
   scrolldown();
 }
+
+
+import { removestripe } from '../components/removestripe';
+removestripe();
