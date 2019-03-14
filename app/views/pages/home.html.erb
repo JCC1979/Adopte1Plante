@@ -4,13 +4,11 @@
       <select data-type="select-one" class="form-control" name="choices-multiple-remote-fetch" placeholder="Entrez la plante de vos rêves" id="term">
         <option placeholder>Saisissez un nom de plante</option>
       </select> 
-          <%# <a id="seeall" href="#"> Voir toutes les compositions </a> %>
-          <%# <a href="#" class="scroll-down" address="true"></a> %>
     </div>
   </div> 
 </section>
 
-<section>
+<section class="ok">
   <div id="resultSearch" class="wrapper-home" style="height: 28vw" data-max-click="<%= @plants.size / 4 %>"> 
     <h2 class="text-center"> Nos meilleures compositions </h2>
     <div class="row">
@@ -35,7 +33,8 @@
         <button type="button" id="voirplus" class="btn btn-outline-primary" id="margintop">Voir plus de suggestions</button>
     </div>
   </div>
-</section>
+  </section>
+
 
 
 

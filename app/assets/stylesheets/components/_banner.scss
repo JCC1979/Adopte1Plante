@@ -1,6 +1,6 @@
 
 .banner-home{
-  height: calc(50vh);
+  height: calc(100vh);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -22,9 +22,10 @@
       justify-content: center;
       font-size: 35px;
       color: $dark-gray;
-      margin-bottom: 50px;
       font-weight: 300;
       padding-bottom: 40px;
+      position: absolute;
+      bottom: 44px;
     }
 }
 
@@ -37,13 +38,15 @@
 
 
 .search {
-  width: 500px;
-  height: 40px;
-  // margin: 30px auto;
-  background: #444;
-  background: rgba(255, 255, 255, 0.8);
-  border: 2px solid $dark-green;
-  box-sizing: content-box;
+  width: 500px;
+    height: 40px;
+    margin: 30px auto;
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid #27B02C;
+    box-sizing: content-box;
+    position: absolute;
+    bottom: 220px;
+    left: -240px;
 }
 
 .search input {
@@ -92,3 +95,10 @@ input::placeholder {
   opacity: 0.9;
   font-size: 17px;
 }
+
+.choices__inner {
+  background-color: white;
+  opacity: 0.9;
+  border-radius: 0px;
+  border: 1px solid $dark-gray !important;
+  }
