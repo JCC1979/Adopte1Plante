@@ -1,5 +1,5 @@
 const Choices = require('choices.js');
-require("choices.js/public/assets/styles/choices.css");
+require('choices.js/public/assets/styles/choices.css');
 
 const searchplant = () => {
   const choices = new Choices('#term', {
