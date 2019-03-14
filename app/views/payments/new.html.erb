@@ -9,7 +9,6 @@
           <div class="card-command-title">
             <div class="card-command-title-content">
               Commande n°<%= @cart.id %>
-              <p> Total TTC : <%= @cart.amount %> €</p>
             </div>
           </div>
           <div class="card-command-content">
@@ -17,17 +16,19 @@
               <div class="card-command-content-plant">
                 <%= cl_image_tag(order.composition.photo) %>
                 <div>
-                  <h4><%= order.composition_nickname.capitalize %></h4>
+                  <h5><%= order.composition_nickname.capitalize %></h5>
                   <p>
-                    Plante : <%= order.composition.plant.fullname.capitalize %> - <%= order.composition.variant_plant.height_format %>
-                  </p>
-                  <p>
-                    Pot : <%= order.composition.pot.name %> - <%= order.composition.variant_pot.height_format %>
-                  </p>
+                  Plante : <%= order.composition.plant.fullname.capitalize %> - <%= order.composition.variant_plant.height_format %> : <%= order.composition.variant_plant.price.to_i %> €
+                </p>
+                <p>
+                  Pot : <%= order.composition.pot.name %> - <%= order.composition.variant_pot.height_format %> : <%= order.composition.variant_pot.price.to_i %> €
+                </p>
+                <p>Préparation : <strong>inclus</strong></p>
                 </div>
               </div>
             <% end %>
           </div>
+          <p style="padding-left: 105px ; font-weight: bold"> Total TTC : <%= @cart.amount %> €</p>
         </div>
       </div>
   </div>
@@ -37,7 +38,7 @@
         <div class="card-command">
           <div class="card-command-title">
             <div class="card-command-title-content">
-              <p> Votre profil </p>
+              <p><strong> Votre profil </strong></p>
             </div>
           </div>
           <div class="card-command-content">
