@@ -6,13 +6,12 @@
           <option placeholder>Saisissez un nom de plante</option>
         </select> 
       </form>
-          <%# <a id="seeall" href="#"> Voir toutes les compositions </a> %>
-          <%# <a href="#" class="scroll-down" address="true"></a> %>
+      <a href="#" class="scroll-down" address="true"></a>
     </div>
   </div> 
 </section>
 
-<section>
+<section class="ok">
   <div id="resultSearch" class="wrapper-home" style="height: 28vw" data-max-click="<%= @plants.size / 4 %>"> 
     <% if params["choices-multiple-remote-fetch"] %>
       <h2 class="text-center"> Les résultats de votre recherche </h2>
@@ -41,7 +40,8 @@
         <button type="button" id="voirplus" class="btn btn-outline-primary" id="margintop">Voir plus de suggestions</button>
     </div>
   </div>
-</section>
+  </section>
+
 
 
 
