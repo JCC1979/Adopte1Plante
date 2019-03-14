@@ -53,6 +53,8 @@ if (document.querySelector('#voirplus')) {
   scrolldown();
 }
 
-
 import { removestripe } from '../components/removestripe';
 removestripe();
+
+import '../plugins/plantsearch';
+

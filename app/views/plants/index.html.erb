@@ -2,6 +2,17 @@
   <div class="row">
     <div class="col-xs-12 col-sm-10 offset-sm-1">
       <h1>List of Plants</h1>
+      <div>
+
+        <select data-type="select-one" class="form-control" name="choices-multiple-remote-fetch" id="term"></select>
+        <%
+=begin%>
+ <input type="text" data-type="select-one" placeholder="Enter a plant" id="term" /> 
+<%
+=end%>
+
+      </div>
+
       <table class="table table-hover">
         <thead class="thead-dark">
           <tr>
@@ -9,6 +20,8 @@
             <th scope="col">Id_code</th>
             <th scope="col">Gender</th>
             <th scope="col">Species</th>
+            <th scope="col">Cultivar</th>
+            <th scope="col">Variant</th>
             <th scope="col"><i class="fas fa-edit"></i></th>
             <th scope="col"><i class="far fa-trash-alt"></i></i></th>
           </tr>
@@ -22,6 +35,8 @@
                 <% end %>
                 <td><%= plant.gender %></td>
                 <td><%= plant.species %></td>
+                <td><%= plant.cultivar %></td>
+                <td><%= plant.variant %></td>
                 <td>
                   <%= link_to edit_plant_path(plant) do %>
                     <i class="fas fa-edit"></i>

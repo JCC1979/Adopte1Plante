@@ -7,6 +7,17 @@ class Plant < ApplicationRecord
   validates :easy_seed_matching, presence: true, uniqueness: true
   validates :sun_exposure, presence: true, inclusion: { in:["jamais directement au soleil", "zone sombre", "ombragé", "ensoleillé", "désertique"] }
   validates :watering, presence: true, inclusion: { in:["si la terre est sèche", "1 fois par semaine", "2 fois par semaine", "3 fois par semaine", "en abondance"] }
+  include PgSearch
+  pg_search_scope :searchtotal, against: [:gender, :species, :variant, :cultivar], using: {
+    tsearch: {
+      prefix: true
+    }
+  }
+  pg_search_scope :searchgenderonly, against: [:gender], using: {
+    tsearch: {
+      prefix: true
+    }
+  }
 
   def fullname
     gender.capitalize + ' ' + species

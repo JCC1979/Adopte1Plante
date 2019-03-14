@@ -4,7 +4,23 @@ class PlantsController < ApplicationController
   helper_method :current_or_guest_user
 
   def index
-    @plants = policy_scope(Plant)
+    @params = params[:term]
+    if @params
+
+      if @params.length < 4
+        results = Plant.order(:gender, :species, :variant, :cultivar).searchgenderonly(@params)
+      else
+        results = Plant.order(:gender, :species, :variant, :cultivar).searchtotal(@params)
+      end
+      @plants = policy_scope(results)
+
+      respond_to do |format|
+        format.html
+        format.json
+      end
+    else
+      @plants = policy_scope(Plant)
+    end
   end
 
   def show
