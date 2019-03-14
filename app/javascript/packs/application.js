@@ -47,7 +47,6 @@ if (document.getElementById("voirplus")) {
   plus();
 }
 
-
 import { scrolldown } from '../components/scroll';
 if (document.querySelector('#voirplus')) {
   scrolldown();
@@ -57,3 +56,7 @@ import { searchplant } from '../plugins/plantsearch';
 if (document.getElementById("term")) {
   searchplant();
 }
+
+import { removestripe } from '../components/removestripe';
+removestripe();
+
