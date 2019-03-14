@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-10 offset-md-1">
-      <h2>Profile de <%= current_user.profile.first_name %> <%= current_user.profile.last_name %></h2>
+      <h2>Profil de <%= current_user.profile.first_name %> <%= current_user.profile.last_name %></h2>
       <h2>Mes commandes (<%= @carts.size %>)</h2>
       <hr>
       <% @carts.each do |cart| %>
