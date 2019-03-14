@@ -14,12 +14,13 @@ class OrdersController < ApplicationController
   end
 
   def create
-    
     @profile = Profile.find(params[:profile_id])
     @cart = Cart.where(profile_id: params[:profile_id], state: "pending")[0]
     @cart = Cart.create(state:"pending",profile_id: @profile.id) unless @cart
     @order = Order.new(order_params)
     @order.profile = @profile
+    @composition = Composition.find(params[:order][:composition_id])
+    authorize @composition
     @order.cart = @cart
     if @order.save
       authorize @order

@@ -37,15 +37,18 @@
       <hr>
       <div class="text-right">
         <% if @orders.size != 0 %>
-          total : <%= humanized_money(@cart.amount) %> €
+          Total : <%= humanized_money(@cart.amount) %> €
         <% else %>
-          total : 0 €
+          Total : 0 €
         <% end %>
       </div>
       <% if @orders.size != 0 %>
         <%= link_to "Commander",new_profile_cart_payment_path(@profile,@cart),class: "btn btn-primary"%>
       <% end %>
       <div class="profile-end">&nbsp;</div>
+      <div class="text-center">
+        <a href="/" class="btn btn-outline-primary">Adopte une plante de plus</a>
+      </div>
     </div>
   </div>
 </div>
