@@ -1,12 +1,14 @@
 <section>
   <div class="banner-home"  style = "background-image: linear-gradient(90deg, rgba(130,119,119,0.300) 0%, rgba(255,255,255,0.300) 0%) , url(<%= image_path("back2.jpg") %>)">
     <div class="center-title"> <p class="text-center"> Adoptez une plante à votre image, unique et préparée proche de chez vous </p>
-      <form>
-        <select onchange="this.form.submit()" data-type="select-one" class="form-control" name="choices-multiple-remote-fetch" placeholder="Entrez la plante de vos rêves" id="term">
-          <option placeholder>Saisissez un nom de plante</option>
-        </select> 
-      </form>
-      <a href="#" class="scroll-down" address="true"></a>
+      <div class="col-xs-6 col-sm-6 offset-sm-3">
+        <form action="/#searchresultscroll">
+          <select onchange="this.form.submit()" data-type="select-one" class="form-control" name="choices-multiple-remote-fetch" placeholder="Entrez la plante de vos rêves" id="term">
+            <option placeholder>Saisissez un nom de plante</option>
+          </select> 
+        </form>
+      </div>
+      <a href="#" class="scroll-down" address="true" id="searchresultscroll"></a>
     </div>
   </div> 
 </section>
