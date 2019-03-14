@@ -13,7 +13,8 @@
   </div> 
 </section>
 
-<section>
+
+<section class="ok">
   <div id="resultSearch" class="wrapper-home" style="height: 28vw" data-max-click="<%= @plants.size / 4 %>"> 
     <% if params["choices-multiple-remote-fetch"] %>
       <h2 class="text-center"> Les résultats de votre recherche </h2>
@@ -21,7 +22,10 @@
       <h2 class="text-center"> Nos meilleures compositions </h2>
     <% end %>
     <div class="row">
-      <% @plants.each do |plant| %>
+      <% @plants.each_with_index do |plant, i| %>
+      <% if i%4 ==0 %>
+        <section class= <%= i %> ></section> 
+      <% end %>
         <div class="cards col-12 col-sm-6	col-md-3 ">
           <div class="card">
             <div class="card-content" style='background-image: url( "<%= cl_image_path(plant.composition_random.photo) %> ")'>
