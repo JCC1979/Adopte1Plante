@@ -60,3 +60,7 @@ if (document.getElementById("term")) {
 import { removestripe } from '../components/removestripe';
 removestripe();
 
+import { scrollhome } from '../components/scrollhome';
+if (document.querySelector('.scroll-down')) {
+  scrollhome();
+}
