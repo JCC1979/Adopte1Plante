@@ -13,7 +13,7 @@ class PagesController < ApplicationController
         @plants = Plant.searchtotal(searchselect) + Plant.searchgenderonly(searchtable[0]) + Plant.all
         @plants = @plants.uniq
       end
-      
+
     else
       @plants = Plant.all.sample(Plant.all.size)
     end
