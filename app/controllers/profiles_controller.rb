@@ -10,13 +10,14 @@ class ProfilesController < ApplicationController
   def show
     @profile = Profile.find(params[:id])
     authorize @profile
-    @carts = current_user.profile.carts.where.not(state: "pending").order(created_at: :desc)
+    @carts = @profile.carts.where.not(state: "pending").order(created_at: :desc)
   end
 
   def my_plants
     @profile = Profile.find(params[:id])
     authorize @profile
     @orders = @profile.orders.order(created_at: :asc)
+    @orders = @orders.reject { |order| order.cart.state == "pending" }
   end
 
   def edit
@@ -34,5 +35,4 @@ class ProfilesController < ApplicationController
   def profile_params
     params.require(:profile).permit(:last_name, :first_name, :address, :address_city, :address_zipcode, :address_country)
   end
-
 end
