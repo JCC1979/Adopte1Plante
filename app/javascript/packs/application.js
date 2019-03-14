@@ -52,3 +52,5 @@ import { scrolldown } from '../components/scroll';
 if (document.querySelector('.scroll-down')) {
   scrolldown();
 }
+
+import '../plugins/plantsearch';
