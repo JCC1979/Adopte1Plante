@@ -1,4 +1,3 @@
-
 // text pour la banner
 import { loadDynamicBannerText } from '../components/banner';
 if (document.getElementById("banner-typed-text")) {
