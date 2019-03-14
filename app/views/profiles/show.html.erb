@@ -13,7 +13,7 @@
                 <p> Total TTC : <%= cart.amount %> €</p>
               </div>
               <div class="card-command-title-content text-right">
-                commandé le <%=cart.created_at.strftime('%d-%m-%y')%>
+                commandé le <%=cart.updated_at.strftime('%d-%m-%y')%>
                 <p>Status <%= cart.state %></p>
               </div>
               

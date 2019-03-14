@@ -12,7 +12,7 @@
             <div class="card-order-infos">
               <h3><%= order.composition_nickname %></h3>
               <p><a href="https://www.instagram.com/explore/tags/<%=order.composition.plant.fullname.delete(' ')%>/" target="_blank" >#<%=order.composition.plant.fullname.capitalize%></a></p>
-              <p>adoper le <%=order.created_at.strftime('%d-%m-%y')%></p>
+              <p>adoper le <%=order.cart.updated_at.strftime('%d-%m-%y')%></p>
             </div>
           </div>
         </div>
