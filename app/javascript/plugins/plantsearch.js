@@ -8,8 +8,6 @@ const searchplant = () => {
       searchEnabled: true,
       searchChoices: true,
       searchResultLimit: 8,
-      // placeholder: true,
-      // placeholderValue: 'Entre la plante de vos rêves',
       noResultsText: 'Pas de résultats',
       noChoicesText: 'Entrez la plante de vos rêves',
       itemSelectText: 'Go !',
