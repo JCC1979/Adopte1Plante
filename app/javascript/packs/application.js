@@ -52,3 +52,5 @@ import { scrolldown } from '../components/scroll';
 if (document.querySelector('#voirplus')) {
   scrolldown();
 }
+
+import '../plugins/plantsearch';
