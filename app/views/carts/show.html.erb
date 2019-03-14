@@ -1,8 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-10 offset-md-1">
-      <h2>Mon panier</h2>
-      <p>Status: <%= @cart.state %></p>
+      <h2>Mon panier (<%= @orders.size %>)</h2>
       <hr>
       <% if @orders.size != 0 %>
         <% @orders.each do |order| %>
@@ -10,11 +9,17 @@
             <div class="card-order">
               <%= cl_image_tag(order.composition.photo) %>
               <div class="card-order-infos">
-                <h3><%= order.composition_nickname %></h3>
-                <p>adoper le <%=order.created_at.strftime('%d-%m-%y')%></p>
-                <% price = order.composition.price / 100 %>
+                <h3>Votre plante : <%= order.composition_nickname %></h3>
+                <p>
+                  Plante : <%= order.composition.plant.fullname.capitalize %> - <%= order.composition.variant_plant.height_format %> : <%= order.composition.variant_plant.price.to_i %> €
+                </p>
+                <p>
+                  Pot : <%= order.composition.pot.name %> - <%= order.composition.variant_pot.height_format %> : <%= order.composition.variant_pot.price.to_i %> €
+                </p>
+                <p>Préparation : <strong>inclus</strong></p>
               </div>
               <div class="card-order-status">
+                <% price = order.composition.price / 100 %>
                 <h3 class="text-center"><%= humanized_money(price) %> € 
                   <%= link_to profile_order_path(@profile, order),
                     method: :delete,
@@ -40,6 +45,7 @@
       <% if @orders.size != 0 %>
         <%= link_to "Commander",new_profile_cart_payment_path(@profile,@cart),class: "btn btn-primary"%>
       <% end %>
+      <div class="profile-end">&nbsp;</div>
     </div>
   </div>
 </div>

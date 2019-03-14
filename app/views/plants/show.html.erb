@@ -67,7 +67,29 @@
       </div>
     </div>
   </div>
+  <hr>
+  
+    <h2 class="text-center"> Nos meilleures compositions </h2>
+    <div class="row">
+      <% @plants.each do |plant| %>
+        <div class="cards col-md-4 ">
+          <div class="card">
+            <div class="card-content" style='background-image: url( "<%= cl_image_path(plant.image_random) %> ")'>
+              <a class="polaroid-link" href="<%= plant_path(plant) %>"></a>
+            </div>
+            <div class="card-footerz hidden animated">
+              <div class="card-footerz-title"> <%= plant.fullname %> </div>
+              <%# <div class="card-footerz-title2"> <%= plant.commercial_name </div> %>
+              <div class="card-footerz-title2"> A partir de <%= humanized_money(plant.min_price_compo / 100) %> €</div>
+            </div>
+          </div> 
+        </div>
+      <% end %>
+    </div>
+    </div>
+  </div>
 </div>
 
 
 <%= render '/plants/showModal' %>
+
