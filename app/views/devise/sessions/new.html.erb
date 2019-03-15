@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-4 offset-md-4 animated bounceIn">
+    <div class="col-sm-4 offset-md-4">
       <div class="form-login">
-      <h2>Welcome back</h2>
+      <h2>Se connecter</h2>
 
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="form-inputs">
@@ -17,7 +17,7 @@
         </div>
 
         <div class="form-actions">
-          <%= f.button :submit, "Log in", class:"btn btn-primary btn-block" %>
+          <%= f.button :submit, "Connexion", class:"btn btn-primary btn-block" %>
         </div>
       <% end %>
 
