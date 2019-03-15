@@ -20,6 +20,7 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.profile = @profile
     @composition = Composition.find(params[:order][:composition_id])
+    authorize @order
     authorize @composition
     @order.cart = @cart
     if @order.save

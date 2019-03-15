@@ -11,7 +11,7 @@
       <div class="composition-grid">
         <div class="composition-grid-main">
           <div class="composition_cards">
-            <div id="card-main-image" class="card-main" style="background-image: url('<%=cl_image_path(@plant.photo("M")) %>')">
+            <div id="card-main-image" data-taille="" data-diametre="M" class="card-main" style="background-image: url('<%=cl_image_path(@plant.photo("M")) %>')">
               <div class="card-main-size-box">
                 <div id="sizeS" data-plant-photo="<%=cl_image_path(@plant.photo("S")) %>" data-plant-id="<%= @plant.givevariant("S").id %>" data-price="<%= @plant.givevariant("S").price %>" class="card-main-size">S</div>
                 <div id="sizeM" data-plant-photo="<%=cl_image_path(@plant.photo("M")) %>"data-plant-id="<%= @plant.givevariant("M").id %>" data-price="<%= @plant.givevariant("M").price %>" class="card-main-size card-main-size-active">M</div>

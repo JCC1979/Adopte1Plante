@@ -155,6 +155,10 @@ const changePot= () => {
 
 };
 
+const updateModal = () => {
+  
+}
+
 const updatePrice = () => {
   //element de la case total du prix
   const elementPrice = document.getElementById("price-compo");
