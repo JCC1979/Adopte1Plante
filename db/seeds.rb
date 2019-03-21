@@ -158,6 +158,7 @@ csv.each do |row|
   comp = Composition.new
   comp.variant_plant_sku = row['variant_plant_sku']
   comp.variant_pot_sku = row['variant_pot_sku']
+  # comp.image_url = row['image_url']
   comp.remote_photo_url = row['image_url']
   comp.save!
 end
