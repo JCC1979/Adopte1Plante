@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :delete_guest_users
   include Pundit
 
   def default_url_options
@@ -84,5 +84,13 @@ class ApplicationController < ActionController::Base
     prof.user = u
     prof.save!
     u
+  end
+  
+  # fonction qui delete tout les sessions guest de + de 7 jours
+  def delete_guest_users
+    guests = User.where("updated_at < ?", Time.now - 7.days).where("email LIKE ? ", "%guest_%")
+    guests.each do |guest|
+      guest.destroy
+    end
   end
 end
