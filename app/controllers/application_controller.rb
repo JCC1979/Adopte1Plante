@@ -86,9 +86,9 @@ class ApplicationController < ActionController::Base
     u
   end
   
-  # fonction qui delete tout les sessions guest de + de 7 jours
+  # fonction qui delete tout les sessions guest de + de 3 jours
   def delete_guest_users
-    guests = User.where("updated_at < ?", Time.now - 7.days).where("email LIKE ? ", "%guest_%")
+    guests = User.where("updated_at < ?", Time.now - 3.days).where("email LIKE ? ", "%guest_%")
     guests.each do |guest|
       guest.destroy
     end
